@@ -1,0 +1,173 @@
+h1.title-product {                                        /* page titles */
+  clear: left;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 1.833em;
+  font-weight: 600;
+  line-height: 1.272em;
+  padding-right: 20px;
+  padding-top: 5px;
+  color: #fff;
+  }
+
+#d-slide-container-wrapper {
+width:100%;
+height: 506px;
+float: left;
+background: transparent url(images/background.png) repeat-x top left;
+}
+#d-slide-container {
+float:left;
+height:404px;
+margin:20px;
+overflow:hidden;
+width:582px;
+position: relative; /** fix for IE7 **/
+}
+/** IMPORTANT TO HIDE THE SCROLLED OBJECT **/
+.d-slide-content {
+overflow: hidden;
+float: left;
+border: 1px solid #344C2F;
+height: 402px; /** must match the #d-slide-container-wrapper height to prevent the next element showing **/
+width: 580px; /** must match the #d-slide-container-wrapper width to prevent the next element showing **/
+/** the following css code is important for title animated feature **/
+position: relative;
+z-index: 90;
+/** end important feature **/
+}
+
+.slider-content h1 a:link, .slider-content h1 a:visited, .slider-content h1 a:active {
+color: #CCCCCC;
+}
+
+#d-slide-left {
+    float: right;
+    height: 30px;
+    margin: 11px 0 0;
+    opacity: 0.3;
+    padding-right: 12px;
+    width: 168px;
+		cursor: pointer;
+}
+#d-slide-right {
+   float: right;
+    height: 30px;
+    margin: 11px 0 0 0;
+    opacity: 0.3;
+    padding-right: 21px;
+    width: 165px;
+		cursor: pointer;
+}
+
+#d-slide-status-bar {
+width:78px;
+float: left;
+height: 20px;
+background: transparent url('images/progress-bar.gif') no-repeat center center;
+display: none;
+margin-top: 15px;
+}
+div.slider-image {
+height: 402px;
+width: 580px;
+float: left;
+/** The following css code is important for animated title and body feature **/
+z-index: 95;
+/** end important feature **/
+}
+
+div.slider-content {
+width: 562px;
+padding: 10px;
+/** The following css code is important for animated title and body feature **/
+height: 50px; 
+position: absolute;
+left: 0;
+bottom: 0;
+z-index: 100;
+/** end important feature **/
+color: #fff;
+font-size: 12px;
+line-height: 110%;
+background: transparent url('images/nice-menu.png') repeat;
+}
+
+div.slider-content h1 {
+color:#fcfcfc;
+font-size:14px;
+font-style:italic;
+font-weight:bold;
+line-height:120%;
+}
+
+/** PREVIEW AREA **/
+div#d-slide-preview {
+    background: url("images/right-background.jpg") no-repeat scroll 0 -2px transparent;
+    float: left;
+    height: 368px;
+    margin: 20px 0;
+    overflow: hidden;
+    padding: 20px 17px;
+    width: 327px;
+}
+div.d-slide-preview {
+cursor:pointer;
+float:left;
+height:84px;
+margin:2px;
+padding:2px;
+width:303px;
+overflow: hidden;
+background: transparent url(images/black25trans.png) repeat;
+}
+
+div.slider-preview-image {
+float: left;
+border: 1px solid #344C2F;
+padding: 1px;
+margin-right: 8px;
+margin-top: 2px;
+margin-left: 2px;
+/** adjust this to your imagecache preset size **/
+width: 75px;
+height: 75px;
+/** end imagecache related setting **/
+}
+
+div.slider-preview-content h1 {
+font-size: 12px;
+font-weight: bold;
+line-height: 120%;
+overflow: hidden;
+color: #fff;
+}
+
+div.slider-preview-body {
+font-size: 10px;
+line-height: 120%;
+color: #fff;
+font-family: Arial, Helvetica, sans-serif;
+}
+/** The active class state for the preview item **/
+
+div.active-preview {
+border: 1px solid #344C2F;
+background: transparent url(images/black50trans.png) repeat;
+color: #CCCCCC;
+}
+
+div.active-preview h1 {
+color: #FFFFFF;
+}
+
+/** Specific to quickie theme, this wont work without the slider-wrapper.tpl.php that is bundled together with the theme **/
+
+#d-slider-button-wrapper {
+    background: url("images/slider-button.jpg") no-repeat scroll center top transparent;
+    float: right;
+    height: 51px;
+    margin: 6px 0 0;
+    overflow: hidden;
+    padding: 0;
+    width: 384px;
+}

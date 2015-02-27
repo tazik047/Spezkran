@@ -1,0 +1,252 @@
+/**
+* Styling for block related CSS
+**/
+#block-search-form .form-item-search-block-form {
+  float: left;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 83%;
+  border: 1px solid #D7D7D7;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;  
+  height: 30px;
+  border-radius: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  background: #fff;
+}  
+
+#block-search-form input.form-text {
+  text-indent: 6px;
+  width: 100%;
+  background: transparent;
+  border: none;
+}
+
+#block-search-form .form-actions input{
+  border: 1px solid #888;
+  float: left;
+  overflow: hidden;
+  width: 15%;
+  height: 0px;
+  max-width: 40px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;  
+  background: transparent url(images/layout/small-search-icon.png) no-repeat top center;
+  padding: 28px 0 0;
+  margin: 0 0 0 2px;
+  position: relative !important;
+}
+
+h2.block-title {
+  margin-bottom: 7px;
+}
+
+.block {
+  margin-bottom: 20px;
+  clear: both;
+}
+
+aside h2.block-title {
+  border-bottom: 1px solid #E3EAF6;
+  color: #555555;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 130%;
+  min-height: 30px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+aside .block-content {
+  margin-bottom: 10px;
+}
+
+/** Theming the menu in sidebar **/
+aside .block-menu .block-content {
+  padding: 0;
+}
+
+aside ul.menu {
+  margin: 0 0 0 15px;
+  padding: 0;
+}
+
+aside ul.menu li {
+  cursor: pointer;
+  padding: 5px;
+  border-bottom: 1px dotted #eee;
+}
+
+aside ul.menu ul.menu li:first-child {
+  border-top: 1px dotted #eee;    
+}
+
+aside ul.menu ul.menu li:last-child {
+  border-bottom: none;    
+}
+
+aside ul.menu li ul li:first-child {
+  margin-top: 5px;
+}
+aside ul.menu li ul li {
+  padding: 1px 5px;
+}
+
+/** POLL FIX **/
+.poll .percent {
+  margin-top: -2.9em !important;
+}
+
+/** User Login Block **/
+#block-user-login .form-item {
+  padding: 0;
+}
+#block-user-login .item-list {
+  width: 100%;
+  clear: both;
+}
+#block-user-login input#edit-openid-identifier {
+  width: 83%;
+}
+
+#block-user-login input.user-login-username {
+  width: 95%;
+}
+
+#block-user-login input#edit-openid-identifier {
+  margin: 0 6px 5px;
+}
+#block-user-login .form-item-openid-identifier label {
+  margin: 5px 7px 0;
+  padding: 0;
+}
+
+#block-user-login .form-item-openid-identifier .description {
+  background: url("images/icons/help-small.png") no-repeat scroll 5px 4px #FFFFFF;
+  border: 1px solid #F1BE32;
+  border-radius: 4px 4px 4px 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  margin: 0 6px 9px;
+  padding: 6px 6px 3px 25px;
+  width: 79%;
+}
+#block-user-login input.user-login-password {
+  width: 95%;
+}
+#block-user-login ul.openid-links,
+#block-user-login ul.user-login-links {
+  margin: 0;
+  padding: 0;
+}
+#block-user-login ul.openid-links li, #block-user-login ul.user-login-links li {
+  font-size: 0.833em;
+  line-height: 120%;
+  list-style: none outside none;
+  margin: 0;
+  padding: 5px 4px 3px 16px;
+}
+
+#block-user-login #user-login-form li.openid-link a {
+  background: none;
+  padding: 0;
+}
+#block-user-login ul.openid-links li {
+  background: transparent url(images/icons/login-bg.png) no-repeat 0 5px;
+}
+
+#block-user-login ul.user-login-links li.user-login-register {
+  background: url("images/icons/user_icon.png") no-repeat scroll 0 5px transparent;
+}
+
+#block-user-login ul.user-login-links li.user-login-password {
+  background: url("images/icons/password_icon.png") no-repeat scroll 0 5px transparent;
+}
+
+#block-user-login #edit-actions {
+  float: right;
+  margin: 3px 0;
+  overflow: hidden;
+  width: 95px;
+}
+
+/**
+  Comment Block Class
+  **/
+
+.block .user-picture {
+  float: left;
+  margin: 2px 10px 0 0;
+}
+
+.comment-top .user-picture img,
+.node-links .user-picture img,
+.content-node-top .user-picture img,
+.content-comment-top .user-picture img {
+  width: 20px;
+  height: 20px;
+}
+
+.user-picture {
+  float: left;
+  margin: 3px 10px 0 0;
+}
+
+.content-block {
+  margin-bottom: 15px;
+}
+
+.comment-top,
+h2.title.comment-form,
+.node-links,
+.content-node-top,
+.content-comment-top {
+  font-family: Arial,Verdana,Helvetica,sans-serif;
+  background: #F0F4FB;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  border: 1px solid #E3EAF6;
+  padding: 5px 10px 5px 10px;
+  margin-bottom: 7px;
+  font-size: 12px;
+  font-style: italic;
+  clear: both;
+  line-height: 24px;
+  min-height: 24px;
+  height: auto;
+}
+
+.content-comment p {
+  font-size: 12px;
+}
+
+#block-user-online .content-comment,
+#block-user-new .content-comment {
+  margin-left: 45px;
+}
+/**
+  Feed block
+  **/
+#navigation #block-node-syndicate {
+  margin-top: 4px;
+}
+
+.feed-icon img {
+  border: none !important;
+}
+
+a.feed-icon {
+  float: left;
+}
+
+#block-node-syndicate p {
+  line-height: 185%;
+}

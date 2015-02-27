@@ -1,0 +1,50 @@
+#d-slide-container-wrapper {
+	float: left;
+	height: 200px;
+	padding: 0;
+	position: relative;
+	width: 417px;
+}
+
+#d-slide-container {
+	float: left;
+	height: 200px;
+	overflow: hidden;
+	position: relative; /** fix for overflow not hidden in IE **/
+	width: 417px;
+	margin: 0;
+}
+/** IMPORTANT TO HIDE THE SCROLLED OBJECT **/
+.d-slide-content {
+	overflow: hidden;
+	float: left;
+	height: 200px;
+	/** must match the #d-slide-container-wrapper height to prevent the next element showing **/
+	width: 417px;
+	/** must match the #d-slide-container-wrapper width to prevent the next element showing **/
+	/** the following css code is important for title animated feature **/
+	position: relative;
+	z-index: 10;
+	/** end important feature **/
+}
+
+div.slider-content {
+	float: left;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+}
+
+div.slider-content h1 a,div.slider-content h1 {
+	color: #023750;
+	font-size: 1.4em;
+	line-height: 110%;
+	text-transform: uppercase;
+}
+
+div.slider-body {
+	color: #fff;
+	text-transform: capitalize;
+	line-height: 110%;
+	margin-top: 11px;
+}

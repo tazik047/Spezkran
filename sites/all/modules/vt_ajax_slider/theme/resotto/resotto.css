@@ -1,0 +1,67 @@
+h1.title-product {                                        /* page titles */
+	display: none;
+  }
+
+#d-slide-container-wrapper {
+width:440px;
+height: 240px;
+float: right;
+background: transparent url('images/black50trans.png') repeat;
+}
+#d-slide-container {
+float:left;
+height:230px;
+margin:5px;
+overflow:hidden;
+width:430px;
+position: relative; /** fix for IE7 **/
+}
+/** IMPORTANT TO HIDE THE SCROLLED OBJECT **/
+.d-slide-content {
+overflow: hidden;
+float: left;
+height: 230px; /** must match the #d-slide-container-wrapper height to prevent the next element showing **/
+width: 430px; /** must match the #d-slide-container-wrapper width to prevent the next element showing **/
+/** the following css code is important for title animated feature **/
+position: relative;
+z-index: 90;
+/** end important feature **/
+}
+
+div.slider-image {
+height: 230px;
+width: 430px;
+float: left;
+/** The following css code is important for animated title and body feature **/
+z-index: 95;
+/** end important feature **/
+}
+
+div.slider-content {
+width: 422px;
+padding: 7px;
+/** The following css code is important for animated title and body feature **/
+height: 20px; 
+position: absolute;
+left: 0;
+bottom: 0;
+z-index: 100;
+/** end important feature **/
+color: #D9F900;
+font-size: 12px;
+line-height: 110%;
+background: transparent url('images/black50trans.png') repeat;
+}
+div.slider-content-wrapper p,
+.slider-content-wrapper a:link, .slider-content-wrapper a:visited, .slider-content-wrapper a:active,
+div.slider-content-wrapper h1 {
+color:#D9F900;
+font-size:12px;
+font-style:italic;
+font-weight:bold;
+line-height:120%;
+}
+
+.padding-wrapper {
+padding: 20px;
+}

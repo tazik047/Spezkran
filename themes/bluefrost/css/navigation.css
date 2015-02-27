@@ -1,0 +1,175 @@
+#navigation {
+  overflow: visible;
+}
+
+#navigation ul.menu a,#navigation ul.menu a:link,#navigation ul.menu a:visited
+  {
+  color: #C8C7C7;
+  padding: 0 15px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.20);
+}
+
+#navigation .block-title {
+  display: none;
+}
+
+#navigation .block {
+  margin: 0;
+}
+
+#navigation a:hover {
+  color: #6DCFF6;
+  text-decoration: none;
+}
+
+#navigation ul.menu li.active-trail {
+  
+}
+
+#navigation ul.menu li.expanded.active-trail:hover {
+  background: none;
+}
+
+#navigation ul.menu {
+  float: left;
+  margin: 0px;
+}
+
+#navigation ul.menu li {
+  background: transparent url(images/layout/top-menu-separator.png) no-repeat top right;
+  float: left;
+  margin: 0;
+  min-height: 35px;
+  z-index: 90;
+  position: relative;
+}
+
+#navigation ul.menu li a:hover {
+  color: #fff;
+}
+
+#navigation ul.menu li a {
+  line-height: 45px;
+  text-transform: uppercase;
+}
+
+#navigation li.expanded ul li.expanded ul li.expanded ul li.expanded ul,#navigation li.expanded ul li.expanded ul li.expanded ul,#navigation li.expanded ul li.expanded ul,#navigation li.expanded ul
+  {
+  display: none;
+  width: 180px;
+}
+
+#navigation li.expanded:hover ul:hover li.expanded:hover ul:hover li.expanded:hover ul:hover li.expanded:hover ul:hover,#navigation li.expanded:hover ul:hover li.expanded:hover ul:hover li.expanded:hover ul:hover,#navigation li.expanded:hover ul:hover li.expanded:hover ul:hover,#navigation li.expanded:hover ul:hover
+  {
+  width: 180px;
+}
+
+#navigation li {
+  list-style: none;
+  background: none;
+  list-style-image: none;
+  padding: 0;
+  margin: 0;
+}
+
+/************************************/
+/* PRIMARY MENU WITH DROPDOWNS      */
+/* - used with menu_tree theming of */
+/* $primary_links in page.tpl.php   */
+/************************************/
+#navigation ul.menu li.expanded:hover ul li.first {
+  /**margin-top: -5px;**/
+  
+}
+
+#navigation ul.menu li.expanded:hover ul li:hover ul li:hover a,#navigation ul.menu li.expanded:hover ul li:hover a
+  {
+  color: #fff;
+}
+
+#navigation ul.menu li.expanded:hover ul li:hover ul li a,#navigation ul.menu li.expanded:hover ul li ul li,#navigation ul.menu li.expanded:hover ul li,#navigation ul.menu li.expanded:hover ul li a,#navigation ul.menu li.expanded:hover ul li a ul li a
+  {
+  background: none;
+}
+
+#navigation ul.menu li.expanded:hover ul li,#navigation ul.menu li.expanded:hover ul li ul li
+  {
+  
+}
+
+#navigation ul.menu li ul {
+  font-size: 12px;
+  left: -999em;
+  opacity: 0.95;
+  position: absolute;
+  z-index: 2;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+#navigation ul.menu li:hover ul {
+  display: block;
+  left: auto;
+  margin: 0px 0 0 -20px;
+  width: 180px;
+  padding: 0;
+  border-top: none;
+  z-index: 99;
+}
+
+#navigation ul.menu li ul li a:link,#navigation ul.menu li ul li a:visited,#navigation ul.menu li ul li a:active
+  {
+  font-weight: normal;
+  font-style: normal;
+}
+
+#navigation ul.menu li ul li ul li,#navigation ul.menu li ul li {
+  float: left;
+  margin: 0;
+  width: 180px;
+  min-width: 180px;
+  padding: 6px 0 6px;
+  height: 30px;
+}
+
+#navigation ul.menu li.expanded:hover ul li a,#navigation ul.menu li.expanded:hover ul li:hover ul li a
+  {
+  font-size: 14px;
+}
+
+#navigation ul.menu li ul li.last {
+  border-bottom: none;
+}
+
+#navigation ul.menu li ul li a,#navigation ul.menu li ul li a:link,#navigation ul.menu li ul li a:visited
+  {
+  display: block;
+  text-transform: capitalize;
+  height: 35px;
+  line-height: 30px;
+  width: 140px;
+  min-width: 140px;
+  padding: 0 10px;
+  margin: 0 10px;
+  font-weight: normal;
+  font-style: none;
+  font-size: 14px;
+  font-family: Arial, Verdana, Helvetica, sans-serif;
+}
+
+#navigation ul.menu li ul li a:hover {
+  display: block;
+}
+
+#navigation ul.menu li ul li ul.menu {
+  left: -999em;
+}
+
+#navigation ul.menu li ul li:hover ul.menu,#navigation ul.menu li ul li.hover ul.menu
+  {
+  display: block;
+  left: 182px;
+  top: 6px;
+}

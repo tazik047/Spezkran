@@ -1,0 +1,8 @@
+name = "VicTheme Ajax Slider"
+description = "Simple jQuery Ajax content slider for Drupal 7, requires vt_slider_api module to work"
+package = "VicTheme Slider Modules"
+core = 7.x
+version = "7.x-3.1"
+dependencies[] = vt_slider_api
+
+configure = admin/config/vt_slider/vt_ajax_slider_config

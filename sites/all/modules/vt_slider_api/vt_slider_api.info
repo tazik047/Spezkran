@@ -1,0 +1,12 @@
+name = "VicTheme Slider API"
+description = "Slider API for VicTheme Slider type modules"
+package = "VicTheme Slider Modules"
+core = 7.x
+version = "7.x-1.11"
+dependencies[] = field
+dependencies[] = image
+dependencies[] = text
+dependencies[] = options
+dependencies[] = list
+
+configure = admin/config/vt_slider

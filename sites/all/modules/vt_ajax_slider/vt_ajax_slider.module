@@ -1,0 +1,307 @@
+<?php
+/**
+ * @file
+ *  Display a specified content type with Ajax
+ *  For Drupal 7 Version 3.0
+ *  Fixed js bug for mixed image and without image content
+ *  Fixed typo for image preview
+ *  Previously known as jQuery Side Slide and vt_slider module, the name change is needed to avoid name
+ *  conflicting with vt_slider_api module
+ */
+
+/**
+ * Implements hook_help().
+ */
+function vt_ajax_slider_help($section) {
+  switch ($section) {
+    case 'admin/help#vt_ajax_slider':
+      return t("VicTheme Ajax Slider module: Display content and image in side slide mode using jQuery. You need to configure the module first from
+      					!configuration_page then you need to place the block created by this module to your theme block region.",
+                array('configuration_page' => l('VicTheme Ajax Slider module configuration page', 'admin/config/slider')));
+
+    case 'admin/modules#description':
+      return t('VicTheme Ajax Slider module: Providing a block of nodes content');
+  }
+}
+
+/**
+ * Implements hook_menu()
+ */
+function vt_ajax_slider_menu() {
+
+  $items = array();
+  $items['admin/config/vt_slider/vt_ajax_slider_config'] = array(
+    'title' => 'VicTheme Ajax Slider Configuration',
+    'description' => 'Main configuration page for this module',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('vt_ajax_slider_admin_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'inc/vt_ajax_slider.admin.inc',
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  $items['jss_get_content'] = array(
+    'page callback' => 'vt_ajax_slider_get_content',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_image_default_styles()
+ */
+function vt_ajax_slider_image_default_styles() {
+  $styles = array(
+    'vt_ajax_slider_content' => array(
+    	'effects' => array(
+        array(
+      		'name' => 'image_resize',
+      		'data' => array('width' => variable_get('vt_ajax_slider_content_width', 200), 'height' => variable_get('vt_ajax_slider_content_height', 200), 'upscale' => 1),
+      		'weight' => 0,
+          ),
+        ),
+      ),
+   'vt_ajax_slider_preview' => array(
+   	'effects' => array(
+      array(
+      	'name' => 'image_resize',
+      	'data' => array('width' => variable_get('vt_ajax_slider_content_preview_width', 50), 'height' => variable_get('vt_ajax_slider_content_preview_height', 50), 'upscale' => 1),
+      	'weight' => 0,
+        ),
+      ),
+    ),
+   );
+
+  return $styles;
+}
+/**
+ * Implements hook_theme()
+ */
+function vt_ajax_slider_theme() {
+  return array(
+    'vt_ajax_slider_wrapper' => array(
+      'template'			=> 'templates/vt-ajax-slider-wrapper',
+  		'render element' => 'elements',
+    ),
+    'vt_ajax_slider_content' => array(
+      'template'			=> 'templates/vt-ajax-slider-content',
+      'variables'     => array('node' => NULL),
+    ),
+    'vt_ajax_slider_button_left' => array(
+			'template'			=> 'templates/vt-ajax-slider-button-left',
+    ),
+    'vt_ajax_slider_button_right' => array(
+			'template'			=> 'templates/vt-ajax-slider-button-right',
+    ),
+    'vt_ajax_slider_progress_bar' => array(
+			'template'			=> 'templates/vt-ajax-slider-progress-bar',
+    ),
+    'vt_ajax_slider_preview' => array(
+      'template'			=> 'templates/vt-ajax-slider-preview',
+      'variables'     => array('node' => NULL),
+    ),
+  );
+}
+
+/**
+ * Implements template_preprocess_hook()
+ *
+ * @param array $variables
+ */
+function template_preprocess_vt_ajax_slider_wrapper(&$variables) {
+  $data = $variables['elements']['#items'];
+
+  $variables['animation_mode'] = variable_get('vt_ajax_slider_animation_mode_in', 'fade');
+  // Build the node objects html output
+	$variables['slider_content'] = vtslide_build_content($data, 'vt_ajax_slider_content');
+   // Build the preview if configured to do so
+  if (variable_get('vt_ajax_slider_mini_preview', 'yes') == 'yes') {
+    $variables['slider_preview'] = vtslide_build_content($data, 'vt_ajax_slider_preview');
+  }
+
+   // Build the slider button if configured to do so
+  if (variable_get('vt_ajax_slider_button', 'yes') == 'yes') {
+    $variables['slider_button_left'] = theme('vt_ajax_slider_button_left');
+    $variables['slider_button_right'] = theme('vt_ajax_slider_button_right');
+  }
+
+  // Build the progress bar if configured to do so
+  if (variable_get('vt_ajax_slider_progress_bar', 'yes') == 'yes') {
+    $variables['slider_progress_bar'] = theme('vt_ajax_slider_progress_bar');
+  }
+}
+
+/**
+ * Implements template_preprocess_hook()
+ *
+ * @param array $variables
+ */
+function template_preprocess_vt_ajax_slider_content(&$variables) {
+	vtslide_build_node_variable($variables);
+	vtslide_build_slider_content_variable($variables);
+  if (variable_get('vt_ajax_slider_node_show_image', 'yes') == 'yes') {
+	 vtslide_build_slider_content_image_variable($variables, 'vt_ajax_slider_content', variable_get('vt_ajax_slider_content_width', '200px'), variable_get('vt_ajax_slider_content_height', '200px'));
+  }
+  if (variable_get('vt_ajax_slider_node_show_title', 'yes') == 'no') {
+    unset($variables['slider_title']);
+  }
+  if (variable_get('vt_ajax_slider_node_show_body', 'yes') == 'no') {
+    unset($variables['slider_body']);
+  }
+
+}
+
+/**
+ * Implements template_preprocess_hook()
+ *
+ * @param array $variables
+ */
+function template_preprocess_vt_ajax_slider_preview(&$variables) {
+	vtslide_build_node_variable($variables);
+	vtslide_build_slider_content_preview_variable($variables);
+	if (variable_get('vt_ajax_slider_mini_preview_image', 'yes') == 'yes') {
+	   vtslide_build_slider_preview_image_variable($variables, 'vt_ajax_slider_preview', variable_get('vt_ajax_slider_preview_width', '200px'), variable_get('vt_ajax_slider_preview_height', '200px'));
+  }
+
+  if (variable_get('vt_ajax_slider_mini_preview_title', 'yes') == 'no') {
+    unset($variables['slider_preview_title']);
+  }
+
+  if (variable_get('vt_ajax_slider_mini_preview_body', 'yes') == 'no') {
+    unset($variables['slider_preview_body']);
+  }
+}
+
+/**
+ * Implementation of hook_block_info().
+ */
+function vt_ajax_slider_block_info() {
+  $blocks['vt_ajax_slider'] = array(
+  	'info' => 'VicTheme Ajax Slider',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+/**
+ * Implement hook_block_view().
+ *
+ * @param $delta
+ */
+function vt_ajax_slider_block_view($delta) {
+  if ($delta == 'vt_ajax_slider') {
+    $block['content'] = array(
+      '#markup' => vt_ajax_slider_build_content_wrapper(),
+    );
+  }
+  return $block;
+}
+
+/**
+ * Helper function to build cached settings
+ */
+function vt_ajax_slider_build_options($reset = FALSE) {
+  static $settings;
+  if (empty($settings) || $reset == TRUE) {
+    $settings = array(
+      'vt_ajax_slider' => array(
+        'maxscroll' => vtslide_fetch_data(NULL, NULL, TRUE, 'vt_ajax_slider', variable_get("vt_ajax_slider_published", '1'), NULL, 'enable', 'nocache'),
+        'currentpage' => 0,
+        'autoslide' => variable_get('vt_ajax_slider_autoslide', 'yes'),
+        'autoslideTimer' => variable_get('vt_ajax_slider_autoslide_timer', '2000'),
+        'autoslideMode' => variable_get('vt_ajax_slider_autoslide_mode', 'yes'),
+        'preview' => variable_get('vt_ajax_slider_mini_preview', 'yes'),
+        'progressbar' => variable_get('vt_ajax_slider_progress_bar', 'yes'),
+        'animationModeIn' => variable_get('vt_ajax_slider_animation_mode_in', 'fade'),
+        'animationTimerIn' => variable_get('vt_ajax_slider_animation_time_in', '800'),
+        'animationModeOut' => variable_get('vt_ajax_slider_animation_mode_out', 'fade'),
+        'animationTimerOut' => variable_get('vt_ajax_slider_animation_time_out', '800'),
+      ),
+    );
+  }
+
+  return $settings;
+}
+
+/**
+ * Helper function to render the block content
+ */
+function vt_ajax_slider_build_content_wrapper() {
+  vtslide_load_theme(variable_get('vt_ajax_slider_theme', 'original'), 'vt_ajax_slider');
+
+  $settings = vt_ajax_slider_build_options();
+
+  $render = array();
+  $data = vtslide_fetch_data(
+            0,
+            variable_get('vt_ajax_slider_first_time', '1'),
+            NULL,
+            'vt_ajax_slider',
+            variable_get("vt_ajax_slider_published", '1'),
+            variable_get('vt_ajax_slider_sort_data', 'ASC'),
+            'enable',
+            'cache'
+          );
+
+	$render['#theme'] = 'vt_ajax_slider_wrapper';
+	$render['#items'] = $data;
+  $render['#attached'] = array(
+    'library' => array(
+      array('system', 'ui'),
+      array('system', 'effects'),
+      array('system', 'effects.' . $settings['vt_ajax_slider']['animationModeIn']),
+      array('system', 'effects.' . $settings['vt_ajax_slider']['animationModeOut']),
+    ),
+  	'js' => array(
+    array('data' => $settings, 'type' => 'setting'),
+    array('data' => drupal_get_path('module', 'vt_ajax_slider'). '/js/vt_ajax_slider.js', 'type' => 'file'),
+    ),
+  );
+
+	return render($render);
+}
+
+/**
+ * Menu callback for ajax function
+ */
+function vt_ajax_slider_get_content() {
+  $number = $_POST['number'];
+  if (empty($_POST['number'])) {
+    $number = 0;
+  }
+
+  $cache = check_plain($_POST['cache']);
+
+  $data = vtslide_fetch_data($number, '1', NULL, 'vt_ajax_slider', variable_get("vt_ajax_slider_published", '1'), variable_get('vt_ajax_slider_sort_data', 'ASC'), 'enable', $cache);
+  $preview = '';
+  $content = vtslide_build_content($data, 'vt_ajax_slider_content');
+
+  if (variable_get('vt_ajax_slider_mini_preview', 'yes') == 'yes') {
+    $preview = vtslide_build_content($data, 'vt_ajax_slider_preview');
+  }
+
+  $settings['vt_ajax_slider'] = array (
+    'currentpage' => (int)$number,
+  );
+
+  drupal_add_js($settings, 'setting');
+  return drupal_json_output(array('content' => $content, 'preview' => $preview));
+}
+
+/**
+ * Implement hook_vtslide_build_options()
+ */
+function vt_ajax_slider_vtslide_build_options() {
+  $options = array(
+    'vt_ajax_slider' => 'vt_ajax_slider##Ajax Slider',
+  );
+
+  return $options;
+}
+
+/**
+ * Implement hook_vtslide_build_node_js()
+ */
+function vt_ajax_slider_vtslide_build_node_js() {
+  return array('vt_ajax_slider' => '/js/vt_ajax_slider_node.js');
+}

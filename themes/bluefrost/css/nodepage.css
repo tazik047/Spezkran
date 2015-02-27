@@ -1,0 +1,150 @@
+/**
+* CSS Styling for node related element
+**/
+h1.main-title {
+	border-bottom: 1px solid #eee;
+	line-height: 170%;
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+	margin-bottom: 15px;
+}
+
+h1.notitle {
+  border: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.node {
+	margin: 0 0 30px;
+	clear: both;
+}
+
+#content-content .node ul.links li,
+#content-content .node ul.inline li,
+#content-content .node .links a {
+	margin: 15px 0;
+	padding: 0 14px 0 10px;
+}
+
+.node-unpublished {
+  padding: 20px;
+}
+
+.terms ul.taxonomy li {
+	background: transparent;
+	margin: 10px 0 5px;
+	padding: 0;
+}
+
+.terms ul.taxonomy ul.vocab-list,#content-content .terms ul.taxonomy li.vocab-term
+	{
+	background: transparent;
+	display: inline;
+	padding: 0 0 0 2px;
+}
+
+/** CONTEXTUAL LINKS **/
+.contextual-links-region-active {
+  outline: none;
+  -moz-border-radius: 5px;
+  webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/** NEW VERSION **/
+.node-created {
+  margin: 0;
+  padding: 0;
+  line-height: 23px;
+}
+
+body .node-links {
+  min-height: 28px;
+  line-height: 27px;
+  margin: 10px 0;
+  height: auto;
+}
+
+.node-links ul.links {
+  margin: 0 10px;
+  padding: 0;
+}
+
+.node p {
+  margin-bottom: 10px;
+  padding: 0 0 10px;
+}
+.node-links {
+  margin: 10px 0 10px;
+}
+
+.node-links .links {
+  float: right;
+}
+
+.node-links .links li {
+  padding: 0;
+  line-height: 23px;
+}
+.node-links .links a {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 8px 0 0;
+  padding: 3px 0;
+  font-style: italic;
+}
+
+.node .not-teaser img {
+  max-width: 70%;
+}
+
+.node .field-type-taxonomy-term-reference .field-item {
+  display: inline;
+  margin-right: 10px;
+}
+
+/** Blog node **/
+.page-blog h1.main-title {
+  margin-bottom: 15px;
+}
+
+.node-right {
+  float: right;
+  padding: 0 0 10px;
+  border: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
+  width: 160px;
+  margin: 10px 0 20px 20px;
+  border-radius: 5px;
+}
+
+.node-right .blog-pane {
+  border-bottom: 1px solid #efefef;
+  padding: 10px;
+}
+
+.node-right .blog-pane:last-child {
+  border-bottom: none;
+}
+
+.node-right .blog-pane p.blog-pane-title {
+  padding: 0;
+  margin: 0 !important;
+  font-size: 12px;
+}
+
+.node-right .blog-pane * {
+  font-size: 11px;
+}
+
+.node-right .blog-pane .user-picture img {
+  width: 35px;
+  height: 35px;
+  margin-right: 7px;
+  padding: 0;
+  border: none;
+}
+
+.node-left {
+  margin-right: 185px;
+  padding-top: 20px;
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the VT BlueFrost Features feature.
+ */
+
+include_once 'vt_bluefrost_features.features.inc';

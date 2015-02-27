@@ -1,0 +1,172 @@
+#d-slide-container-wrapper {
+  height: 388px;
+  position: relative;
+  width: 100%;
+  background: #272727;
+}
+
+#d-slide-container {
+  float: left;
+  height: 388px;
+  overflow: hidden;
+  width: 730px;
+  position: relative; /** fix for overflow not hidden in IE **/
+}
+/** IMPORTANT TO HIDE THE SCROLLED OBJECT **/
+.d-slide-content {
+  overflow: hidden;
+  float: left;
+  height: 388px;
+  /** must match the #d-slide-container-wrapper height to prevent the next element showing **/
+  width: 730px;
+  /** must match the #d-slide-container-wrapper width to prevent the next element showing **/
+  /** the following css code is important for title animated feature **/
+  position: relative;
+  z-index: 10;
+  /** end important feature **/
+}
+
+div.slider-image {
+  width: 730px;
+  height: 388px;
+  float: left;
+  /** The following css code is important for animated title and body feature **/
+  z-index: 15;
+  /** end important feature **/
+}
+
+div.slider-image img {
+  width: 730px;
+  height: 388px;
+}
+
+div.slider-content {
+  padding: 10px;
+  width: 710px;
+  /** The following css code is important for animated title and body feature **/
+  height: auto;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  /** end important feature **/
+  color: #fff;
+  font-size: 1em;
+  line-height: 110%;
+  background: transparent url('images/nice-menu.png') repeat;
+}
+
+div.slider-content h1 a,div.slider-content h1 {
+  color: #fff;
+  line-height: 120%;
+}
+
+/** PREVIEW AREA **/
+div#d-slide-preview {
+  height: 360px;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 260px;
+  z-index: 19;
+}
+
+div.d-slide-preview {
+  background: url("images/slideritemback.png") repeat-x scroll bottom left #222222;
+  border-bottom: 2px solid #222;
+  cursor: pointer;
+  float: left;
+  font-size: 0.833em;
+  height: 70px;
+  overflow: hidden;
+  padding: 6px 10px;
+  width: 240px;
+  opacity: 0.8;
+  color: #A6A6A6;
+}
+
+div.d-slide-preview:hover {
+  opacity: 1;
+}
+
+div.slider-preview-content h1 {
+  font-size: 0.917em;
+  line-height: 130%;
+  overflow: hidden;
+  color: #18A3DA;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+div.slider-preview-content {
+  height: 70px;
+  overflow: hidden;
+}
+
+div.slider-preview-body {
+  font-size: 0.833em;
+  line-height: 110%;
+  color: #C6E5F0;
+  text-transform: capitalize;
+}
+div.slider-preview-image img,
+div.slider-preview-image {
+  width: 93px;
+  height: 65px;
+}
+
+div.slider-preview-image {
+  border: 1px solid #0F0F0F;
+  margin-right: 15px;
+  float: left;
+}
+/** The active class state for the preview item **/
+div.active-preview {
+  background: url("images/slideritembackactive.png") repeat-x scroll bottom left #16ABE5;
+  opacity: 0.92;
+}
+
+div.active-preview:hover {
+  background: url("images/slideritembackactive.png") repeat-x scroll bottom left #16ABE5;
+  opacity: 1;
+}
+
+div.active-preview h1 {
+  color: #012F41;
+}
+
+div.active-preview div.slider-preview-body {
+  color: #fff;
+}
+
+div#d-slide-left {
+  width: 30px;
+  height: 38px;
+  position: absolute;
+  bottom: 5px;
+  right: 230px;
+  cursor: pointer;
+  background: transparent url('images/arrow-left.png') no-repeat center center;
+}
+
+div#d-slide-right {
+  width: 30px;
+  height: 38px;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+  cursor: pointer;
+  background: transparent url('images/arrow-right.png') no-repeat center center;
+}
+
+div#d-slide-status-bar {
+  display: none;
+  width: 200px;
+  height: 38px;
+  position: absolute;
+  bottom: 5px;
+  right: 30px;
+  background: transparent url('images/progress-bar.gif') no-repeat center center;
+}
+

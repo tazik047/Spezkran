@@ -1,0 +1,140 @@
+#d-slide-container-wrapper {
+float: left;
+height: 350px;
+padding: 0;
+position: relative;
+width: 960px;
+}
+#d-slide-container {
+float: left;
+height: 274px;
+overflow: hidden;
+position: relative; /** fix for overflow not hidden in IE **/
+width: 920px; 
+margin: 20px;
+}
+/** IMPORTANT TO HIDE THE SCROLLED OBJECT **/
+.d-slide-content {
+overflow: hidden;
+float: left;
+height: 274px; /** must match the #d-slide-container-wrapper height to prevent the next element showing **/
+width: 920px; /** must match the #d-slide-container-wrapper width to prevent the next element showing **/
+/** the following css code is important for title animated feature **/
+position: relative;
+z-index: 10;
+/** end important feature **/
+}
+
+div.slider-image {
+float: right;
+margin: 5px 0 15px;
+height: 274px;
+width: 300px;
+/** The following css code is important for animated title and body feature **/
+z-index: 15;
+/** end important feature **/
+}
+div.slider-image img {
+height: 274px; /** This is best if is done from imagecache **/
+width: 300px; /** This is best if is done from imagecache **/
+}
+div.slider-content {
+float: left;
+height: 274px;
+margin: 0;
+width: 600px;
+z-index: 100;
+}
+div.slider-content h1 a,
+div.slider-content h1 {
+line-height: 120%;
+color: #25262A !important;
+text-transform: uppercase;
+font-size: 1.5em;
+margin-bottom: 10px;
+}
+
+div.slider-body {
+font-size: 1.2em;
+color: #25262A;
+text-transform: capitalize;
+font-family: 'nevisBold', arial, helvetica, san-serif;
+text-shadow: 0 0 1px rgba(77,77,77,0.20);
+line-height: 110%;
+}
+/** BUTTON **/
+div#d-slide-left,
+div#d-slide-right {
+position: absolute;
+bottom: 15px;
+width: 15px;
+height: 20px;
+cursor: pointer;
+}
+div#d-slide-left {
+left: 0px;
+display: none;
+background: transparent url('images/arrow-set.png') no-repeat left 0px;
+}
+div#d-slide-left:hover {
+background: transparent url('images/arrow-set.png') no-repeat left -20px;
+}
+div#d-slide-right {
+right: 0px;
+display: none;
+background: transparent url('images/arrow-set.png') no-repeat left -40px;
+}
+div#d-slide-right:hover {
+background: transparent url('images/arrow-set.png') no-repeat left -60px;
+}
+
+#d-slide-container-wrapper:hover div#d-slide-left,
+#d-slide-container-wrapper:hover div#d-slide-right { display: block;}
+
+/** PREVIEW BUTTON TAB **/
+
+#d-slide-preview {
+padding: 0 80px;
+float: left;
+width: 800px;
+height: 30px;
+}
+
+.d-slide-preview {
+float: left;
+}
+.d-slide-preview h1 {
+color: #575D3B !important; 
+padding: 3px 10px;
+font-size: 1em;
+cursor: pointer;
+}
+.d-slide-preview.active-preview {
+background: #A0B247;
+padding: 1px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+border-radius: 6px;
+}
+
+.d-slide-preview.active-preview h1 {
+background: #E9EFCB;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 6px;
+color: #333333;
+cursor: pointer;
+}  
+  
+  
+/** PROGRESS BAR **/
+#d-slide-status-bar {
+background: url("images/loading.gif") no-repeat scroll center center transparent;
+bottom: 10px;
+height: 32px;
+position: absolute;
+right: 20px;
+width: 32px;
+display: none;
+}
+

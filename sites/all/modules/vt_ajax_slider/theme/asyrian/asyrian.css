@@ -1,0 +1,132 @@
+#slider-wrapper {
+  padding-bottom: 0;
+}
+
+#slider-wrapper .block {
+  margin-bottom: 0;
+}
+
+h1.title-product { /* page titles */
+  display: none;
+}
+
+#d-slide-container-wrapper {
+  float: left;
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  background: transparent url(images/bottom-placeholder.png) no-repeat bottom center;
+}
+
+#d-slide-container {
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#d-slide-status-bar {
+  background: url("images/progress-bar.gif") no-repeat scroll right center
+    transparent;
+  display: none;
+  height: 34px;
+  line-height: 33px;
+  padding-right: 50px;
+  position: absolute;
+  right: 24px;
+  text-align: right;
+  top: 294px;
+  width: 160px;
+}
+
+.d-slide-content {
+  width: 100%;
+}
+/** Slider image & content **/
+.slider-image {
+  float: right;
+  height: auto;
+  padding: 0;
+  width: 46%;
+}
+
+.block-content  .slider-image img {
+  width: 100%;
+  height: auto;
+  min-height:300px;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.slider-content {
+  bottom: 40px;
+  height: auto !important;
+  left: 0;
+  padding: 10px 0;
+  position: absolute;
+  width: 50% !important;
+}
+
+.slider-content h1 {
+  font-size: 260%;
+}
+
+/** Preview **/
+#d-slide-preview {
+  display: table;
+  float: none;
+  height: 19px;
+  margin: 50px auto 0;
+  min-width: 20px;
+  overflow: hidden;
+  padding: 11px 21.5px 4px;
+  text-align: center;
+}
+
+#d-slide-preview .d-slide-preview {
+  background: transparent url("images/bullets.png") no-repeat 0 0;
+  cursor: pointer;
+  float: left;
+  height: 0;
+  margin-top: 8px;
+  overflow: hidden;
+  padding: 18px 0 0;
+  width: 18px;
+}
+
+#d-slide-preview .d-slide-preview.active-preview {
+  background: transparent url(images/bullets.png) no-repeat 0 -21px;
+}   
+
+/* Mobile */
+@media handheld , only screen and (max-width: 767px) {
+  .slider-content {
+    position: static;
+    float: left;
+    width: 100% !important;
+  }
+  .block-content  .slider-image{
+    float: none;
+    width: 100%;
+  }
+}
+
+/** New effect **/
+#d-slide-container-wrapper.fade .slide-in,
+#d-slide-container-wrapper.explode .slide-in {
+  position: absolute;
+  z-index: 0;
+}
+
+#d-slide-container-wrapper.fold .slide-in {
+  float: left;
+  z-index: 1;
+}  
+#d-slide-container-wrapper.clip .slide-out,
+#d-slide-container-wrapper.fold .slide-out,
+#d-slide-container-wrapper.fade .slide-out,
+#d-slide-container-wrapper.explode .slide-out {
+  position: absolute;
+  z-index: 20;
+}

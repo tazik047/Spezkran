@@ -1,0 +1,132 @@
+h1.title-product {                                        /* page titles */
+  clear: left;
+  font-family: Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 1.833em;
+  font-weight: 600;
+  line-height: 1.272em;
+  padding-right: 20px;
+  padding-top: 5px;
+  color: #fff;
+  }
+
+#d-slide-container-wrapper {
+width:617px;
+float: left;
+background: url('images/jss-back.png') no-repeat bottom left;
+margin-top:25px;
+}
+#d-slide-container {
+float:left;
+height:257px; /** must match the .d-slide-content height to prevent the next element showing **/
+overflow:hidden;
+padding:35px 35px 0;
+width:547px; /** must match the .d-slide-content width to prevent the next element showing **/
+}
+/** IMPORTANT TO HIDE THE SCROLLED OBJECT **/
+.d-slide-content {
+overflow: hidden;
+float: left;
+height: 257px; /** must match the #d-slide-container-wrapper height to prevent the next element showing **/
+width: 547px; /** must match the #d-slide-container-wrapper width to prevent the next element showing **/
+}
+#d-slide-left {
+float: left;
+margin: 10px;
+width: 35px;
+height: 35px;
+background: transparent url('images/arrow-left.png') no-repeat center 5px ;
+opacity:0.3;
+}
+#d-slide-right {
+float: right;
+margin: 10px;
+width: 35px;
+height: 35px;
+background: transparent url('images/arrow-right.png') no-repeat center 5px ;
+opacity:0.3;
+}
+
+#d-slide-status-bar {
+width:505px;
+float: left;
+height: 20px;
+background: transparent url('images/progress-bar.gif') no-repeat center center;
+display: none;
+margin-top: 15px;
+}
+div.slider-image {
+width: 200px;
+height: 200px;
+margin: 0 10px;
+float: left;
+}
+
+div.slider-content {
+margin: 0 10px;
+}
+
+div.slider-content h1 {
+color:#8AC9E1;
+font-size:230%;
+font-style:italic;
+font-weight:bold;
+line-height:100%;
+}
+div.slider-content ul {
+width: 50%;
+float: left;
+}
+div.slider-content ul li {
+background:url("images/bookmark.png") no-repeat scroll 1px top transparent;
+color:#888888;
+font-weight:bold;
+line-height:130%;
+margin:5px 0;
+min-height:23px;
+padding:0 0 0 2em;
+}
+
+/** PREVIEW AREA **/
+div#d-slide-preview {
+float: left;
+width: 98%;
+padding: 1%;
+overflow: hidden;
+border-top: 1px solid #eaeaea;
+border-bottom: 1px solid #eaeaea;
+height: 88px;
+}
+div.d-slide-preview {
+float:left;
+margin:2px;
+padding:2px;
+width:191px;
+border: 1px solid #eaeaea;
+cursor: pointer;
+}
+
+div.slider-preview-image {
+float: left;
+border: 1px solid #eaeaea;
+padding: 1px;
+margin-right: 10px;
+}
+
+div.slider-preview-content h1 {
+font-size: 12px;
+font-weight: bold;
+line-height: 120%;
+overflow: hidden;
+}
+
+div.slider-preview-body {
+font-size: 12px;
+line-height: 120%;
+}
+/** The active class state for the preview item **/
+
+div.active-preview {
+border: 1px solid #ccc;
+background: #f8f8f8;
+}
+
