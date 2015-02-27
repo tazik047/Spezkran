@@ -218,9 +218,9 @@ $databases = array (
     'default' => 
     array (
       'database' => 'spezkran',
-      'username' => 'spezkran',
-      'password' => 'admin',
-      'host' => 'localhost',
+      'username' => 'spezkranadmin',
+      'password' => 'nimda_spezkran',
+      'host' => 'db4free.net',
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
