@@ -42,7 +42,7 @@ if (theme_get_setting('boson_boxed') == TRUE) {
 				<!-- Logo -->
                 <?php if ($logo): ?>
                <div class="logo-img">
-               <a href="<?php print $front_page; ?>"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+               <a href="<?php print $front_page; ?>"><img height="82" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
                </div>
                <?php endif; ?>
 

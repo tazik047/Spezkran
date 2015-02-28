@@ -6,7 +6,7 @@
 
 .b-social.social-header a:hover,
 .menu a.active {
-	color: #5489de;
+	/*color: #5489de;*/ color:#ffffff;
 }
 
 .btn.colored {

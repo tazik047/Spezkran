@@ -128,7 +128,7 @@ background-color: #fff;
 .bg-wood_pattern { background: #fff url(../img/bg/wood_pattern.png); }
 .bg-shattered { background: #fff url(../img/bg/shattered.png); }
 
-.bg-vichy { background: #fff url(../img/bg/vichy.png); }
+.bg-vichy { background: #fff url(../img/bg/irongrip.png); }
 .bg-random-grey-variations { background: #fff url(../img/bg/random_grey_variations.png); }
 .bg-irongrip { background: #fff url(../img/bg/irongrip.png); }
 .bg-gplaypattern { background: #fff url(../img/bg/gplaypattern.png); }
@@ -714,12 +714,14 @@ i.ita {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#fcfcfc), color-stop(100%,#f9f9f9));
 	background: -webkit-linear-gradient(top,  #fcfcfc 2%,#f9f9f9 100%);
 	background: linear-gradient(to bottom,  #fcfcfc 2%,#f9f9f9 100%);
+	background-image:url(../img/bg/irongrip.png);	
 }
 
 .header .layout {
 	position: relative;
 	padding: 0 40px;
-
+	margin-left:0px;
+	padding-left:0px;
 	text-align: right;
 }
 
@@ -3446,7 +3448,7 @@ margin-top: 0;
 	}
 
 .logo-img {
-padding-top: 12px;
+/*padding-top: 12px;*/
 height: 50px;
 }
 
