@@ -1,7 +1,0 @@
-<?php
-/**
- * Implement hook_uninstall().
- */
-function vt_slider_api_uninstall() {
-  db_query("DELETE FROM {variable} WHERE name LIKE 'vt_slider_%'");
-}

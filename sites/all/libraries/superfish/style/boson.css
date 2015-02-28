@@ -1,0 +1,179 @@
+.sf-menu.sf-style-boson {
+	float: left;
+	padding: 0;
+}
+
+.sf-menu.sf-style-boson ul {
+	padding-left: 0;
+}
+
+.sf-menu.sf-style-boson li {
+	margin: 0;
+}
+
+.sf-menu.sf-style-boson a {
+	color: #484C4F;
+	font-size: 14px;
+	font-weight: 300;
+	text-decoration: none;
+}
+
+/* "Have child" Item */
+
+
+.sf-menu.sf-style-boson li.menuparent {
+
+}
+
+.sf-menu.sf-style-boson a.menuparent {
+	
+}
+
+
+
+/* Hover Links */
+.sf-menu.sf-style-boson li:hover,
+.sf-menu.sf-style-boson li.sfHover,
+.sf-menu.sf-style-boson li.sfHover a,
+.sf-menu.sf-style-boson a:hover,
+.sf-menu.sf-style-boson a:focus,
+.sf-menu.sf-style-boson a:active {
+	
+	
+}
+
+/* Child Menu Items Hover */
+.sf-menu.sf-style-boson ul li:hover,
+.sf-menu.sf-style-boson ul li.sfHover,
+.sf-menu.sf-style-boson ul li a:focus,
+.sf-menu.sf-style-boson ul li a:hover,
+.sf-menu.sf-style-boson ul li a:active {
+	
+}
+
+
+
+
+
+
+.sf-menu.sf-style-boson ul li:hover a {
+		color:#FFF;
+	}
+		
+		
+
+.sf-menu.sf-style-boson ul li a {
+    padding: 0 20px;
+	line-height: 35px;
+	font-size: 12px;
+	color: #a8acaf;
+	text-transform: none;
+	font-family: 'OpenSansRegular';
+	letter-spacing: 0;
+}
+
+/* Active Links */
+.sf-menu.sf-style-boson .active-trail a,
+.sf-menu.sf-style-boson a.active {
+	
+}
+
+.sf-menu.sf-style-boson .active-trail a:hover,
+.sf-menu.sf-style-boson .active-trail a:focus,
+.sf-menu.sf-style-boson .active-trail a:active,
+.sf-menu.sf-style-boson a.active:hover,
+.sf-menu.sf-style-boson a.active:focus,
+.sf-menu.sf-style-boson a.active:active {
+
+}
+
+.sf-menu.sf-style-boson .active-trail .sf-depth-1 {
+}
+
+/* Child Menu */
+.sf-menu.sf-style-boson ul {
+
+}
+
+.sf-menu.sf-style-boson ul ul {
+	
+left: 12em !important;
+}
+
+.sf-menu.sf-style-boson ul li {
+	
+}
+
+.sf-menu.sf-style-boson ul  a {
+
+}
+
+.sf-menu li:hover ul, 
+.sf-menu li.sfHover ul{
+	top: 80px;
+}
+
+
+.sf-menu.sf-style-boson li a .sf-sub-indicator {
+ 
+
+}
+.sf-menu.sf-style-boson li.sfHover a .sf-sub-indicator,
+.sf-menu.sf-style-boson li a:hover .sf-sub-indicator,
+.sf-menu.sf-style-boson li a:active .sf-sub-indicator,
+.sf-menu.sf-style-boson li a:focus .sf-sub-indicator {
+ 
+}
+
+/* Child Menu Items Active */
+.sf-menu.sf-style-boson ul .active-trail  a,
+.sf-menu.sf-style-boson ul li a.active {
+
+	
+}
+/*active for subment level 3*/
+.sf-menu.sf-style-boson ul .active-trail  a:hover,
+.sf-menu.sf-style-boson ul .active-trail  a:active,
+.sf-menu.sf-style-boson ul .active-trail  a:focus,
+.sf-menu.sf-style-boson ul li.sfHover a,
+.sf-menu.sf-style-boson ul a:hover,
+.sf-menu.sf-style-boson ul a:focus,
+.sf-menu.sf-style-boson ul a:active {
+
+
+}
+.sf-menu.sf-style-boson  ul li a.active:hover,
+.sf-menu.sf-style-boson  ul li a.active:focus,
+.sf-menu.sf-style-boson  ul li a.active:active {
+	
+}
+
+.sf-menu.sf-style-boson  ul li a .sf-sub-indicator {
+
+}
+
+.sf-menu.sf-style-boson ul li.sfHover a .sf-sub-indicator,
+.sf-menu.sf-style-boson ul li a:hover  .sf-sub-indicator,
+.sf-menu.sf-style-boson ul li a:active .sf-sub-indicator,
+.sf-menu.sf-style-boson ul li a:focus .sf-sub-indicator {
+ 
+}
+
+.sf-menu.sf-style-boson ul li.sfHover  ul  a,
+.sf-menu.sf-style-boson ul ul a {
+
+}
+
+.sf-menu.sf-style-boson ul ul li.active-trail a,
+.sf-menu.sf-style-boson ul ul li.active-trail a:active,
+.sf-menu.sf-style-boson ul ul li.active-trail a:focus,
+.sf-menu.sf-style-boson ul ul li.active-trail a:hover,
+.sf-menu.sf-style-boson ul ul li.sfHover a,
+.sf-menu.sf-style-boson ul ul li a:hover,
+.sf-menu.sf-style-boson ul ul li a:focus,
+.sf-menu.sf-style-boson ul ul li a:active {
+
+	
+}
+
+

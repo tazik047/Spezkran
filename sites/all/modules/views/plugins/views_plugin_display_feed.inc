@@ -37,7 +37,7 @@ class views_plugin_display_feed extends views_plugin_display_page {
   function execute() {
     $output = $this->view->render();
     if (empty($output)) {
-      return MENU_NOT_FOUND;
+      return drupal_not_found();
     }
     print $output;
   }

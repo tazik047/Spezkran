@@ -81,14 +81,6 @@ function views_views_data() {
     ),
   );
 
-  $data['views']['messages'] = array(
-    'title' => t('Messages'),
-    'help' => t('Displays messages in the area.'),
-    'area' => array(
-      'handler' => 'views_handler_area_messages',
-    ),
-  );
-
   if (module_exists('contextual')) {
     $data['views']['contextual_links'] = array(
       'title' => t('Contextual Links'),
@@ -117,15 +109,6 @@ function views_views_data() {
       ),
     );
   }
-
-  $data['views']['fields_compare'] = array(
-    'title' => t('Fields comparison'),
-    'help' => t('Compare database fields against eachother.'),
-    'filter' => array(
-      'help' => t('Use fields comparison to filter the result of the view.'),
-      'handler' => 'views_handler_filter_fields_compare',
-    )
-  );
 
   return $data;
 }

@@ -51,21 +51,20 @@ class views_handler_field_profile_date extends views_handler_field_date {
 
     // But we *can* deal with non-year stuff:
     $date = gmmktime(0, 0, 0, $value['month'], $value['day'], $value['year']);
-
     $replace = array(
       // day
       'd' => sprintf('%02d', $value['day']),
       'D' => NULL,
       'l' => NULL,
       'N' => NULL,
-      'S' => gmdate('S', $date),
+      'S' => date('S', $date),
       'w' => NULL,
       'j' => $value['day'],
       // month
-      'F' => gmdate('F', $date),
+      'F' => date('F', $date),
       'm' => sprintf('%02d', $value['month']),
-      'M' => gmdate('M', $date),
-      'n' => gmdate('n', $date),
+      'M' => date('M', $date),
+      'n' => date('n', $date),
 
       'Y' => $value['year'],
       'y' => substr($value['year'], 2, 2),

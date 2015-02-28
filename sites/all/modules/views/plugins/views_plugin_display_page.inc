@@ -216,11 +216,11 @@ class views_plugin_display_page extends views_plugin_display {
     // display, and arguments should be set on the view.
     $this->view->build();
     if (!empty($this->view->build_info['fail'])) {
-      return MENU_NOT_FOUND;
+      return drupal_not_found();
     }
 
     if (!empty($this->view->build_info['denied'])) {
-      return MENU_ACCESS_DENIED;
+      return drupal_access_denied();
     }
 
     $this->view->get_breadcrumb(TRUE);

@@ -1581,7 +1581,7 @@ class views_join {
             // With an array of values, we need multiple placeholders and the
             // 'IN' operator is implicit.
             foreach ($info['value'] as $value) {
-              $placeholder_i = $view_query->placeholder('views_join_condition_');
+              $placeholder_i = ':views_join_condition_' . $select_query->nextPlaceholder();
               $arguments[$placeholder_i] = $value;
             }
 
@@ -1591,9 +1591,10 @@ class views_join {
           else {
             // With a single value, the '=' operator is implicit.
             $operator = !empty($info['operator']) ? $info['operator'] : '=';
-            $placeholder = $view_query->placeholder('views_join_condition_');
+            $placeholder = ':views_join_condition_' . $select_query->nextPlaceholder();
             $arguments[$placeholder] = $info['value'];
           }
+
           $extras[] = "$join_table$info[field] $operator $placeholder";
         }
 

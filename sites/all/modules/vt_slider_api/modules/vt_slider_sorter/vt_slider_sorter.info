@@ -1,6 +1,0 @@
-name = "VicTheme Slider Sorter"
-description = "Tools for sorting slider content"
-package = "VicTheme Slider Modules"
-core = 7.x
-version = "7.x-1.2"
-dependencies[] = vt_slider_api

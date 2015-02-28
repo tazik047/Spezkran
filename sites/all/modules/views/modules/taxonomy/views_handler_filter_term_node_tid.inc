@@ -98,12 +98,15 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     if ($this->options['type'] == 'textfield') {
       $default = '';
       if ($this->value) {
-        $result = taxonomy_term_load_multiple($this->value);
-        foreach ($result as $entity_term) {
+        $result = db_select('taxonomy_term_data', 'td')
+          ->fields('td')
+          ->condition('td.tid', $this->value)
+          ->execute();
+        foreach ($result as $term) {
           if ($default) {
             $default .= ', ';
           }
-          $default .= entity_label('taxonomy_term', $entity_term);
+          $default .= $term->name;
         }
       }
 
@@ -119,14 +122,13 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     }
     else {
       if (!empty($this->options['hierarchy']) && $this->options['limit']) {
-        $tree = taxonomy_get_tree($vocabulary->vid, 0, NULL, TRUE);
+        $tree = taxonomy_get_tree($vocabulary->vid);
         $options = array();
 
         if ($tree) {
-          // Translation system needs full entity objects, so we have access to label.
           foreach ($tree as $term) {
             $choice = new stdClass();
-            $choice->option = array($term->tid => str_repeat('-', $term->depth) . entity_label('taxonomy_term', $term));
+            $choice->option = array($term->tid => str_repeat('-', $term->depth) . $term->name);
             $options[] = $choice;
           }
         }
@@ -145,14 +147,8 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
           $query->condition('tv.machine_name', $vocabulary->machine_name);
         }
         $result = $query->execute();
-
-        $tids = array();
         foreach ($result as $term) {
-          $tids[] = $term->tid;
-        }
-        $entities = taxonomy_term_load_multiple($tids);
-        foreach ($entities as $entity_term) {
-          $options[$entity_term->tid] = entity_label('taxonomy_term', $entity_term);
+          $options[$term->tid] = $term->name;
         }
       }
 
@@ -242,7 +238,7 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     $rc = parent::accept_exposed_input($input);
     if ($rc) {
       // If we have previously validated input, override.
-      if (!$this->is_a_group() && isset($this->validated_exposed_input)) {
+      if (isset($this->validated_exposed_input)) {
         $this->value = $this->validated_exposed_input;
       }
     }
@@ -351,9 +347,12 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
 
     if ($this->value) {
       $this->value = array_filter($this->value);
-      $result = taxonomy_term_load_multiple($this->value);
-      foreach ($result as $entity_term) {
-        $this->value_options[$entity_term->tid] = entity_label('taxonomy_term', $entity_term);
+      $result = db_select('taxonomy_term_data', 'td')
+        ->fields('td')
+        ->condition('td.tid', $this->value)
+        ->execute();
+      foreach ($result as $term) {
+        $this->value_options[$term->tid] = $term->name;
       }
     }
     return parent::admin_summary();

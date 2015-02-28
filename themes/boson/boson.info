@@ -1,0 +1,57 @@
+;Theme Boson
+name = 'Boson'
+description = 'Clean and modern responsive Drupal theme.'
+core = '7.x'
+engine = 'phptemplate'
+screenshot = 'screenshot.png'
+
+
+;Stylesheets
+
+;stylesheets[all][] = 'css/main.css'
+stylesheets[all][] = 'css/responsive.css'
+stylesheets[all][] = 'css/prettyPhoto.css'
+stylesheets[all][] = 'css/settings.css'
+;stylesheets[all][] = 'css/color-scheme/turquoise.css'
+
+scripts[] = js/jquery.prettyPhoto.js
+scripts[] = js/main.js
+
+
+;regions[header] = Header
+regions[help] = Help
+regions[page_top] = Page top
+regions[page_bottom] = Page bottom
+regions[highlighted] = Highlighted
+regions[top_left] = Top Left
+regions[top_right] = Top Right
+
+regions[main_menu] = Main Menu
+regions[search_box] = Search Box
+
+regions[slider] = Slider
+regions[featured] = Featured
+regions[top_content] = Top Content
+
+regions[content] = Content
+regions[sidebar_first] = Sidebar first
+regions[bottom_content] = Bottom Content
+
+regions[postscript_first] = Postscript First
+regions[postscript_second] = Postscript Second
+regions[postscript_third] = Postscript Third
+regions[postscript_fourth] = Postscript Fourth
+regions[bottom] = Bottom
+
+regions[footer_firstcolumn] = Footer first column
+regions[footer_secondcolumn] = Footer second column
+regions[footer_thirdcolumn] = Footer third column
+regions[footer_fourthcolumn] = Footer fourth column
+regions[footer-a] = Footer a
+regions[footer-b] = Footer b
+
+
+settings[theme_color_palette]  = turquoise
+settings[theme_bg_pattern]  = none
+settings[boson_boxed]  = 0
+

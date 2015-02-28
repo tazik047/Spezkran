@@ -1,5 +1,0 @@
-<?php
-
-function vt_ajax_slider_uninstall() {
-  db_query("DELETE FROM {variable} WHERE name LIKE 'vt_ajax_slider_%'");
-}
