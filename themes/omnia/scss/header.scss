@@ -1,0 +1,43 @@
+// =========== header ============
+// $header_height;
+// $header_fixed_height;
+$font-stack: ($header_fixed_height/$header_height)*100;
+$searchtop: ($header_height/2) - 13;
+$searchtop2: ($header_fixed_height/2) - 13;
+#section-header{
+    background: $color_link;
+    width: 100%;
+		#block-search-form{
+			top: unquote($searchtop);
+			@include transition(top .5s ease-in-out);
+		}
+    .superhero-dropdown > ul > li > a,
+		.socialTops a,
+    .site-logo a{
+        color: #113A52;
+        line-height: $header_height;
+        @include transition(all .5s ease-in-out);
+        img{
+            max-width: 100%;
+            @include transition(max-width .5s ease-in-out);
+        }
+    }
+    &.fixed-transition .superhero-dropdown > ul > li > a,
+		&.fixed-transition .socialTops a,
+    &.fixed-transition .site-logo a{
+        line-height: $header_fixed_height !important;
+        img{
+            max-width: unquote($font-stack+'%');
+        }
+    }
+		&.fixed-transition #block-search-form{
+			top: unquote($searchtop2);
+		}
+    &.fixed {
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.33);
+    }
+}
+#section-banner{
+	clear: both;
+}
+// =========== end header ============

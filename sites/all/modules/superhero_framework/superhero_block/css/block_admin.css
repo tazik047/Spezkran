@@ -1,0 +1,14 @@
+#edit-back-type .form-item,
+#edit-image-type .form-item {
+	float: left;
+	margin-right: 20px;
+}
+
+#edit-superhero-settings .form-wrapper {
+	clear: both;
+}
+
+#edit-superhero-settings .form-item-padding-top {
+	float: left;
+	margin-right: 20px;
+}

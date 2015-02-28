@@ -1,0 +1,307 @@
+// Buttons
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn{
+    background: none;
+    border: $mainBtnBorder;
+    @include border-radius(0);
+    @include box-shadow(none);
+    color: $color_main;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 5px 10px;
+    text-align: center;
+    text-shadow: none;
+    text-transform: uppercase;
+    @include transition(all 300ms linear 0s);
+    vertical-align: middle;
+    &:focus {
+      background: none;
+    }
+	&.btn-lg {
+		padding: 9px 60px;
+	}
+}
+a.btn {
+	border: 2px solid $color_main;
+	&:hover {
+		border: 2px solid $color_main;
+	}
+}
+.btn,.button,button {
+  display: inline-block;
+  @include ie7-inline-block();
+  padding: 4px 14px;
+  margin-bottom: 0; // For input.btn
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+  *line-height: $baseLineHeight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  @include buttonBackground($btnBackground, $btnBackgroundHighlight, $grayDark, 0 1px 1px rgba(255,255,255,.75));
+  @include border-radius(1px);
+  @include ie7-restore-left-whitespace(); // Give IE7 some love
+  @include box-shadow(none);
+  font-family: $MontserratRegular;
+
+  // Hover state
+  &:hover {
+    color: $grayDark;
+    text-decoration: none;
+    background-color: darken($white, 10%);
+    *background-color: darken($white, 15%); /* Buttons in IE7 don't get borders, so darken on hover */
+    //background-position: 0 -15px;
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    @include transition(background-position .1s linear);
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    @include tab-focus();
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    background-color: darken($white, 10%);
+    background-color: darken($white, 15%) e("\9");
+    background-image: none;
+    outline: 0;
+    @include box-shadow("none");
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    background-color: darken($white, 10%);
+    background-image: none;
+    @include opacity(65);
+    @include box-shadow(none);
+  }
+
+}
+.view-latest-work {
+    .btn,.button,button {
+      padding: 4px 12px;
+    }
+}
+.jm-btn {
+  line-height: 30px;
+  margin: 0 10px;
+}
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-large {
+  padding: 9px 60px;
+  font-size: $baseFontSize + 2px;
+  line-height: normal;
+  @include border-radius(1px);
+}
+.btn-large [class^="fa fa-"] {
+  margin-top: 2px;
+}
+
+// Small
+.btn-small {
+  padding: 3px 15px;
+  font-size: $baseFontSize - 2px;
+  line-height: $baseLineHeight - 2px;
+}
+.btn-small [class^="fa fa-"] {
+  margin-top: 0;
+}
+
+// Mini
+.btn-mini {
+  padding: 3px 9px;
+  font-size: $baseFontSize - 3px;
+  line-height: $baseLineHeight - 4px;
+}
+
+// Block button
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  @include box-sizing(border-box);
+}
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Alternate buttons
+// --------------------------------------------------
+
+// Provide *some* extra contrast for those who can get it
+.btn-primary.active,
+.btn-warning.active,
+.btn-danger.active,
+.btn-success.active,
+.btn-info.active,
+.btn-inverse.active {
+  color: rgba(255,255,255,.75);
+}
+.btn-info,
+.btn-success,
+.btn-inverse,
+.btn-danger, 
+.btn-warning {
+	border: none !important;
+}
+// Set the backgrounds
+// -------------------------
+.btn,.button {
+  // reset here as of 2.0.3 due to Recess property order
+  border-color: #c5c5c5;
+  border-color: rgba(0,0,0,.15) rgba(0,0,0,.15) rgba(0,0,0,.25);
+}
+.btn-primary,.button {
+  @include buttonBackground($btnPrimaryBackground, $btnPrimaryBackgroundHighlight);
+}
+// Warning appears are orange
+.btn-warning {
+  @include buttonBackground($btnWarningBackground, $btnWarningBackgroundHighlight);
+}
+// Danger and error appear as red
+.btn-danger {
+  @include buttonBackground($btnDangerBackground, $btnDangerBackgroundHighlight);
+}
+// Success appears as green
+.btn-success {
+  @include buttonBackground($btnSuccessBackground, $btnSuccessBackgroundHighlight);
+}
+// Info appears as a neutral blue
+.btn-info {
+  @include buttonBackground($btnInfoBackground, $btnInfoBackgroundHighlight);
+}
+// Inverse appears as dark gray
+.btn-inverse {
+  @include buttonBackground($btnInverseBackground, $btnInverseBackgroundHighlight);
+}
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.btn,
+input[type="submit"].btn {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+
+  &.btn-large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.btn-small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+  &.btn-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
+  }
+}
+
+// Link buttons
+// --------------------------------------------------
+
+// Make a button look and behave like a link
+.btn-link,
+.btn-link:active {
+  background-color: transparent;
+  background-image: none;
+  @include box-shadow(none);
+}
+.btn-link {
+  border-color: transparent;
+  cursor: pointer;
+  color: $linkColor;
+  @include border-radius(0);
+}
+.btn-link:hover {
+  color: $linkColorHover;
+  text-decoration: underline;
+  background-color: transparent;
+}
+
+.btn-default{
+  background: $white;
+  color: $color_main !important;
+  text-shadow: none;
+  &:hover,
+  &:focus,
+  &:active{
+    background: darken($color_main, 3%)!important;
+    border: none;
+    color: $white!important;
+  }
+}
+.btn-primary,.button,button{
+  background: fade_out($color_main,0.9);
+  border: 2px solid $color_main!important;
+  color: $color_main;
+  text-shadow: none;
+  @include transition(all 300ms linear 0s);
+  &:hover,
+  &:focus,
+  &:active{
+    background: fade_out($color_main,0.2)!important;
+    border: 2px solid $color_main;
+    color: $white;
+  }
+}
+.btn-primary {
+  &:hover,
+  &:focus,
+  &:active{
+    color: $white !important;
+  }
+}
+.btn-primary.link {
+	&:hover,
+	&:focus,
+	&:active{
+		background: fade_out($color_main,0.2)!important;
+		border: 2px solid $color_main;
+		color: $white;
+  }
+}
+.btn.btn-trans-white {
+	background: transparent;
+    border: 1px solid #fff;
+	color: #fff;
+	font-family: $MontserratRegular;
+	@include text-shadow(none);
+	&:hover {
+		border: 1px solid #fff;
+	}
+}
+.btn.form-submit {
+  background: $white;
+  @include text-shadow(none);
+  &:hover {
+    background: $color_main !important;
+    color: $white;
+  }
+}

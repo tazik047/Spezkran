@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Provide filter and ckeditor plugin
+ */
+module_load_include('inc','superhero_shortcode','shortcodes/tabs');
+module_load_include('inc','superhero_shortcode','shortcodes/testimonial');
+module_load_include('inc','superhero_shortcode','shortcodes/icons');
+module_load_include('inc','superhero_shortcode','shortcodes/gettouch');
+module_load_include('inc','superhero_shortcode','shortcodes/columns');
+module_load_include('inc','superhero_shortcode','shortcodes/accordion');
+module_load_include('inc','superhero_shortcode','shortcodes/alert');
+module_load_include('inc','superhero_shortcode','shortcodes/carousel');
+module_load_include('inc','superhero_shortcode','shortcodes/tooltip');
+module_load_include('inc','superhero_shortcode','shortcodes/gallery');
+module_load_include('inc','superhero_shortcode','shortcodes/typo');
+module_load_include('inc','superhero_shortcode','shortcodes/video');
+module_load_include('inc','superhero_shortcode','shortcodes/button');
+module_load_include('inc','superhero_shortcode','shortcodes/skill');
+
+function superhero_shortcode_init(){
+	$library = libraries_get_libraries();
+	if (isset($library['isotope'])) {
+		$path = $library['isotope'];
+		drupal_add_css($path . '/jquery.isotope.css');
+		drupal_add_js($path . '/jquery.isotope.js');
+	}
+}
+
+/**
+ * Implements hook_shortcode_info
+ */
+function superhero_shortcode_shortcode_info() {
+	$shortcodes = array();
+	_tabs_shortcode_info($shortcodes);
+	_testimonial_shortcode_info($shortcodes);
+	_icon_shortcode_info($shortcodes);
+	_columns_shortcode_info($shortcodes);
+	_accordion_shortcode_info($shortcodes);
+	_alert_shortcode_info($shortcodes);
+	_carousel_shortcode_info($shortcodes);
+	_gettouch_shortcode_info($shortcodes);
+	_tooltip_shortcode_info($shortcodes);
+	_gallery_shortcode_info($shortcodes);
+	_typo_shortcode_info($shortcodes);
+	_video_shortcode_info($shortcodes);
+	_button_shortcode_info($shortcodes);
+	_skill_shortcode_info($shortcodes);
+	
+	return $shortcodes;
+}
+
+/**
+ * Implements hook_theme
+ */
+function superhero_shortcode_theme() {
+	$themes = array();
+	_tabs_theme($themes);
+	_testimonial_theme($themes);
+	_icon_theme($themes);
+	_columns_theme($themes);
+	_accordion_theme($themes);
+	_alert_theme($themes);
+	_carousel_theme($themes);
+	_gallery_theme($themes);
+	_video_theme($themes);
+	return $themes;
+}

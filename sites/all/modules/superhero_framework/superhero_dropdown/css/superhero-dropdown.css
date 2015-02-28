@@ -1,0 +1,121 @@
+@media (min-width: 993px) {
+    .superhero-dropdown {}
+    .superhero-dropdown > ul {
+        margin: 0;
+        padding: 0;
+    }
+    .superhero-dropdown > ul > li {}
+    .superhero-dropdown ul ul {
+        opacity: 0;
+        height: 0;
+        position: absolute;
+        min-width: 200px;
+        overflow: hidden;
+        margin: 30px 0 0 0;
+        padding: 0;
+        z-index:999;
+    }
+    .superhero-dropdown ul ul li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    .superhero-dropdown ul ul li.last {
+        border-bottom: none;
+    }
+    .superhero-dropdown ul ul li a {
+        line-height: 40px;
+        display: block;
+    }
+    .superhero-dropdown ul ul ul {
+        top: 0;
+        left: 200px;
+    }
+    .superhero-dropdown > ul > li {
+        display: inline-block;
+        position: relative;
+    }
+    .superhero-dropdown ul li:hover > ul {
+        height: auto;
+        opacity: 1;
+        margin-top: 0;
+        overflow: visible;
+    }
+    .rtl .superhero-dropdown ul ul ul {
+        left: -200px;
+    }
+    .main-menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .superhero-dropdown ul, .superhero-dropdown ul li {
+        margin: 0;
+        padding: 0;
+    }
+    .superhero-dropdown {
+        left: 0px;
+        position: absolute;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 999;
+    }
+    .superhero-dropdown.open {
+        max-height: 10000px;   
+    }
+    .superhero-dropdown ul {
+        margin: 0;
+        padding: 0;
+    }
+    .superhero-dropdown ul li {
+        list-style: none;
+        position: relative;
+    }
+    .superhero-dropdown ul li.last {
+        border-bottom: none;
+    }
+    .superhero-dropdown ul li a {
+        display: inline-block;
+        line-height: 40px!important;
+        padding: 0 10px;
+    }
+    .superhero-dropdown ul ul {
+        max-height:0;
+        overflow:hidden;
+        margin: 0 15px;
+        transition: max-height .3s, opacity .3s;
+        -webkit-transition: max-height .3s, opacity .3s;
+    }
+    .superhero-dropdown ul ul.open {
+        max-height:10000px;
+    }
+    .superhero-dropdown ul ul li.expanded {
+        background: none;
+    }
+    .main-menu-toggle {
+        cursor: pointer;
+        display: block;
+        width: 35px;
+        height: 26px;
+        float: left;
+        margin-right: 30px;
+        height: 100px;
+    }
+    .superhero-dropdown .menu-arrow{
+        background-color: #FFFFFF;
+        border-radius: 3px;
+        cursor: pointer;
+        top: 10px;
+        padding: 5px;
+        width: 20px;
+        position: absolute;
+        text-align: center;
+        right: 10px;
+    }
+    .superhero-dropdown > ul ul li:hover {
+        background: none !important;
+    }
+}

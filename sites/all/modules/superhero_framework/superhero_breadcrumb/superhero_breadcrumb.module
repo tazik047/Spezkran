@@ -1,0 +1,41 @@
+<?php
+/**
+ * Implements hook_preprocess_page().
+ */
+function superhero_breadcrumb_preprocess_page(&$vars) {
+  // Preemptively set the 'breadcrumb' variable, so that template_process_page()
+  // performs nothing, and this module can render the breadcrumb as a block
+  // instead.
+	if(!path_is_admin(current_path())){
+		$vars['breadcrumb'] = '';
+	}
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function superhero_breadcrumb_block_info() {
+  $blocks['superhero_breadcrumb'] = array(
+    'info' => t('Superhero Breadcrumb'),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function superhero_breadcrumb_block_view($delta) {
+  $block = array();
+  if ($delta == 'superhero_breadcrumb') {
+    $block['content'] = array(
+      '#pre_render' => array('superhero_breadcrumb_prerender_breadcrumb'),
+      '#theme' => 'breadcrumb',
+    );
+  }
+  return $block;
+}
+
+function superhero_breadcrumb_prerender_breadcrumb($element) {
+  $element['#breadcrumb'] = drupal_get_breadcrumb();
+  return $element;
+}

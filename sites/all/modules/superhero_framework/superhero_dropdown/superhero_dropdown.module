@@ -1,0 +1,126 @@
+<?php
+function superhero_dropdown_menu(){
+ $items['admin/config/superhero_dropdown'] = array(
+      'title' => 'Superhero Dropdown Settings',
+      'page callback' => 'drupal_get_form',
+      'page arguments' => array('superhero_dropdown_settings_form'),
+      'access arguments' => array('administer'),
+      'type' => MENU_NORMAL_ITEM
+  );
+	return $items;
+}
+
+function superhero_dropdown_settings_form() {
+  $form['superhero_dropdown_block_num'] = array(
+      '#type' => 'textfield',
+      '#title' => 'Number of blocks',
+      '#default_value' => variable_get('superhero_dropdown_block_num', 3)
+  );
+  return system_settings_form($form);
+}
+
+/*
+** Implement hook_block_info
+*/
+function superhero_dropdown_block_info(){
+	$blocks = array();
+	$num = variable_get('superhero_dropdown_block_num', 3);
+  for ($i = 1; $i <= $num; $i++) {
+    $blocks['superhero_dropdown_block_' . $i] = array(
+        'info' => t('Superhero Dropdown Menu ' . $i),
+        'cache' => DRUPAL_NO_CACHE
+    );
+  }
+  return $blocks;
+}
+
+/*
+** Implement hook_block_configure
+*/
+function superhero_dropdown_block_configure($delta = ''){
+	if (str_replace('superhero_dropdown_block_', '', $delta) != $delta) {
+		$number = str_replace('superhero_dropdown_block_', '', $delta);
+		$form['superhero_dropdown_menu'] = array(
+			'#type' => 'select',
+			'#title' => t('Menu'),
+			'#description' => t('The menu you want to be displayed using Superhero dropdown'),
+			'#required' => true,
+			'#default_value' => variable_get('superhero_dropdown_menu_'.$number, 'main-menu:0'),
+			'#options' => menu_parent_options(menu_get_menus(), array('mlid' => 0,'plid'=>0)),
+		);
+		return $form;
+	}
+}
+
+/*
+** Implement hook_block_save.
+*/
+function superhero_dropdown_block_save($delta = '', $edit = array()) {
+	if (str_replace('superhero_dropdown_block_', '', $delta) != $delta) {
+    $num = str_replace('superhero_dropdown_block_', '', $delta);
+    variable_set('superhero_dropdown_menu_' . $num, $edit['superhero_dropdown_menu']);
+  }
+}
+
+/*
+** Implement hook_block_view
+*/
+function superhero_dropdown_block_view($delta){
+	if (str_replace('superhero_dropdown_block_', '', $delta) != $delta) {
+    $num = str_replace('superhero_dropdown_block_', '', $delta);
+		return _superhero_dropdown_block($num);
+	}else{
+		return array('subject'=>'','content'=>'');
+	}
+}
+
+/*
+**Implements hook_theme()
+*/
+function superhero_dropdown_theme(&$vars){
+	$module_path = drupal_get_path('module', 'superhero_dropdown');
+	$base = array(
+		'path' => "{$module_path}/theme",
+	);
+	return array(
+		'superhero_dropdown' => $base + array(
+			'template' => 'dropdown',
+			'variables' => array('items'=>NULL),
+		)
+	);
+}
+
+/*
+**Helper function to call theme.
+*/
+function _superhero_dropdown_block($num){
+	drupal_add_css(drupal_get_path('module','superhero_dropdown').'/css/superhero-dropdown.css');
+	drupal_add_js(drupal_get_path('module','superhero_dropdown').'/js/superhero-dropdown.js');
+	$items = array();
+	$menu = explode(':',variable_get('superhero_dropdown_menu_'.$num, 'main-menu:0'));
+	$tree = menu_tree_all_data($menu[0]);
+	$menu_tree = _superhero_dropdown_submenu_tree_all_data($tree, $menu[1]);
+	$menu_tree_out = menu_tree_output($menu_tree);
+	$items['menu'] = render($menu_tree_out);
+	$block = array(
+		'subject' => '',
+		'content' => theme('superhero_dropdown', array('items'=>$items)),
+	);
+	return $block; 
+}
+
+function _superhero_dropdown_submenu_tree_all_data($tree, $plid=0) {
+    if($plid == 0) return $tree;
+		$ret = array();
+		foreach ($tree as $branch){
+      if ($branch['link']['mlid'] == $plid){
+        $ret = $branch['below'];
+				return $ret;
+        break;
+      }elseif(is_array($branch['below'])){
+				$ret = _superhero_dropdown_submenu_tree_all_data($branch['below'],$plid);
+				if(!empty($ret)) return $ret;
+			}
+    }
+    return $ret;
+}

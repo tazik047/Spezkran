@@ -1,0 +1,286 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+h2#page-title{
+    padding: 30px 0 20px 0;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.25);
+    color: $color_main;
+    font-size: 32px;
+    margin: 0 0 30px;
+    text-transform: uppercase;
+    font-family: $MontserratRegular;
+}
+// =========== blog-categories ============
+.block-contents {
+    .view-blog-categories{
+        .cat-wrap {
+            margin-bottom: 60px;
+        }
+        .cat-title{
+            margin-bottom: 10px;
+            line-height: 1;
+            a {
+                color: #222;
+                display: block;
+                font-family: $MontserratRegular;
+                font-size: 21px;
+                text-transform: uppercase;
+            }
+        }
+        .cat-image{
+            margin-bottom: 10px;
+            img{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .btn.btn-primary {
+            background: $white;
+            margin-top: 10px;
+            float: left;
+            &:hover {
+                background: $color_main !important;
+                color: $white !important;
+            }
+        }
+        .item-list {
+            ul {
+                li.views-row {
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+}
+// =========== end blog-categories ============
+
+// =========== blog ============
+.sh-blog {
+    margin-bottom: $mainMargin;
+    .blog-content-tile {
+        font-size: 18px;
+        text-transform: uppercase;
+        font-family: 'MontserratRegular';
+        padding: 0;
+        margin: 0 0 5px;
+        color: $color_main;
+        a {
+            color: $color_main;
+        }
+    }
+    .field-name-field-tags{
+        display: inline-block;
+    }
+    .blog-image {
+        position: relative;
+        img{
+            width: 100%;
+            height:auto;
+        }
+        .date {
+            background: fade_out($color_main, 45%);
+            padding: 5px;
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            span {
+                color: #FFFFFF;
+                display: block;
+                font-family: 'MontserratRegular';
+                text-align: center;
+                &.day {
+                    font-size: 29px;
+                    line-height: 25px;
+                }
+                &.month {
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    
+    .article-info {
+        font-size: 13px;
+        margin: 0 0 12px;
+        padding: 0;
+        .catItemAuthor {
+            padding-right: 10px;
+            &:after {
+                content: "/";
+                padding-left: 10px;
+            }
+        }
+        .username, .cdate{
+            color: #222222;
+            font-size: 12px;
+        }
+    }
+    ul.links.inline{
+        li{
+            &:first-child{
+                padding: 0;
+            }
+        }
+    }
+    &.item {
+        .blog-image {
+            margin-bottom: 16px;
+        }
+    }
+}
+.node-teaser-alt {
+    margin-bottom: $mainMargin;
+    border-bottom: 1px solid #EBEBEB;
+    padding-bottom: $mainPadding;
+    .blog-image {
+        img {
+            width: 100%;
+        }
+    }
+}
+#comments {
+    margin-top: $mainMargin;
+
+    h2.title {
+        font-family: $MontserratRegular;
+        font-size: 22px;
+    }
+}
+.rtl {
+    .sh-blog {
+        .blog-image .date {
+            left: inherit;
+            right: 0px;
+        }
+    }
+    .block-contents .view-blog-categories .btn.btn-primary {
+        float: right;
+    }
+    .sh-block-content ul.pagination {
+        padding: 0;
+    }
+}
+h2.page-header {
+    font-family: $MontserratRegular;
+}
+// =========== end blog ============
+
+// =========== Blog lastest new ============
+[id*="block-views-latest-work-"], [id^="block-views-latest-work-"]  {
+    .block-contents {
+        margin: 0 15px;
+    }
+}
+.bx-wrapper {
+    .sh-lastest-news.node-teaser-alt {
+        border-bottom: none;
+    }
+}
+.sh-lastest-news {
+    .block-contents {
+        margin: 0 15px;
+    }
+    .bx-wrapper {
+        //padding-bottom: 30px;
+    }
+    .blog-image {
+        position: relative;
+        .blog-date {
+            background: fade_out($color_main, 45%);
+            bottom: 0;
+            left: 0;
+            padding: 5px;
+            position: absolute;
+            span {
+                display: block;
+                color: $white;
+                text-align: center;
+                font-family: $MontserratRegular;
+                &.cdate {
+                    font-size: 29px;
+                    line-height: 25px;
+                }
+                &.cmonth {
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+    .blog-title{
+        margin: 18px 0 10px;
+        a {
+            color: $color_main;
+            font-family: MontserratRegular;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+    }
+    .blog-content{
+        padding: 0 0 10px;
+        margin: 0px;
+    }
+    .bx-wrapper .bx-controls-direction a{
+        top: 60px;
+        &.bx-prev{
+            left: -55px;
+        }
+        &.bx-next{
+            right: -55px;
+        }
+    }
+}
+.rtl {
+    .sh-lastest-news {
+        .blog-image .blog-date {
+            left: inherit;
+            right: 0;
+        }
+        .blog-title, .blog-content {
+            text-align: right;
+        }
+        .read-more a {
+            float: right;
+        }
+    }
+}
+// =========== end blog ============
+
+//============= page nav ============
+ul.pagination{
+    li{
+        a:not(.btn){
+            border: 1px solid #DEDFE2;
+            @include border-radius(4px);
+            color: #222222;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: normal;
+            margin: 0 2px;
+            padding: 3px 10px;
+        }
+        &.active {
+            a{
+                background: $color_main;
+                color: #fff;
+                border: 1px solid $color_main;
+                &:hover,&:focus{
+                    background: $color_main!important;
+                }
+            }
+            
+        }
+    }
+}
+/*** Tabs ***/
+.tabs .nav-tabs {
+    margin-bottom: 20px;
+}

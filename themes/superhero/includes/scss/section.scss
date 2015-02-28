@@ -1,0 +1,9 @@
+##{$section} {@extend %section}
+%section{
+	@if $style_margin != false{
+		margin: $style_margin;
+	}
+	@if $style_padding != false{
+		padding: $style_padding;
+	}
+}

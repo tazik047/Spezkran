@@ -1,0 +1,6 @@
+name = Superhero Display
+description = "Provides extra view modes and views settings to be used with your site."
+core = 7.x
+package = Superhero Framework
+
+files[] = views/superhero_display_views_row_taxonomy_view.inc

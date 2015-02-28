@@ -1,0 +1,4 @@
+name = Superhero Page Title
+description = "Provides Page Title as a block."
+core = 7.x
+package = Superhero Framework

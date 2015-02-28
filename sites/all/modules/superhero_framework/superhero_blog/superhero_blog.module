@@ -1,0 +1,21 @@
+<?php
+/**
+ * Implements hook_entity_info_alter
+ */
+function superhero_blog_entity_info_alter(&$entity_info) {
+	$entity_info['node']['view modes']['superhero_blog_intro'] = array(
+		'label' => t('Superhero Blog Intro'),
+		'custom settings' => TRUE,
+	);
+}
+
+/**
+ * Implements hook_preprocess_node
+ */
+function superhero_blog_preprocess_node(&$vars) {
+	$node = $vars['node'];
+	if ($vars['view_mode'] == 'superhero_blog_intro') {
+		$vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__superhero_blog_intro';
+		$vars['classes_array'][] = 'node__' . $vars['type'] . '__superhero_blog_intro';
+	}
+}

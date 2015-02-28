@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Main file creating responsive slideshow
+ */
+ 
+/**
+ * Implements hook_views_api
+ */
+function responsive_slideshow_views_api() {
+	return array(
+		'api' => 3,
+		'path' => drupal_get_path('module','responsive_slideshow') . '/views',
+	);
+}
+ 
+/**
+ * Implements hook_theme
+ */
+function responsive_slideshow_theme() {
+	return array(
+		'bx_slider' => array(
+			'template' => 'responsive-bx-slider',
+		),
+	);
+}
+
+/**
+ * Need to have preprocess functions here because drupal doesn't cache them 
+ * correctly in the theme.inc file.
+ * 
+ * If you would like to override the preprocess functions make sure to look at
+ * the associated function in theme.inc.
+ */
+ 
+include ('theme/responsive_slideshow.theme.inc');
+
+function template_preprocess_views_bx_slideshow(&$vars) {
+  _views_slideshow_preprocess_views_bx_slideshow($vars);
+}

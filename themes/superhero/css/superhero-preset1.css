@@ -1,0 +1,49 @@
+#section-header {
+  margin: 0;
+  padding: 0;
+}
+#section-menu {
+  margin: 0;
+  padding: 0;
+}
+#section-feature {
+  margin: 0;
+  padding: 0;
+}
+#section-user {
+  margin: 0;
+  padding: 0;
+}
+#section-content {
+  margin: 0;
+  padding: 0;
+}
+#section-bottom {
+  margin: 0;
+  padding: 0;
+}
+#section-footer {
+  margin: 0;
+  padding: 0;
+}
+body {
+  color: #999;
+}
+.body a:not(.btn) {
+  color: #00c4aa;
+}
+.link-bg:hover, .link-bg a:hover {
+  background-color: #00c4aa;
+}
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle, .tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle, .tb-megamenu .nav > li.dropdown.open.active > a:hover, .tb-megamenu .nav > li > a:focus, .tb-megamenu .nav > li > a:hover, .tb-megamenu .nav li.dropdown.open > .dropdown-toggle, .tb-megamenu .dropdown-menu li > a:hover, .tb-megamenu .dropdown-menu li > a:focus, .tb-megamenu .dropdown-submenu:hover > a, .tb-megamenu .dropdown-menu .active > a, .tb-megamenu .dropdown-menu .active > a:hover {
+  color: #00c4aa;
+}
+.body a:hover {
+  color: #005e52;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #666;
+}
+.body h2 a {
+  color: #666;
+}

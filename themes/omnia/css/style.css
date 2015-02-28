@@ -1,0 +1,73 @@
+body{
+	font-family: 'Open Sans', sans-serif;
+}
+.container {
+    max-width: 1170px;
+}
+
+@font-face {
+    font-family: 'opensans-regular-webfont';
+    src: url('../fonts/opensans-regular-webfont.eot');
+    src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/opensans-regular-webfont.woff') format('woff'),
+        url('../fonts/opensans-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'opensans-light-webfont';
+    src: url('../fonts/opensans-light-webfont.eot');
+    src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/opensans-light-webfont.woff') format('woff'),
+        url('../fonts/opensans-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'opensans-bold-webfont';
+    src: url('../fonts/opensans-bold-webfont.eot');
+    src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/opensans-bold-webfont.woff') format('woff'),
+        url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Novecentowide-Normal-webfont';
+    src: url('../fonts/Novecentowide-Normal-webfont.eot');
+    src: url('../fonts/Novecentowide-Normal-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Novecentowide-Normal-webfont.woff') format('woff'),
+        url('../fonts/Novecentowide-Normal-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Novecentowide-Medium-webfont';
+    src: url('../fonts/Novecentowide-Medium-webfont.eot');
+    src: url('../fonts/Novecentowide-Medium-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Novecentowide-Medium-webfont.woff') format('woff'),
+        url('../fonts/Novecentowide-Medium-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Novecentowide-Light-webfont';
+    src: url('../fonts/Novecentowide-Light-webfont.eot');
+    src: url('../fonts/Novecentowide-Light-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Novecentowide-Light-webfont.woff') format('woff'),
+        url('../fonts/Novecentowide-Light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MontserratRegular';
+    src: url('../fonts/MontserratRegular.eot');
+    src: url('../fonts/MontserratRegular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/MontserratRegular.woff') format('woff'),
+        url('../fonts/MontserratRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+

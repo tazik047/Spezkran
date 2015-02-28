@@ -1,0 +1,84 @@
+<?php 
+
+/**
+ * @file
+ * Provide tools to manage the Superhero Framework theme
+ */
+
+/**
+ * Implements hook_theme
+ */
+function superhero_theme_theme() {
+	return array(
+		'admin_section' => array(
+			'render element' => 'element'
+		),
+		'admin_section_properties' => array(
+			'render element' => 'element'
+		),
+		'admin_region_container' => array(
+			'render element' => 'element'
+		),
+		'admin_region' => array(
+			'render element' => 'element'
+		),
+	);	
+}
+
+/**
+ * Theme admin section
+ */
+function theme_admin_section($variables) {
+	$element = $variables['element'];
+	$output = '<div class="section ui-sortable row">';
+	$output .= '<div class="col-md-12">';
+	$output .= '<div class="rowproperties">';
+	$output .= '<span class="section-title">' . $element['#section_name'] . '</span>';
+	$output .= '<span class="rowtools pull-right">';
+	//$output .= '<a href="#" class="rowsettings icon-gear"></a>';
+	$output .= '<a href="#" class="rowmove fa fa-arrows"></a>';
+	$output .= '</span>';
+	$output .= '</div>';
+	$output .= $element['#children'];
+	$output .= '</div>';
+	$output .= '</div>';
+	return $output;
+}
+
+/**
+ * Theme admin section properties
+ */
+function theme_admin_section_properties($variables) {
+	$element = $variables['element'];
+	$output = '<div class="section-properties">';
+	$output .= $element['#children'];
+	$output .= '</div>';
+	return $output;
+}
+
+/**
+ * Theme admin region container
+ */
+function theme_admin_region_container($variables) {
+	$element = $variables['element'];
+	$output = '<div class="row regions ui-sortable">';
+	$output .= $element['#children'];
+	$output .= '</div>';
+	return $output;
+}
+
+/**
+ * Theme admin region
+ */
+function theme_admin_region($variables) {
+	$element = $variables['element'];
+	$output = '<div class="region ui-sortable' . $element['#columns'] . '">';
+	$output .= '<span class="region-name">'. $element['#region_name'] .'</span>';
+	$output .= '<div class="columntools">';
+	$output .= '<a href="#" class="columnsettings fa fa-cog"></a>';
+	$output .= '<a href="#" class="columnmove fa fa-arrows"></a>';
+	$output .= '</div>';
+	$output .= $element['#children'];
+	$output .= '</div>';
+	return $output;	
+}

@@ -1,0 +1,13 @@
+name = Twitter
+description = "Show Twitter feed base on API ver 1.1."
+core = 7.x
+
+dependencies[] = block
+dependencies[] = libraries
+
+; Information added by drupal.org packaging script on 2013-07-11
+version = "7.x-2.1"
+core = "7.x"
+project = "superhero"
+datestamp = "1373509571"
+

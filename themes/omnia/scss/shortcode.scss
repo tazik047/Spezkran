@@ -1,0 +1,339 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+// Variables
+// $color_text - main colour of text
+// $color_link - main colour of links and preset settings
+// $color_hover - main colour of hover items
+// $color_heading - main colour of headings (h1,h2...)
+
+
+/*** Strat Shortcode Accordion ***/
+#spaccordion {
+	.panel {
+		@include border-radius(0px);
+		.panel-heading {
+			background: #F2F2F2;
+			h4.panel-title {
+				a {
+					font-size: 15px;
+					font-family: $MontserratRegular;
+					color: #555555;
+					outline: medium none;
+					text-decoration: none;
+					&.collapsed {
+						&:before {
+							content: "";
+						}
+					}
+				}
+				i {
+					padding-right: 2px;
+				}
+			}
+		}
+	}
+}
+.rtl {
+	#spaccordion .panel .panel-heading h4.panel-title i {padding-left: 2px;}
+}
+/*** End Shortcode Accordion ***/
+
+/*** Strat Shortcode Carousel ***/
+#mycarousel {
+	.carousel-caption {
+		background: $black;
+		left: 0;
+		padding: 15px;
+		right: inherit;
+		text-align: left;
+		width: 100%;
+	}
+	.carousel-control {
+		width: 5%;
+		height: 97%;
+		background: none;
+		span {
+			background: none repeat scroll 0 0 #555555;
+			border-radius: 100%;
+			display: block;
+			height: 50px;
+			padding: 12px;
+			width: 50px;
+			color: #fff;
+			font-size: 21px;
+			line-height: normal;
+			@include transition(all 0.3s ease-in-out 0s);
+			&:hover {
+				background: #222222;
+			}
+		}
+	}
+}
+.rtl {
+	#mycarousel .carousel-caption {
+		text-align: right;
+	}
+}
+/*** End Shortcode Carousel ***/
+
+/*** Start Shortcode Gallery ***/
+.gallery-filters {
+	padding: 0px;
+    list-style: none;
+	margin-bottom: 20px !important;
+	margin-left: 2px;
+	a {
+		font-size: 14px;
+		font-family: $MontserratRegular;
+		background: rgba(0, 0, 0, 0);
+		border: 2px solid $color_main;
+		border-radius: 0;
+		box-shadow: none;
+		color: $color_main;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 13px;
+		letter-spacing: 0.15em;
+		line-height: 20px;
+		margin-bottom: 0;
+		padding: 4px 10px;
+		text-align: center;
+		text-shadow: none;
+		text-transform: uppercase;
+		transition: all 300ms linear 0s;
+		vertical-align: middle;
+		outline: none;
+		text-decoration: none;
+		margin-left: -2px;
+		&.active, &:hover {
+			background: $color_main;
+			color: $white;
+		}
+		&:focus {
+			border: 2px solid $color_main;
+		}
+		&:first-child {
+			@include border-radius(4px 0 0 4px);
+		}
+		&:last-child {
+			@include border-radius(0px 4px 4px 0px);
+		}
+	}
+	.btn-default.active {	
+		background: $color_main;
+		border: 2px solid $color_main;
+		color: $white !important;
+	}
+}
+.portfolio-filters {
+	text-align: center;
+	#filters {
+		padding: 0px;
+	    list-style: none;
+		margin-bottom: 20px !important;
+		margin-left: 2px;
+		li {
+			display: inline-block;
+			float: inherit;
+			a {
+				font-size: 14px;
+				font-family: $sansFontFamily;
+				background: rgba(0, 0, 0, 0);
+				border: 0px solid $color_main;
+				border-radius: 0;
+				box-shadow: none;
+				color: #aaaaaa;
+				cursor: pointer;
+				display: inline-block;
+				font-size: 12px;
+				letter-spacing: 0.05em;;
+				line-height: 20px;
+				margin-bottom: 0;
+				padding: 4px 6px;
+				text-align: center;
+				text-shadow: none;
+				text-transform: uppercase;
+				transition: all 300ms linear 0s;
+				vertical-align: middle;
+				outline: none;
+				text-decoration: none;
+				margin-left: -2px;
+				&:after {
+					content: "/";
+					padding-left: 12px;
+				}
+				&.active, &:hover {
+					background: none;
+					color: $color_main;
+				}
+			}
+			&:first-child {
+				a {
+					@include border-radius(0px 0 0 0px);
+				}
+			}
+			&:last-child {
+				a {
+					@include border-radius(0px 0px 0px 0px);
+					&:after {
+						content: "";
+					}
+				}
+			}
+		}
+	}
+}
+.rtl {
+	.gallery-filters  {
+		a:first-child {
+			@include border-radius(4px 0px 0px 4px);
+		}
+		a:last-child {
+			@include border-radius(0px 4px 4px 0px);
+		}
+	}
+	.portfolio-filters {
+		text-align: center;
+		#filters li a {
+			&:after {
+				padding: 0 12px 0 0;
+			}
+		}
+	}
+}
+.supperhero-gallery {
+	.superhero-gallery-item {
+		margin-top: 20px;
+		a.lightbox-processed {
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			display: block;
+			padding: 4px;
+			@include box-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+		}
+	}
+}
+/*** End Shortcode Gallery ***/
+
+/*** Start Shortcode Tabs ***/
+.nav.nav-tabs {
+	margin-bottom: 20px;
+	margin-top: 20px;
+	border: none;
+	li {
+		margin: 0px;
+		float: left;
+		a {
+			background: none;
+			border-left: 1px solid rgba(34, 34, 34, 0.25);
+			@include border-radius(0px);
+			margin: 0;
+			padding: 8px;
+		}
+		&.active, &:hover {
+			a {
+				background: $color_main;
+				color: $white;
+				outline: none;
+				border-left: 1px solid rgba(34, 34, 34, 0.25);
+				border: none;
+				padding: 8px;
+				border: 1px solid $color_main !important;
+			}
+		}
+		&:first-child {
+			a {
+				border-left: none;
+				&:hover {
+					border-left: 1px solid rgba(0, 0, 0, 0);
+				}
+			}
+		}
+	}
+}
+.nav.nav-pills {
+	li {
+		float: left;
+		margin: 0px;
+		a, a:hover, a:focus {
+			background: none;
+		}
+		a {
+			padding: 8px;
+			border-bottom: 2px solid #A2A2A2;
+			@include border-radius(0);
+			outline: none;
+			&:hover {
+				border-bottom: 2px solid #222;
+			}
+		}
+		&.active{
+			a:hover, a:focus {
+				background: none !important;
+				color: #222;
+				border-bottom: 2px solid #222 !important;
+			}
+		}
+	}
+}
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+	background: none !important;
+	color: #222;
+	border-bottom: 2px solid #222 !important;
+}
+.rtl {
+	.nav.nav-tabs, .nav.nav-pills {
+		padding: 0px;
+		li {
+			float: right;
+		}
+	}
+}
+/*** End Shortcode Tabs ***/
+
+/*** Start Shortcode Icons ***/
+.fontawesome-icon-list {
+	a {
+		display: block;
+		padding: 5px;
+		background: transparent;
+		color: #222;
+		@include border-radius(5px);
+		i {
+			padding-right: 5px;
+		}
+		&:hover {
+			background: $color_main;
+			color: $white;
+			span {
+				color: $white;
+			}
+		}
+	}
+}
+.rtl {
+	.fontawesome-icon-list a i {
+		padding-left: 5px;
+	}
+}
+/*** End Shortcode Icons ***/
+
+/*** Start Shortcode Testimonial ***/
+.testimonial {
+	.testimonial-author {
+		margin: -1px !important;
+	}
+}
+/*** End Shortcode Testimonial ***/
+
+/***** Typo ****/
+.sh-bubble {
+	cite span {
+		border-width: 15px !important;
+	}
+}

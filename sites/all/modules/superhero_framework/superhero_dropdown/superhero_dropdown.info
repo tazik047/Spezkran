@@ -1,0 +1,4 @@
+name = Superhero Dropdown Menu
+description = "Provides Dropdown Menu"
+core = 7.x
+package = Superhero Framework

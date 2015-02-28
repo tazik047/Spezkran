@@ -1,0 +1,5 @@
+name = Superhero Theme
+description = "Provides tools and layouts to manage the Superhero Framework theme."
+core = 7.x
+package = Superhero Framework
+dependencies[] = jquery_update

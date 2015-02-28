@@ -1,0 +1,4 @@
+name = Superhero Blog
+description = "Provides more view mode for display the blog."
+core = 7.x
+package = Superhero Framework

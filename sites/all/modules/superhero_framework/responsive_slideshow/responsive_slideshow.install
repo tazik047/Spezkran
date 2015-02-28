@@ -1,0 +1,29 @@
+<?php 
+
+/**
+ * @file
+ * Sets the requirements of responsive slideshow
+ */
+
+/**
+ * Implements hook_requirements
+ */
+function responsive_slideshow_requirements($phase) {
+	$requirements = array();
+	if ($phase == 'runtime') {
+		if (!libraries_get_path('bxslider')) {
+			$requirements['bxslider'] = array(
+				'title' => t('bxSlider'),
+				'value' => t('The bxSlider library is required.'),
+				'severity' => REQUIREMENT_WARNING,
+			);
+		} else {
+			$requirements['bxslider'] = array(
+				'title' => t('bxSlider'),
+				'value' => t('The bxSlider library is successfully installed.'),
+				'severity' => REQUIREMENT_OK,
+			);
+		}
+	}
+	return $requirements;
+}

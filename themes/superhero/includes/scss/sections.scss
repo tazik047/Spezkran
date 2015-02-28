@@ -1,0 +1,13 @@
+##{$section} {@extend %section}
+
+%section {
+	@if $bgimage!=false {
+		background: url($bgimage) no-repeat center top;
+		background-size: cover;
+	}
+	
+	@if $bgcolor!=false {
+		background-color: $bgcolor;
+	}
+
+}

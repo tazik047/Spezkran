@@ -1,0 +1,203 @@
+name = Superhero
+description = "Drupal Defender framework theme."
+core = 7.x
+engine = phptemplate
+
+; Required Core Regions
+regions[help] = Help
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
+regions[content] = Content
+
+; Regions
+regions[logo] = Logo
+regions[header_first] = Header
+regions[menu] = Menu
+regions[feature_first] = Feature
+regions[user_first] = User First
+regions[user_second] = User Second
+regions[user_third] = User Third
+regions[user_fourth] = User Fourth
+regions[sidebar_first] = Sidebar First
+regions[sidebar_second] = Sidebar Second
+regions[bottom_first] = Bottom First
+regions[bottom_second] = Bottom Second
+regions[bottom_third] = Bottom Third
+regions[bottom_fourth] = Bottom Fourth
+regions[footer_first] = Footer
+
+; Sections
+sections[header] = Header
+sections[menu] = Menu
+sections[feature] = Feature
+sections[user] = Preface
+sections[content] = Content
+sections[bottom] = Bottom
+sections[footer] = Footer
+
+; Stylesheets
+stylesheets[all][] = vendor/font-awesome/css/font-awesome.min.css
+stylesheets[all][] = vendor/animate.css
+stylesheets[all][] = css/main.css
+
+; Scripts
+scripts[] = vendor/bootstrap/js/bootstrap.min.js
+scripts[] = vendor/jquery.appear.js
+scripts[] = js/superhero.js
+scripts[] = js/superhero-sticky.js
+
+; Settings
+settings[superhero_responsive] = '1'
+settings[superhero_color_text] = ''
+settings[superhero_color_link] = ''
+settings[superhero_color_hover] = ''
+settings[superhero_color_heading] = ''
+
+; Section Settings
+settings[superhero_section_header_enabled] = '1'
+settings[superhero_section_header_weight] = '0'
+settings[superhero_section_header_primary] = ''
+settings[superhero_section_header_fullwidth] = '0'
+settings[superhero_section_header_backtype] = '0'
+settings[superhero_section_header_backcolour] = ''
+settings[superhero_section_header_backimage] = ''
+settings[superhero_section_header_sticky] = '1'
+
+settings[superhero_section_menu_enabled] = '1'
+settings[superhero_section_menu_weight] = '1'
+settings[superhero_section_menu_primary] = ''
+settings[superhero_section_menu_fullwidth] = '0'
+settings[superhero_section_menu_backtype] = '0'
+settings[superhero_section_menu_backcolour] = ''
+settings[superhero_section_menu_backimage] = ''
+settings[superhero_section_menu_sticky] = '0'
+
+settings[superhero_section_feature_enabled] = '1'
+settings[superhero_section_feature_weight] = '2'
+settings[superhero_section_feature_primary] = ''
+settings[superhero_section_feature_fullwidth] = '1'
+settings[superhero_section_feature_backtype] = '0'
+settings[superhero_section_feature_backcolour] = ''
+settings[superhero_section_feature_backimage] = ''
+settings[superhero_section_feature_sticky] = '0'
+
+settings[superhero_section_user_enabled] = '1'
+settings[superhero_section_user_weight] = '3'
+settings[superhero_section_user_primary] = ''
+settings[superhero_section_user_fullwidth] = '0'
+settings[superhero_section_user_backtype] = '0'
+settings[superhero_section_user_backcolour] = ''
+settings[superhero_section_user_backimage] = ''
+settings[superhero_section_user_sticky] = '0'
+
+settings[superhero_section_content_enabled] = '1'
+settings[superhero_section_content_weight] = '4'
+settings[superhero_section_content_primary] = 'content'
+settings[superhero_section_content_fullwidth] = '0'
+settings[superhero_section_content_backtype] = '0'
+settings[superhero_section_content_backcolour] = ''
+settings[superhero_section_content_backimage] = ''
+settings[superhero_section_content_sticky] = '0'
+
+settings[superhero_section_bottom_enabled] = '1'
+settings[superhero_section_bottom_weight] = '5'
+settings[superhero_section_bottom_primary] = ''
+settings[superhero_section_bottom_fullwidth] = '0'
+settings[superhero_section_bottom_backtype] = '0'
+settings[superhero_section_bottom_backcolour] = ''
+settings[superhero_section_bottom_backimage] = ''
+settings[superhero_section_bottom_sticky] = '0'
+
+settings[superhero_section_footer_enabled] = '1'
+settings[superhero_section_footer_weight] = '6'
+settings[superhero_section_footer_primary] = ''
+settings[superhero_section_footer_fullwidth] = '0'
+settings[superhero_section_footer_backtype] = '0'
+settings[superhero_section_footer_backcolour] = ''
+settings[superhero_section_footer_backimage] = ''
+settings[superhero_section_footer_sticky] = '0'
+
+; Region Settings
+settings[superhero_region_logo_section] = 'header'
+settings[superhero_region_logo_columns] = '2'
+settings[superhero_region_logo_weight] = '0'
+settings[superhero_region_logo_force] = '1'
+
+settings[superhero_region_header_first_section] = 'header'
+settings[superhero_region_header_first_columns] = '10'
+settings[superhero_region_header_first_weight] = '1'
+settings[superhero_region_header_first_force] = '0'
+
+settings[superhero_region_menu_section] = 'menu'
+settings[superhero_region_menu_columns] = '12'
+settings[superhero_region_menu_weight] = ''
+settings[superhero_region_menu_force] = '0'
+
+settings[superhero_region_feature_first_section] = 'feature'
+settings[superhero_region_feature_first_columns] = '12'
+settings[superhero_region_feature_first_weight] = ''
+settings[superhero_region_feature_first_force] = '0'
+
+settings[superhero_region_user_first_section] = 'user'
+settings[superhero_region_user_first_columns] = '3'
+settings[superhero_region_user_first_weight] = '0'
+settings[superhero_region_user_first_force] = '0'
+
+settings[superhero_region_user_second_section] = 'user'
+settings[superhero_region_user_second_columns] = '3'
+settings[superhero_region_user_second_weight] = '1'
+settings[superhero_region_user_second_force] = '0'
+
+settings[superhero_region_user_third_section] = 'user'
+settings[superhero_region_user_third_columns] = '3'
+settings[superhero_region_user_third_weight] = '2'
+settings[superhero_region_user_third_force] = '0'
+
+settings[superhero_region_user_fourth_section] = 'user'
+settings[superhero_region_user_fourth_columns] = '3'
+settings[superhero_region_user_fourth_weight] = '3'
+settings[superhero_region_user_fourth_force] = '0'
+
+settings[superhero_region_sidebar_first_section] = 'content'
+settings[superhero_region_sidebar_first_columns] = '3'
+settings[superhero_region_sidebar_first_weight] = '0'
+settings[superhero_region_sidebar_first_force] = '0'
+
+settings[superhero_region_content_section] = 'content'
+settings[superhero_region_content_columns] = '6'
+settings[superhero_region_content_weight] = '1'
+settings[superhero_region_content_force] = '0'
+
+settings[superhero_region_sidebar_second_section] = 'content'
+settings[superhero_region_sidebar_second_columns] = '3'
+settings[superhero_region_sidebar_second_weight] = '2'
+settings[superhero_region_sidebar_second_force] = '0'
+
+settings[superhero_region_bottom_first_section] = 'bottom'
+settings[superhero_region_bottom_first_columns] = '3'
+settings[superhero_region_bottom_first_weight] = '0'
+settings[superhero_region_bottom_first_force] = '0'
+
+settings[superhero_region_bottom_second_section] = 'bottom'
+settings[superhero_region_bottom_second_columns] = '3'
+settings[superhero_region_bottom_second_weight] = '1'
+settings[superhero_region_bottom_second_force] = '0'
+
+settings[superhero_region_bottom_third_section] = 'bottom'
+settings[superhero_region_bottom_third_columns] = '3'
+settings[superhero_region_bottom_third_weight] = '2'
+settings[superhero_region_bottom_third_force] = '0'
+
+settings[superhero_region_bottom_fourth_section] = 'bottom'
+settings[superhero_region_bottom_fourth_columns] = '3'
+settings[superhero_region_bottom_fourth_weight] = '3'
+settings[superhero_region_bottom_fourth_force] = '0'
+
+settings[superhero_region_footer_first_section] = 'footer'
+settings[superhero_region_footer_first_columns] = '12'
+settings[superhero_region_footer_first_weight] = '0'
+settings[superhero_region_footer_first_force] = '0'
+
+; Presets settings
+settings[superhero_default_preset] = '0'
+settings[superhero_presets] = ''

@@ -1,0 +1,418 @@
+<?php
+
+/**
+ * @file
+ * Superhero Block
+ */
+ 
+/**
+ * Implements hook_form_alter
+ */
+function superhero_block_form_alter(&$form,&$form_state,$form_id) {
+	if ($form_id == 'block_admin_configure' || $form_id == 'block_add_block_form') {
+		$module = $form['module']['#value'];
+		$delta = $form['delta']['#value'];
+		$block = _get_superhero_block($module,$delta);
+		
+		$form['superhero_settings'] = array(
+			'#type' => 'fieldset',
+			'#title' => t('Superhero Settings'),
+			'#weight' => 0,
+			'#collapsible' => TRUE,
+			'#collapsed' => TRUE,
+		);
+		
+		$form['superhero_settings']['animation'] = array(
+			'#type' => 'select',
+			'#title' => t('Animation'),
+			'#options' => _superhero_animations(),
+			'#default_value' => isset($block['animation']) ? $block['animation'] : '',
+		);
+		
+		$form['superhero_settings']['duration'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Duration'),
+			'#size' => 10,
+			'#field_suffix' => 'second(s)',
+			'#default_value' => isset($block['duration']) ? $block['duration'] : '',
+			'#element_validate' => array('_superhero_block_decimal_validate'),
+		);
+		
+		$form['superhero_settings']['back_type'] = array(
+			'#type' => 'radios',
+			'#title' => t('Background Type'),
+			'#options' => array(
+				0 => t('None'),
+				1 => t('Color'),
+				2 => t('Image'),
+			),
+			'#default_value' => isset($block['back_type']) ? $block['back_type'] : 0,
+		);
+		
+		// Colour
+		$form['superhero_settings']['color_settings'] = array(
+			'#type' => 'container',
+			'#states' => array(
+				'visible' => array(
+					':input[name="back_type"]' => array('value' => 1),
+				),
+			),
+		);
+		
+		$form['superhero_settings']['color_settings']['back_colour'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Background Color'),
+			'#attributes' => array(
+				'class' => array(
+					'colorpicker',
+				),
+			),
+			'#default_value' => isset($block['back_colour']) ? $block['back_colour'] : '',
+		);
+		
+		// Image
+		$form['superhero_settings']['image_settings'] = array(
+			'#type' => 'container',
+			'#states' => array(
+				'visible' => array(
+					':input[name="back_type"]' => array('value' => 2),
+				),
+			),
+		);	
+		
+		$form['superhero_settings']['image_settings']['image_type'] = array(
+			'#type' => 'radios',
+			'#title' => t('Image type'),
+			'#options' => array(
+				0 => t('Fixed'),
+				2 => t('Fixed Cover'),
+				1 => t('Parallax'),
+			),
+			'#default_value' => isset($block['image_type']) ? $block['image_type'] : 0,
+		);
+		
+		$form['superhero_settings']['image_settings']['parallax_settings'] = array(
+			'#type' => 'container',
+			'#states' => array(
+				'visible' => array(
+					':input[name="image_type"]' => array('value' => 1),
+				),
+			),
+		);
+		
+		$form['superhero_settings']['image_settings']['parallax_settings']['parallax_ratio'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Parallax Ratio'),
+			'#description' => t('The ratio is relative to the natural scroll speed, so a ratio of 0.5 would cause the element to scroll at half-speed, a ratio of 1 would have no effect'),
+			'#size' => 20,
+			'#default_value' => isset($block['parallax_ratio']) ? $block['parallax_ratio'] : '',
+			'#element_validate' => array('_superhero_block_decimal_validate'),
+		);
+		
+		if (module_exists('media')) {
+			$form['superhero_settings']['image_settings']['back_image'] = array(
+				'#tree' => TRUE,
+				'#title' => t('Background image'),
+				'#type' => 'media',
+				'#description' => t('The uploaded image will be displayed on the page unless it is marked as "removed".'),
+				'#default_value' => isset($block['back_image']) ? array('fid' => $block['back_image']) : 0,
+				'#media_options' => array(
+					'global' => array(
+						'types' => array(
+							'image' => 'image',
+						),
+						'schemes' => array(
+							'public' => 'public',
+						),
+						'file_extensions' => 'png gif jpg jpeg',
+						'max_filesize' => '1 MB',
+						'uri_scheme' => 'public',
+					),
+				),
+			);
+		}
+		
+		$padding = unserialize($block['padding']);
+		$form['superhero_settings']['padding_settings'] = array(
+			'#type' => 'container',
+		);
+				
+		$form['superhero_settings']['padding_settings']['padding_top'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Top Padding'),
+			'#description' => t('The padding of the top of the block'),
+			'#size' => 20,
+			'#field_suffix' => 'px',
+			'#default_value' => isset($padding[0]) ? $padding[0] : '',
+		);
+		
+		$form['superhero_settings']['padding_settings']['padding_bottom'] = array(
+			'#type' => 'textfield',
+			'#title' => t('Bottom Padding'),
+			'#description' => t('The padding of the bottom of the block'),
+			'#size' => 20,
+			'#field_suffix' => 'px',
+			'#default_value' => isset($padding[1]) ? $padding[1] : '',
+		);
+		
+		$form['#attached'] = array(
+			'css' => array(
+				drupal_get_path('module','superhero_block') . '/css/block_admin.css',
+			),
+		);
+		
+		$form['#submit'][] = 'superhero_block_animation_submit';
+	}
+	// !TODO: Delete blocks
+}
+
+/**
+ * Validate Decimal
+ */
+function _superhero_block_decimal_validate($element,&$form_state,$form) {
+	$value = $element['#value'];
+	if ($value != '' && !is_numeric($value)) {
+		form_error($element,t('This field needs to be a numeric value'));
+	}
+}
+
+/**
+ * Form Submit
+ */
+function superhero_block_animation_submit($form,$form_state) {
+	$values = $form_state['values'];
+	$animation = $values['animation'];
+	$back_type = $values['back_type'];
+	$module = $values['module'];
+	$delta = $values['delta'];
+	$data = _get_superhero_block($module,$delta);
+	
+	$padding = array(
+		$values['padding_top'],
+		$values['padding_bottom'],
+	);
+	
+	// Check if padding set
+	$has_padding = FALSE;
+	if ($values['padding_top'] != '') {
+		$has_padding = TRUE;
+	}
+	if ($values['padding_bottom'] != '') {
+		$has_padding = TRUE;
+	}
+	
+	$updated_data = array(
+		'module' => $module,
+		'delta' => $delta,
+		'animation' => $animation,
+		'duration' => ($values['duration'] != '') ? $values['duration'] : 0,
+		'back_type' => $back_type,
+		'back_image' => $values['back_image']['fid'],
+		'image_type' => $values['image_type'],
+		'parallax_ratio' => ($values['parallax_ratio'] != '') ? $values['parallax_ratio'] : 0,
+		'padding' => serialize($padding),
+		'back_colour' => $values['back_colour'],
+	);
+	
+	if (!empty($data)) {
+		if ($animation == '- None -' && !$back_type && !$has_padding) {
+			db_delete('superhero_block')
+			->condition('sbid',$data['sbid'])
+			->execute();
+		} else {	
+			db_update('superhero_block')
+			->fields($updated_data)
+			->condition('sbid',$data['sbid'])
+			->execute();
+		}
+	} else {
+		if ($animation != '- None -' || $back_type || $has_padding) {
+			db_insert('superhero_block')
+			->fields($updated_data)
+			->execute();
+		}
+	}
+}
+
+/**
+ * Implements hook_theme_registry_alter()
+**/
+function superhero_block_theme_registry_alter(&$theme_registry) {
+  $mod_path = drupal_get_path('module', 'superhero_block');
+  $theme_registry_copy = $theme_registry;       // munge on a copy
+  _theme_process_registry($theme_registry_copy, 'phptemplate', 'theme_engine', 'pow', $mod_path);
+  $theme_registry += array_diff_key($theme_registry_copy, $theme_registry);
+  $hooks = array('node');
+  foreach ($hooks as $h) {
+    _superhero_block_insert_after_first_element($theme_registry[$h]['theme paths'], $mod_path);
+  }
+}
+
+/**
+ * Helper function for re-ordering arrays (needed by theme_registry_alter)
+*/
+function _superhero_block_insert_after_first_element(&$a, $element) {
+  if(is_array($a)) {
+    $first_element = array_shift($a);
+    array_unshift($a, $first_element, $element);
+  }
+}
+
+/**
+ * Preprocess block
+ */
+function superhero_block_preprocess_block(&$vars) {
+	$element = $vars['elements'];
+	$block = $vars['elements']['#block'];
+	$module = $block->module;
+	$delta = $block->delta;
+	$animation_data = _get_superhero_block($module,$delta);
+	
+	$library = libraries_get_libraries();
+	if (isset($library['stellar.js'])) {
+		$path = $library['stellar.js'];
+		drupal_add_js($path . '/jquery.stellar.min.js');
+	}
+	
+	drupal_add_css(drupal_get_path('module','superhero_block') . '/css/block.css');
+	
+	if (!empty($animation_data)) {
+		$vars['theme_hook_suggestions'][] = 'block__superhero';	
+		$vars['classes_array'][] = 'superhero-block';
+		if ($animation_data['back_type'] == 2) {
+			if ($image_fid = $animation_data['back_image']) {
+				$file = file_load($image_fid);
+				$url = file_create_url($file->uri);
+				$vars['attributes_array']['style'][] = "background-image: url('$url');";
+				if ($animation_data['image_type'] == 2) {
+					$vars['attributes_array']['style'][] = "background-size: cover;";
+				}
+				if ($animation_data['image_type'] == 1) {
+					if ($ratio = $animation_data['parallax_ratio']) {
+						drupal_add_js(drupal_get_path('module','superhero_block') . '/js/superhero_parallax.js');
+						$vars['classes_array'][] = 'parallax';
+						$vars['ratio'] = $ratio;
+					}
+				}
+			}
+		} elseif ($animation_data['back_type'] == 1) {
+			$color = $animation_data['back_colour'];
+			$vars['attributes_array']['style'][] = "background-color: $color;";
+		}
+		
+		// Add Padding to block
+		$padding = unserialize($animation_data['padding']);
+		if ($padding[0] != '') {
+			$vars['attributes_array']['style'][] = "padding-top: $padding[0]px;";
+		}
+		if ($padding[1] != '') {
+			$vars['attributes_array']['style'][] = "padding-bottom: $padding[1]px;";
+		}
+		
+		//$vars['classes_array'][] = 'animated';
+		if ($animation_data['animation'] != "- None -") {
+			$vars['animation'] = $animation_data['animation'];
+			if ($animation_data['duration'] && $animation_data['duration'] != 0.00) {
+				$duration = $animation_data['duration'] . 's';
+				$block_id = $vars['block_html_id'];
+				drupal_add_css(
+					"#$block_id .animated {
+						-webkit-animation-duration: $duration;
+						-moz-animation-duration: $duration;
+						-o-animation-duration: $duration;
+						animation-duration: $duration;
+					}",
+					'inline'
+				);
+			}
+		}
+	}
+}
+
+/**
+ * Get Animation List
+ */
+function _superhero_animations() {
+	$effects = array(
+		t('- None -'),
+		t('flash'),
+		t('bounce'),
+		t('shake'),
+		t('tada'),
+		t('swing'),
+		t('wobble'),
+		t('pulse'),
+		t('flip'),
+		t('flipInX'),
+		t('flipOutX'),
+		t('flipInY'),
+		t('flipOutY'),
+		t('fadeIn'),
+		t('fadeInUp'),
+		t('fadeInDown'),
+		t('fadeInLeft'),
+		t('fadeInRight'),
+		t('fadeInUpBig'),
+		t('fadeInDownBig'),
+		t('fadeInLeftBig'),
+		t('fadeInRightBig'),
+		t('fadeOut'),
+		t('fadeOutUp'),
+		t('fadeOutDown'),
+		t('fadeOutLeft'),
+		t('fadeOutRight'),
+		t('fadeOutUpBig'),
+		t('fadeOutDownBig'),
+		t('fadeOutLeftBig'),
+		t('fadeOutRightBig'),
+		t('slideInDown'),
+		t('slideInLeft'),
+		t('slideInRight'),
+		t('slideOutUp'),
+		t('slideOutLeft'),
+		t('slideOutright'),
+		t('bounceIn'),
+		t('bounceInDown'),
+		t('bounceInUp'),
+		t('bounceInLeft'),
+		t('bounceInRight'),
+		t('bounceOut'),
+		t('bounceOutDown'),
+		t('bounceOutUp'),
+		t('bounceOutLeft'),
+		t('bounceOutRight'),
+		t('rotateIn'),
+		t('rotateInDownLeft'),
+		t('rotateInDownRight'),
+		t('rotateInUpLeft'),
+		t('rotateInUpRight'),
+		t('rotateOut'),
+		t('rotateOutDownLeft'),
+		t('rotateOutDownRight'),
+		t('rotateOutUpLeft'),
+		t('rotateOutUpright'),
+		t('lightSpeedIn'),
+		t('lightSpeedOut'),
+		t('hinge'),
+		t('rollIn'),
+		t('rollOut')
+	);
+	
+	$temp = array();
+	foreach($effects as $value) {
+		$temp[$value] = $value;
+	}
+	return $temp;
+}
+
+
+/**
+ * Get Block id
+ */
+function _get_superhero_block($module,$delta) {
+	return db_select('superhero_block','a')
+			->fields('a')
+			->condition('module',$module)
+			->condition('delta',$delta)
+			->execute()->fetchAssoc();
+}

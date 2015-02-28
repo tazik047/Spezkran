@@ -1,0 +1,9 @@
+name = Superhero Portfolio
+description = "Provides full tools to create Isotope Portfolios."
+core = 7.x
+package = Superhero Framework
+
+dependencies[] = views
+dependencies[] = libraries
+
+files[] = views/superhero_portfolio_plugin_style_portfolio.inc

@@ -1,0 +1,126 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+.rtl{
+    direction: rtl;
+    &body > *{direction: rtl;}
+    .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-md-8 {
+        float: right;
+    }
+    ul.menu {
+    	text-align: right;
+    }
+	.view-latest-work, .view-clients, .sh-lastest-news, .view.view-team, .view-blog .bx-viewport {
+		direction: ltr;
+	}
+	.item-list > ul {
+		margin-right: 15px;
+	}
+	/*====== Start Header ======*/
+		#section-header {
+			#block-search-form {
+				right: inherit;
+    			left: 0;
+			}
+			.social-top {
+				margin-left: 32px;
+			}
+			#block-search-form {
+				input[type="text"] {
+					&:hover {
+						background: url(#{$theme_path}/images/bg_search_hover.png) no-repeat right 3px center #fff;
+					}
+				}
+			}
+		}	
+	/*====== End Header ======*/
+
+
+	/*====== node team =====*/
+	.sh-node-team .field-name-field-social-links .field-item a {
+		padding-right: 10px;
+		&:before {
+			float: right;
+		}
+	}
+
+	/*====== node portfolio =====*/
+	.field-label-inline .field-label, .field-label-inline .field-items {
+		float: right;
+	}
+
+	/*====== form contact =====*/
+	#contact-site-form {
+		.control-group .controls:before {
+			float: right;
+		}
+		label.option {
+			padding-right: 10px;
+		}
+		#edit-copy {
+			float: right;
+    		margin: 7px 0 0 10px;
+		}
+	}
+	.gettouch-contact {
+		ul {
+			li {
+				padding: 0 35px 0 0;
+				i {
+					left: inherit;
+					right: 0;
+					margin: 0 0 0 10px;
+				}
+			}
+		}
+	}
+
+	/**** News letter***/
+	#newsletter-subscribe-form #subscribe {
+		#edit-newsletter-submit {
+			right: inherit;
+			left: 0;
+		}
+		&:after {
+			left: 7px;
+		    position: absolute;
+		    right: inherit;
+		}
+	}
+	/*====== Start Footer ======*/
+		#section-bottom {
+			h3.block-title {
+				text-align: right;
+			}
+			.gettouch ul.unstyled li {
+				padding: 0 35px 0 0;
+				i {
+					left: inherit;
+				    right: 0;
+				    margin: 0px;
+				}
+			}
+			.social-bottom ul li:nth-child(1) {
+				margin-left: 14px;
+			}
+		}
+	/*====== Start Footer ======*/
+
+	/*** Shortcode ***/
+	.alert {
+		a.close {
+			float: left;
+		}
+	}
+	.testimonial .testimonial-author {
+		padding: 15px 60px 15px 0px;
+		background: url("#{$theme_path}/images/bg-testimonial.png") no-repeat top right 36px;
+		.pull-left {
+			float: right !important; 
+		}
+	}
+}

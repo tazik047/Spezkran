@@ -1,0 +1,183 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+@media (max-width:1199px) {
+    .md-arrow-left {
+		left: 0;
+	}
+}
+
+@media (min-width:993px) and (max-width:1199px) {
+    .superhero-dropdown > ul > li > a {
+		padding: 0 10px !important;
+		font-size: 13px;
+	}
+}
+@media (max-width:768px) {
+	.region-social-top {
+		display: none;
+	}
+}
+@media (max-width:992px) {
+	#section-header {
+		padding: 0 !important;
+	}
+	#section-buynow {
+		.block {
+			margin-bottom: 0px;
+		}
+		.buy-now {
+			text-align: center;
+			[class^="col-"], [class*="col-"] {
+				float: inherit;
+    			text-align: center;
+				span, a.btn {
+					float: inherit;
+				}
+				a.btn {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width:979px) {
+    .container{
+        width: auto;
+    }
+    #section-feature,#section-topls,#section-latest{
+        img{
+            height: auto!important;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+	#section-bottom {
+		[class^="col-"], [class*="col-"] {
+			width: 50%;
+			float: left;
+			margin-bottom: 20px;
+		}
+	}
+}
+@media (max-width:767px) {
+    * .block  {
+		margin-bottom: $mainMargin;
+	}
+	/*** RESET SECTION PADDING ***/
+	.body {
+		[id*="section-"], [id*="section-"] {
+			padding: $mdPadding 0 !important;
+		}
+	}
+	.home-creative-2  {
+		#section-users .block {
+			margin-bottom: $mainPadding*2;
+		}
+	}
+	#section-bottom {
+		.region-bottom-fourth .block {
+			margin: 0;
+		}
+	}
+	#section-footer {
+		.region-footer-first {
+			.block {
+				margin-bottom: 10px;
+				text-align: center;
+			}
+		}
+		.region-footer-second {
+			.block {
+				margin: 0px;
+				text-align: center;
+			}
+		}
+		.custom-menu-footer {
+			padding: 0px;
+			width: 100%;
+		}
+	}
+	.buy-now {
+    	text-align: center;
+    	.text-fea {
+    		margin-bottom: 20px;
+    	}	
+    }
+    [id^="block-views-team-block"], [id*="block-views-team-block"] {
+    	margin: 0 15px 30px 15px;
+    }
+    .superhero-portfolio .jm-portfolio {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.superhero-portfolio .filter-destination {
+		margin: 0 !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.shPriceTable.col4 dl {
+		width: 50%;
+	}
+}
+@media (max-width: 360px) {
+	#contact-site-form {
+		.control-group {
+			input[type="text"] {
+				max-width: 220px;
+			}
+		}
+	}
+}	
+
+@media (max-width: 480px) {
+	#contact-site-form {
+		.control-group {
+			input[type="text"] {
+				max-width: 280px;
+			}
+		}
+	}
+	h2.text-buy {
+		font-size: 32px !important;
+	}
+	.button-buy.btn-large {
+		padding: 8px 30px;	
+	}
+	.shPriceTable.col4 dl {
+		width: 100%;
+		margin-top: 20px;
+	}
+}	
+
+@media (max-width: 360px) {
+	.button-buy.btn-large {
+		padding: 8px 10px;
+	}
+}
+@media (max-width: 320px) {
+	.jm-portfolio .slide-item-readmore a, 
+	.jm-portfolio .slide-item-zoom a {
+		margin-bottom: 10px;
+	}
+	.shPriceTable.col4 dl {
+		width: 100%;
+	}
+}
+
+/*======== Bottom Fixed =========*/
+@media screen and (min-width: 993px){
+.bottom-fixed{
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+ }
+}

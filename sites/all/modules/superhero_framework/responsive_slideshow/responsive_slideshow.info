@@ -1,0 +1,10 @@
+name = Responsive Slideshow
+description = "Provides BXSlider plugin to allow the creation of responsive slideshows."
+core = 7.x
+package = Red Fern
+
+dependencies[] = views
+dependencies[] = libraries
+
+files[] = views/responsive_slideshow_plugin_style_bx_slideshow.inc
+files[] = theme/responsive_slideshow.theme.inc

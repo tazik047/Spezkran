@@ -1,0 +1,4 @@
+name = Superhero Quick Settings
+description = "Provides the quick settings form to changes the preset"
+core = 7.x
+package = Superhero Framework

@@ -1,0 +1,51 @@
+<?php
+function superhero_quicksettings_menu(){
+	$items = array();
+	$items['superhero/settings'] = array(
+		'page callback' => 'superhero_quicksettings_settings',
+		'page arguments' => array(2),
+		'access arguments' => array('access content'),
+	);
+	$items['superhero/preset/%'] = array(
+		'page callback' => 'superhero_quicksettings_preset',
+		'page arguments' => array(2),
+		'access arguments' => array('access content'),
+	);
+	$items['superhero/direction/%'] = array(
+		'page callback' => 'superhero_quicksettings_direction',
+		'page arguments' => array(2),
+		'access arguments' => array('access content'),
+	);
+	$items['superhero/layout/%'] = array(
+		'page callback' => 'superhero_quicksettings_layout',
+		'page arguments' => array(2),
+		'access arguments' => array('access content'),
+	);
+	return $items;
+}
+
+function superhero_quicksettings_settings(){
+	// Do no things
+	drupal_goto('<front>');
+}
+
+function superhero_quicksettings_preset($preset){
+	if(!empty($preset)){
+		$_SESSION['superhero_default_preset'] = $preset-1;
+	}
+	drupal_goto('<front>');
+}
+
+function superhero_quicksettings_direction($direction){
+	if($direction == 'rtl' || $direction == 'ltr'){
+		$_SESSION['superhero_default_direction'] = $direction;
+	}
+	drupal_goto('<front>');
+}
+
+function superhero_quicksettings_layout($layout){
+	if($layout == 'wide' || $layout == 'boxed'){
+		$_SESSION['superhero_default_layout'] = $layout;
+	}
+	drupal_goto('<front>');
+}

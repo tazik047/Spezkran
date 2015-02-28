@@ -1,0 +1,166 @@
+<?php
+/*Implement hook_block_info.*/
+function sp_twitter_block_info(){
+	$blocks['sp_twitter_block'] = array(
+		'info' => t('SP Twitter - Block'),
+		'cache' => DRUPAL_CACHE_PER_PAGE,
+	);
+	return $blocks;
+}
+
+/*Implement hook_block_configure.*/
+function sp_twitter_block_configure($delta = ''){
+	switch ($delta) {
+		case 'sp_twitter_block':
+			$form['sp_twitter_block_oauth_settings'] = array(
+				'#type' => 'fieldset',
+				'#title' => t('OAuth settings'),
+				'#collapsed' => true,
+				'#collapsible' => true,
+			);
+			$form['sp_twitter_block_oauth_settings']['sp_twitter_block_consumer_key'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Consumer key'),
+				'#required' => true,
+				'#default_value' => variable_get('sp_twitter_block_consumer_key'),
+			);
+			$form['sp_twitter_block_oauth_settings']['sp_twitter_block_consumer_secret'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Consumer secret'),
+				'#required' => true,
+				'#default_value' => variable_get('sp_twitter_block_consumer_secret'),
+			);
+			$form['sp_twitter_block_oauth_settings']['sp_twitter_block_access_token'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Access token'),
+				'#required' => true,
+				'#default_value' => variable_get('sp_twitter_block_access_token'),
+			);
+			$form['sp_twitter_block_oauth_settings']['sp_twitter_block_access_token_secret'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Access token secret'),
+				'#required' => true,
+				'#default_value' => variable_get('sp_twitter_block_access_token_secret'),
+			);
+			$form['sp_twitter_block_name'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Twitter account'),
+				'#required' => true,
+				'#default_value' => variable_get('sp_twitter_block_name','RealJoomlaMan'),
+			);
+			
+			$form['sp_twitter_block_count'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Number of tweets'),
+				'#required' => true,
+				'#default_value' => variable_get('sp_twitter_block_count',5),
+			);
+			
+			$form['sp_twitter_block_avatar'] = array(
+				'#type' => 'select',
+				'#title' => t('Show avatar'),
+				'#options' => array('none'=>'None','profile'=>'Profile image','icon'=>'Twitter icon'),
+				'#default_value' => variable_get('sp_twitter_block_avatar','none'),
+			);
+			
+			$form['sp_twitter_carousel_settings'] = array(
+				'#type' => 'fieldset',
+				'#title' => t('Carousel settings'),
+				'#collapsed' => true,
+				'#collapsible' => true,
+			);
+			
+			$form['sp_twitter_carousel_settings']['sp_twitter_carousel_mode'] = array(
+				'#type' => 'select',
+				'#title' => 'Mode',
+				'#options' => array('horizontal'=>'Horizontal','vertical'=>'Vertical','fade'=>'Fade'),
+				'#default_value' => variable_get('sp_twitter_carousel_mode','vertical'),
+			);
+			
+			$form['sp_twitter_carousel_settings']['sp_twitter_carousel_minslides'] = array(
+				'#type' => 'textfield',
+				'#title' => 'Min Slides',
+				'#default_value' => variable_get('sp_twitter_carousel_minslides',1),
+			);
+			
+			$form['sp_twitter_carousel_settings']['sp_twitter_carousel_maxslides'] = array(
+				'#type' => 'textfield',
+				'#title' => 'Max Slides',
+				'#default_value' => variable_get('sp_twitter_carousel_maxslides',3),
+			);
+			
+			$form['sp_twitter_carousel_settings']['sp_twitter_carousel_controls'] = array(
+				'#type' => 'select',
+				'#title' => 'Controls',
+				'#options' => array('true'=>'True','false'=>'False'),
+				'#default_value' => variable_get('sp_twitter_carousel_controls','false'),
+			);
+			return $form;
+			break;
+	}
+}
+
+/*Implement hook_block_save.*/
+function sp_twitter_block_save($delta = '', $edit = array()) {
+	switch ($delta){
+		case 'sp_twitter_block':
+			variable_set('sp_twitter_block_consumer_key', $edit['sp_twitter_block_consumer_key']);
+			variable_set('sp_twitter_block_consumer_secret', $edit['sp_twitter_block_consumer_secret']);
+			variable_set('sp_twitter_block_access_token', $edit['sp_twitter_block_access_token']);
+			variable_set('sp_twitter_block_access_token_secret', $edit['sp_twitter_block_access_token_secret']);
+			variable_set('sp_twitter_block_count', $edit['sp_twitter_block_count']);
+			variable_set('sp_twitter_block_name', $edit['sp_twitter_block_name']);
+			variable_set('sp_twitter_carousel_mode', $edit['sp_twitter_carousel_mode']);
+			variable_set('sp_twitter_carousel_controls', $edit['sp_twitter_carousel_controls']);
+			variable_set('sp_twitter_carousel_maxslides', $edit['sp_twitter_carousel_maxslides']);
+			variable_set('sp_twitter_carousel_minslides', $edit['sp_twitter_carousel_minslides']);
+			variable_set('sp_twitter_block_avatar', $edit['sp_twitter_block_avatar']);
+			break;
+	}
+}
+
+/*Implement hook_block_view.*/
+function sp_twitter_block_view($delta){
+	switch ($delta) {
+		case 'sp_twitter_block':
+			return _sp_twitter_block();
+			break;
+		default:
+			return array('subject'=>'','content'=>'');
+		}
+}
+
+/*Implements hook_theme().*/
+function sp_twitter_theme(){
+	$module_path = drupal_get_path('module', 'sp_twitter');
+	$base = array(
+		'path' => "{$module_path}/theme",
+	);
+	return array(
+		'sp_twitter_block' => $base + array(
+			'template' => 'sp_twitter',
+			'variables' => array(),
+		)
+	);
+}
+
+/*Helper function to call theme.*/
+function _sp_twitter_block(){
+	drupal_add_js(libraries_get_path('bxslider').'/jquery.bxslider.js');
+	require_once 'sp_twitter.inc';
+	$items = array();
+	$items['tweets'] = sp_twitter_get_tweets();
+	$items['name'] = variable_get('sp_twitter_block_name');
+	$items['options'] = array(
+		'sp_twitter_carousel_mode' => variable_get('sp_twitter_carousel_mode','vertical'),
+		'sp_twitter_carousel_controls' => variable_get('sp_twitter_carousel_controls','false'),
+		'sp_twitter_carousel_minslides' => variable_get('sp_twitter_carousel_minslides',1),
+		'sp_twitter_carousel_maxslides' => variable_get('sp_twitter_carousel_maxslides',3),
+		'sp_twitter_block_avatar' => variable_get('sp_twitter_block_avatar','none'),
+	);
+	$block = array(
+		'subject' => '',
+		'content' => theme('sp_twitter_block', array('items'=>$items)),
+	);
+	return $block; 
+}

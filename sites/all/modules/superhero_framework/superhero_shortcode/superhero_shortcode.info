@@ -1,0 +1,8 @@
+name = Superhero Shortcode
+description = "Provides the ability to add shortcodes to textareas."
+core = 7.x
+package = Superhero Framework
+
+dependencies[] = ckeditor
+dependencies[] = shortcode
+dependencies[] = libraries

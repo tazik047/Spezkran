@@ -1,0 +1,136 @@
+/*----------------------------------------------------------------------
+# Package - JM Template
+# ----------------------------------------------------------------------
+# Author - JoomlaMan http://www.joomlaman.com
+# Copyright Copyright under commercial licence (C) 2012 - 2013 JoomlaMan
+# License http://www.gnu.org/licenses/gpl-3.0.html GNU/GPLv3
+-----------------------------------------------------------------------*/
+
+.jm-portfolio {
+	.portfolio-item {
+		position: relative;
+    overflow: hidden;
+		.slide-item-wrap {
+			position: absolute;
+		    height: 100%;
+		    width: 100%;
+		    .slide-item-wrap-item {
+		    	height: 91%;
+			    margin: 3.5% auto auto;
+			    width: 93%;
+			    top: 5% !important;
+		    	background: $white;
+				.side-inner {
+					padding: 23% 0;
+					text-align: center;
+				    .slide-item-title {
+						margin-bottom: 15px;
+						a {
+							text-transform: uppercase;
+							font-size: 18px;
+							font-family: $MontserratRegular;
+							color: #222;
+						}
+					}
+				}
+			}
+		}
+	}
+	/* .portfolio-item {
+		.slide-item-wrap-item {
+			position: relative;
+			.slide-item-desc-warp {
+				background: transparent;
+				@include transition(all 0.3s ease 0s);
+				bottom: 0;
+				height: 92%;
+				opacity: 0;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				width: 94%;
+				margin: auto;
+				text-align: center;
+				.padding {
+					padding: 27% 0;
+				}
+				.slide-item-title {
+					margin-bottom: 15px;
+					a {
+						text-transform: uppercase;
+						font-size: 18px;
+						font-family: $MontserratRegular;
+						color: #222;
+					}
+				}
+				.slide-item-readmore a, .slide-item-zoom a {
+					border: 2px solid $color_main;
+				}
+			}
+			&:hover {
+				.slide-item-desc-warp {
+					background: $white;
+					opacity: 1;
+				}
+			}
+		}
+	} */
+}
+
+.jm-node-portfolio {
+	.itemImg {
+		//padding-left: 0;
+		img {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+	}
+	.portfolio-details {
+		h4 {
+			margin: 0 0 $mainPadding;
+    		padding: 0 0 $mainMargin/2;
+    		text-transform: uppercase;
+			border-bottom: $borderSection;
+			font-family: $MontserratRegular;
+			font-size: 15px;
+			color: #1F1F1F;
+		}
+		.field-name-body, .field-name-field-client, .field-name-field-skills {
+			margin-bottom: $mainMargin;
+		}
+		.field-name-field-client, .field-name-field-link, .field-name-field-skills {
+			.field-label {
+				float: inherit;
+				font-family: $MontserratRegular;
+				font-size: 15px;
+				color: #1F1F1F;
+				text-transform: uppercase;
+				font-weight: normal;
+				padding-bottom: 3px;
+				a {
+					color: #4C5357;
+				}
+			}
+		}
+	}
+}
+.page-portfolio-4 {
+	.jm-portfolio {
+		.slide-item-readmore a, .slide-item-zoom a {
+			font-size: 11px;
+			padding: 4px;
+		}
+		.padding {
+			padding: 25% 0;
+		}
+	}
+}
+.custom-bottom-portfolio {
+	margin-bottom: 20px;
+}
+.view-latest-work {
+	.bx-controls-direction a {
+		display: none;
+	}
+}

@@ -1,0 +1,149 @@
+h1.title {
+    margin: 30px 0 10px;
+}
+
+a, a:hover {
+    text-decoration: none;
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+}
+
+div.error, table tr.error {
+    background-color: transparent;
+}
+
+div.error {
+    background-image: none;
+    border-color: transparent;
+}
+
+.container-inline div, 
+.container-inline label {
+    display: block;
+}
+
+/**
+ * Menu
+ */
+ul.menu {
+    margin: 0;
+}
+
+ul.nav > li {
+    display: inline-block;
+}
+
+ul.dropdown-menu {
+    padding: 0;
+    border-radius: 0;
+}
+
+ul.dropdown-menu li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #eee;
+}
+
+ul.dropdown-menu li a {
+    color: #999;
+    padding: 8px 20px;
+    font-size: 12px;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus, 
+.dropdown-submenu:hover>a, 
+.dropdown-submenu:focus>a {
+    background-color: #f5f5f5;
+    background-image: none;
+    color: #999;
+}
+@media screen and (min-width: 980px) {
+    .superhero-dropdown > ul ul li:hover {
+        background: #f5f5f5;
+    }
+}
+/**
+ * TB Mega Menu
+ */
+.tb-megamenu {
+    background-color: transparent;
+}
+
+.tb-megamenu .dropdown-menu {
+    border-bottom: 0;
+}
+
+.tb-megamenu .nav > li > a {
+    border-right: 0;	
+} 
+
+.tb-megamenu .nav > .active > a, 
+.tb-megamenu .nav > .active > a:hover, 
+.tb-megamenu .nav > .active > a:focus {
+    background: transparent;
+}
+
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
+.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle,
+.tb-megamenu .nav > li.dropdown.open.active > a:hover {
+    background-color: transparent;
+}
+
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle,
+.tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: transparent;
+}
+
+.tb-megamenu .dropdown-menu .active > a,
+.tb-megamenu .dropdown-menu .active > a:hover {
+    background-color: transparent;
+    background-image: none;
+}
+
+/**
+ * Collapsible
+ */
+.tb-megamenu .nav-collapse  {
+    background-color: #FFF;
+}
+
+.tb-megamenu .nav-collapse .nav > li {
+    display: block;
+}
+
+.tb-megamenu .nav-collapse .nav > li > a, 
+.tb-megamenu .nav-collapse .dropdown-menu a {
+    border-bottom: 0;
+}
+
+/**
+ * Twitter
+ */
+.twitterSearchesNTweet .icon-twitter:before {
+    float:left;
+    margin-top: 4px;
+}
+.twitterSearchesNTweet .content {
+    padding-left:25px;
+}
+
+
+
+/**
+ * MEDIA QUERIES
+ */
+@media (max-width: 767px) {
+    body {
+        padding: 0 !important;
+    }
+}
+.superhero-sticky.fixed{
+	position: fixed;
+	width: 100%;
+	top:0;
+	z-index:99;
+}

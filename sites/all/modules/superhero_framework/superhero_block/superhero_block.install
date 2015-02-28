@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file
+ * Create table to store block animations
+ */
+
+/**
+ * Implements hook_requirements
+ */
+function superhero_block_requirements($phase) {
+	$requirements = array();
+	if ($phase == 'runtime') {
+		if (!libraries_get_path('stellar.js')) {
+			$requirements['stellar.js'] = array(
+				'title' => t('Stellar.js'),
+				'value' => t('The stellar.js library is required for parallax effects, please place the library in sites/all/libraries'),
+				'severity' => REQUIREMENT_WARNING,
+			);
+		} else {
+			$requirements['stellar.js'] = array(
+				'title' => t('Stellar.js'),
+				'value' => t('The stellar.js library is successfully installed'),
+				'severity' => REQUIREMENT_OK,
+			);
+		}
+	}
+	return $requirements;
+}
+/**
+ * Implements hook_schema
+ */
+function superhero_block_schema() {
+	$schema['superhero_block'] = array(
+		'description' => 'Stores the animations of blocks',
+		'fields' => array(
+			'sbid' => array(
+				'type' => 'serial',
+				'not null' => TRUE,
+				'unsigned' => TRUE,
+				'description' => 'Primary Key: Unique Superhero Block ID'
+			),
+			'module' => array(
+				'type' => 'varchar',
+				'length' => 255,
+				'not null' => TRUE,
+				'default' => '',
+				'description' => 'The {block}.module'
+			),
+			'delta' => array(
+				'type' => 'varchar',
+				'length' => 255,
+				'not null' => TRUE,
+				'default' => '',
+				'description' => 'The {block}.delta'
+			),
+			'animation' => array(
+				'type' => 'varchar',
+				'length' => 128,
+				'not null' => TRUE,
+				'default' => '',
+				'description' => 'The id of the animation',
+			),
+			'duration' => array(
+				'type' => 'numeric',
+				'size' => 'normal',
+				'not null' => TRUE,
+				'default' => 0,
+				'precision' => 10,
+				'scale' => 2,
+				'description' => 'The duration of the animation',
+			),
+			'delay' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+				'default' => 1,
+				'description' => 'The delay before animation',
+			),
+			'back_type' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+				'default' => 0,
+				'description' => 'Determines the type of background to use for the block',
+			),
+			'back_image' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+				'default' => 0,
+				'description' => 'The {file_managed}.fid of the background image',
+			),
+			'image_type' => array(
+				'type' => 'int',
+				'not null' => TRUE,
+				'default' => 0,
+				'description' => 'The format to use for the image (parallax,fixed)',
+			),
+			'parallax_ratio' => array(
+				'type' => 'numeric',
+				'size' => 'normal',
+				'not null' => TRUE,
+				'default' => 0,
+				'precision' => 10,
+				'scale' => 2,
+				'description' => 'The background scroll ratio of the parallax block',
+			),
+			'padding' => array(
+				'type' => 'varchar',
+				'length' => 255,
+				'not null' => TRUE,
+				'default' => '',
+				'description' => 'The padding of the parallax block',
+			),
+			'back_colour' => array(
+				'type' => 'varchar',
+				'length' => 10,
+				'not null' => FALSE,
+				'default' => '',
+				'description' => 'The hex colour of the background',
+			),
+		),
+		'primary key' => array('sbid'),
+	);
+	
+	return $schema;
+}

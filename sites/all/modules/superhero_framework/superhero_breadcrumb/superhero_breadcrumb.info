@@ -1,0 +1,4 @@
+name = Superhero Breadcrumb
+description = "Provides Breadcrumb as a block."
+core = 7.x
+package = Superhero Framework

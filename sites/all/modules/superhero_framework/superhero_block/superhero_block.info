@@ -1,0 +1,7 @@
+name = Superhero Block
+description = "Provides the ability to add appear animations and parallax backgrounds to blocks"
+core = 7.x
+package = Superhero Framework
+
+dependencies[] = media
+dependencies[] = libraries

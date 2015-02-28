@@ -1,0 +1,129 @@
+<?php
+
+/**
+ * @file
+ * Main functionality for the Superhero Portfolio
+ */
+
+/**
+ * Implements hook_views_api
+ */
+function superhero_portfolio_views_api() {
+	return array(
+		'api' => 3,
+		'path' => drupal_get_path('module','superhero_portfolio') . '/views',
+		'template path' => drupal_get_path('module','superhero_portfolio') . '/theme'
+	);
+}
+
+/**
+ * Implements hook_theme_registry_alter()
+**/
+function superhero_portfolio_theme_registry_alter(&$theme_registry) {
+  $mod_path = drupal_get_path('module', 'superhero_portfolio');
+  $theme_registry_copy = $theme_registry;       // munge on a copy
+  _theme_process_registry($theme_registry_copy, 'phptemplate', 'theme_engine', 'pow', $mod_path);
+  $theme_registry += array_diff_key($theme_registry_copy, $theme_registry);
+  $hooks = array('node');
+  foreach ($hooks as $h) {
+    _superhero_portfolio_insert_after_first_element($theme_registry[$h]['theme paths'], $mod_path);
+  }
+}
+
+/**
+ * Helper function for re-ordering arrays (needed by theme_registry_alter)
+*/
+function _superhero_portfolio_insert_after_first_element(&$a, $element) {
+  if(is_array($a)) {
+    $first_element = array_shift($a);
+    array_unshift($a, $first_element, $element);
+  }
+}
+
+/**
+ * Implements hook_image_default_styles
+ */
+function superhero_portfolio_image_default_styles() {
+	$styles = array();
+	$styles['superhero_portfolio'] = array(
+		'label' => 'Superhero Portfolio',
+		'effects' => array(
+			array(
+				'name' => 'image_scale_and_crop',
+				'data' => array(
+					'width' => 480,
+					'height' => 360
+				),
+				'weight' => 0
+			)
+		)
+	);	
+	return $styles;
+}	
+
+/**
+ * Implements hook_entity_info_alter
+ */
+function superhero_portfolio_entity_info_alter(&$entity_info) {
+	$entity_info['node']['view modes']['superhero_portfolio'] = array(
+		'label' => t('Superhero Portfolio'),
+		'custom settings' => TRUE,
+	);
+}
+
+/**
+ * Implements hook_preprocess_node
+ */
+function superhero_portfolio_preprocess_node(&$vars) {
+	$node = $vars['node'];
+	if ($vars['view_mode'] == 'superhero_portfolio') {
+		$vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__superhero_portfolio';
+	}
+	
+	// If the view attribute is set then it is part of a view and add classes to it
+	if (isset($vars['view']) && isset($vars['view']->style_plugin) && $vars['view']->style_plugin->plugin_name == 'superhero_portfolio') {
+		$view = $vars['view'];
+		$columns = $view->style_options['columns'];
+		$vars['classes_array'][] = 'element';
+		$vars['classes_array'][] = 'columns-'.$columns;
+		
+		$vars['content_attributes']['class'][] = 'test';
+		// Check that the portfolio categories field isnt empty
+		// if not then add the categories to the node
+		if ($view->style_options['use_filter']) {
+			if (!empty($vars['superhero_portfolio_categories'])) {
+				$categories = isset($vars['superhero_portfolio_categories'][$node->language])?$vars['superhero_portfolio_categories'][$node->language]:$vars['superhero_portfolio_categories']['und'];
+				foreach($categories as $cat) {
+					$tax = taxonomy_term_load($cat['tid']);
+					$vars['classes_array'][] = _superhero_portfolio_class_string($tax->name);
+				}
+			}
+		}
+	}
+}
+
+/**
+ * Helper function: generate class friendly name
+ */
+function _superhero_portfolio_class_string($name) {
+	$output = strtolower($name);
+	$output = str_replace(' ','-',$output);
+	return $output;
+}
+
+/**
+ * Theme
+ */
+ 
+/**
+ * Need to have preprocess functions here because drupal doesn't cache them 
+ * correctly in the theme.inc file.
+ * 
+ * If you would like to override the preprocess functions make sure to look at
+ * the associated function in theme.inc.
+ */
+include ('theme/superhero_portfolio.theme.inc');
+
+function template_preprocess_views_superhero_portfolio(&$vars) {
+	_views_slideshow_preprocess_views_superhero_portfolio($vars);
+}
