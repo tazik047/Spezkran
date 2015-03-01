@@ -1,11 +1,11 @@
 
 .menu li.with-sub:hover:before,
 .menu > li:before, .menu a.active:before {
-	background: #fff;/*#5489de;*/
+	background: transparent;/*#5489de;*/
 }
 
 .menu li.leaf>a{
-	margin-top: 35px;
+	margin-top: 27px;
 	padding-bottom: 10px;
 	color:#ffffff;
 }
@@ -13,11 +13,12 @@
 .b-social.social-header a:hover,
 .menu li.leaf>a.active {
 	/*color: #5489de;*/ 
-	color: #65686D;
+	background-color: #65686D;
+	border-radius: 5px 5px 0px 0px;
 }
 
 .menu li.leaf>a:hover{
-	color:grey;
+	background-color:grey;
 }
 
 .btn.colored {
