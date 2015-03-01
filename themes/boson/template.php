@@ -8,7 +8,7 @@ function boson_breadcrumb($variables) {
     $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
 
 	$breadcrumb[] = drupal_get_title();
-    $output .= '<ul class="crumbs"><li>You are here:</li> '  . implode('  >  ', $breadcrumb) . '</ul>';
+    $output .= '<ul class="crumbs"><li>'.t('You are here').':</li> '  . implode('  >  ', $breadcrumb) . '</ul>';
     return $output;
   }
 }
