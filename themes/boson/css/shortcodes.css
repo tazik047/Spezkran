@@ -3608,6 +3608,8 @@ input::-moz-placeholder, textarea::-moz-placeholder {
 	line-height: 41px;
 	font-size: 12px;
 	color: #9b9fa2;
+	
+	display: none;
 }
 
 .b-top-bar:after {

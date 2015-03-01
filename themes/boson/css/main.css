@@ -816,7 +816,9 @@ i.ita {
 --------------------------------------------------------------*/
 
 .wrap-left .menu {
-	margin-left: 40px;
+	/* margin-left: 40px; */
+	background-color: #2F3338;
+	top: 20px;
 }
 
 
@@ -884,6 +886,7 @@ i.ita {
 
 	-webkit-transition: none;
 	transition: none;
+	
 }
 
 .menu a.active {
@@ -916,9 +919,9 @@ i.ita {
 .menu > li:hover:before, .menu a.active:before { height: 2px; }
 
 .menu > li > a {
-    padding: 0 15px;
+     padding: 0 15px; 
     
-    /*line-height: 80px;*/
+    /* line-height: 80px; */
     color: #484c4f;
 }
 
@@ -1004,7 +1007,7 @@ i.ita {
 
 .header .layout {
 	height: 80px;
-	line-height: 80px;
+	/* line-height: 80px; */
 }
 
 .m-alt-head .mob-layout {
