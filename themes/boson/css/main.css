@@ -817,8 +817,9 @@ i.ita {
 
 .wrap-left .menu {
 	/* margin-left: 40px; */
-	background-color: #2F3338;
-	top: 20px;
+	background:#2f3338 url(../img/page-head-bg2.gif) repeat;
+	top: 22px;
+	width:1090px;
 }
 
 
