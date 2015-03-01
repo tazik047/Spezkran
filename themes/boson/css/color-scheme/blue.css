@@ -9,7 +9,7 @@
 	/*color: #5489de;*/ 
 	color: #2f3338;
 }
-.menu li .leaf{
+.menu li .leaf>a{
 	margin-top: 35px;
 	padding-bottom: 10px;
 	color:#ffffff;
