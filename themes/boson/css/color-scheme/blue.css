@@ -6,9 +6,17 @@
 
 .b-social.social-header a:hover,
 .menu a.active {
-	/*color: #5489de;*/ color:#ffffff;
+	/*color: #5489de;*/ 
+	color: #2f3338;
+}
+.menu li .leaf{
 	margin-top: 35px;
 	padding-bottom: 10px;
+	color:#ffffff;
+}
+
+.menu li .leaf:hover{
+	color:grey;
 }
 
 .btn.colored {
