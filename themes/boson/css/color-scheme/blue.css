@@ -4,18 +4,19 @@
 	background: #fff;/*#5489de;*/
 }
 
-.b-social.social-header a:hover,
-.menu a.active {
-	/*color: #5489de;*/ 
-	color: #2f3338;
-}
-.menu li .leaf>a{
+.menu li.leaf>a{
 	margin-top: 35px;
 	padding-bottom: 10px;
 	color:#ffffff;
 }
 
-.menu li .leaf:hover{
+.b-social.social-header a:hover,
+.menu li.leaf>a.active {
+	/*color: #5489de;*/ 
+	color: #2f3338;
+}
+
+.menu li.leaf>a:hover{
 	color:grey;
 }
 
