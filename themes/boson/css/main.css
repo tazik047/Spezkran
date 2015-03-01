@@ -715,6 +715,7 @@ i.ita {
 	background: -webkit-linear-gradient(top,  #fcfcfc 2%,#f9f9f9 100%);
 	background: linear-gradient(to bottom,  #fcfcfc 2%,#f9f9f9 100%);
 	background-image:url(../img/bg/irongrip.png);	
+	height: 108px;
 }
 
 .header .layout {
@@ -917,7 +918,7 @@ i.ita {
 .menu > li > a {
     padding: 0 15px;
     
-    line-height: 80px;
+    /*line-height: 80px;*/
     color: #484c4f;
 }
 

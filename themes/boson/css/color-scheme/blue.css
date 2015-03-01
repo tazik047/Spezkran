@@ -1,12 +1,14 @@
 
 .menu li.with-sub:hover:before,
 .menu > li:before, .menu a.active:before {
-	background: #5489de;
+	background: #fff;/*#5489de;*/
 }
 
 .b-social.social-header a:hover,
 .menu a.active {
 	/*color: #5489de;*/ color:#ffffff;
+	margin-top: 35px;
+	padding-bottom: 10px;
 }
 
 .btn.colored {
