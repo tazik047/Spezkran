@@ -21,6 +21,7 @@ function boson_preprocess_html(&$vars) {
 	
 	
 	drupal_add_css(path_to_theme() . '/css/main.css');
+	drupal_add_css(path_to_theme() . '/css/my.css');
 	
   
   // The Color Palette.

@@ -1,0 +1,43 @@
+.container { width: 930px; }
+
+.goods { font-size: 12.6px; }
+.goods button { outline: 0; }
+.goods .b1c-good .inside { padding: 5px 7px; -moz-box-shadow: 0 0 5px #d9d9d9; -webkit-box-shadow: 0 0 5px #d9d9d9; box-shadow: 0 0 5px #d9d9d9; -webkit-border-radius: 5px; -moz-border-radius: 5px; -ms-border-radius: 5px; border-radius: 5px; }
+.goods .b1c-name { color: #428bca; font-weight: 900; font-size: 15.4px; }
+.goods .b1c-price { color: #449d44; font-weight: 900; font-size: 14px; padding-top: 5px; }
+.goods label { padding-top: 3px; font-weight: 400; }
+.goods .caption { padding-top: 3px; text-align: left; }
+.goods.row div, .goods .row div { margin-bottom: 5px; }
+.goods .b1c { outline: 0; -moz-box-shadow: 0 3px 0 #449d44; -webkit-box-shadow: 0 3px 0 #449d44; box-shadow: 0 3px 0 #449d44; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; border-radius: 3px; padding: 5px 15px; border: 0; background: #5cb85c; margin: 0 0 5px 0; color: #fff; }
+.goods .b1c:hover { background: #6ec06e; }
+.goods .b1c:active { -moz-box-shadow: 0 0 0 #449d44; -webkit-box-shadow: 0 0 0 #449d44; box-shadow: 0 0 0 #449d44; margin: 5px auto 0; }
+
+body { font-family: "Open Sans", sans-serif; }
+
+blockquote { background: #fcf8f2; border-color: #f0ad4e; font-size: 14px; }
+
+footer { background: #eee; padding: 15px 0; margin-top: 20px; }
+
+.row div { margin-bottom: 20px; }
+
+.jumbotron { padding-bottom: 20px; padding-top: 20px; margin-bottom: 0; }
+
+.btn-success { font-weight: bold; border-bottom: 4px solid #20a157; text-shadow: 0 1px 0 #20a157; border-top: 0; }
+
+#footer { position: fixed; left: 0; bottom: 0; padding: 10px; background: #f9f9f9; width: 100%; }
+
+#footer, #footer * { color: #aaa; }
+
+dir { background: #ffe; padding: 3px 15px; border: 1px solid #FBFAE6; }
+
+#template_preview { border-radius: 5px; }
+
+pre { border: 0; }
+
+.nav-tabs { margin-bottom: 15px; }
+
+.navbar-inverse { background: #333; }
+
+.grey { color: #8c8c8c; }
+
+.colored { background: #333333 url("img/colored.png"); height: 7px; margin-bottom: 20px; }

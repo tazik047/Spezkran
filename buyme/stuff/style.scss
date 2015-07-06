@@ -1,0 +1,92 @@
+@import '../templates/lib';
+
+.container {
+	width: 930px;
+}
+.goods {
+	font-size: $fSize*0.9;
+	button {
+		outline: 0;
+	}
+	.b1c-good .inside {
+		padding: 5px 7px;
+		@include box-shadow(0, 0, 5px, darken(#fff, 15%));
+		@include border-radius(5px);
+	}
+	.b1c-name {
+		color: $blue;
+		font-weight: 900;
+		font-size: $fSize*1.1;
+	}
+	.b1c-price {
+		color: darken($green, 10%);
+		font-weight: 900;
+		font-size: $fSize;
+		padding-top: 5px;
+	}
+	label {
+		padding-top: 3px;
+		font-weight: 400;
+	}
+	.caption {
+		padding-top: 3px;
+		text-align: left;
+	}
+	&.row, .row {
+		div {
+			margin-bottom: 5px;
+		}
+	}
+
+	.b1c {
+		outline: 0;
+		@include box-shadow(0, 3px, 0, darken($green, 10%));
+		@include border-radius(3px);
+		padding: 5px 15px;
+		border: 0;
+		background: $green;
+		margin: 0 0 5px 0;
+		color: #fff;
+		&:hover {
+			background: lighten($green, 5%);
+		}
+		&:active {
+			@include box-shadow(0, 0, 0, darken($green, 10%));
+			margin: 5px auto 0;
+		}
+	}
+}
+
+body { font-family: "Open Sans", sans-serif; }
+blockquote {
+	background: #fcf8f2;
+	border-color: #f0ad4e;
+	font-size: $fSize;
+}
+footer {
+	background: #eee;
+	padding: 15px 0;
+	margin-top: 20px;
+}
+.row div { margin-bottom: 20px; }
+.jumbotron {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	margin-bottom: 0;
+}
+.btn-success {
+	font-weight: bold;
+	border-bottom: 4px solid #20a157;
+	text-shadow: 0 1px 0 #20a157;
+	border-top: 0;
+}
+
+#footer { position: fixed; left: 0; bottom: 0; padding: 10px; background: #f9f9f9; width: 100%; }
+#footer, #footer * { color: #aaa; }
+dir { background:#ffe; padding: 3px 15px; border: 1px solid #FBFAE6; }
+#template_preview { border-radius: 5px; }
+pre { border: 0; }
+.nav-tabs { margin-bottom: 15px; }
+.navbar-inverse { background: #333; }
+.grey { color: #8c8c8c; }
+.colored { background: #333 url("img/colored.png"); height: 7px; margin-bottom: 20px; }

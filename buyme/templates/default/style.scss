@@ -1,0 +1,165 @@
+@import '../lib';
+$blue: #466996;
+$size: 13px;
+
+.b1c-form {
+	@include border-radius(3px);
+	@include box-shadow(0, 5px, 15px, lighten(#000, 30%));
+	display: none;
+	text-align: left;
+	position: absolute;
+	margin: 0 auto;
+	background: #fff;
+	overflow: hidden;
+	width: 350px;
+	z-index: 1000;
+	textarea {
+		resize: none;
+	}
+	label {
+		font-size: $size;
+	}
+	.row div {
+		margin-bottom: 0;
+	}
+	.b1c-fields {
+		input, textarea, select {
+			outline: none;
+			box-shadow: none !important;
+		}
+	}
+	.b1c-submit {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.b1c-tl {
+		overflow: hidden;
+		border-radius: 2px 2px 0 0;
+		background: $blue;
+		color: #fff;
+		text-shadow: 0 -1px 0 #1B457D;
+		font-size: $size;
+		margin: 0 0 $size*0.85 0;
+	}
+	.b1c-close {
+		float: right;
+		padding: $size*0.65 $size*1.1 ;
+		color: #fff;
+		font-size: $size*1.5;
+		overflow: hidden;
+		cursor: pointer;
+		&:hover {
+			text-shadow: 0 0 15px #fff;
+		}
+		&:active {
+			margin-top: 1px;
+			margin-bottom: -1px;
+		}
+	}
+
+	.b1c-description {
+		margin: 0 $size*1 $size*0.9;
+		font-size: $size*1;
+	}
+	.b1c-form-group {
+		margin: 0 $size*0.9 $size*0.9;
+	}
+	.b1c-title-name { 
+		margin: $size*0.95 0 10px $size*1;
+		font-size: $size*1.1;
+	}
+	.b1c-txt.b1c-txt-err { // required field
+		border: 1px solid #ffadad !important;
+		background: #ffebeb !important;;
+	}
+
+	// results
+
+	.b1c-result {
+		padding: 5px 10px;
+		div {
+			text-align: center;
+			font-weight: 700;
+			padding: 8px 10px;
+			margin: 5px 0 5px;
+			border-top: 1px solid #ccc;
+			color: #555;
+		}
+		.b1c-ok {
+			border-top: 1px solid #070;
+			color: #070;
+			background: #c8ed9c;
+		}
+		.b1c-err {
+			border-top: 1px solid #ffadad;
+			color: darkred;
+			background: #ffebeb;
+		}
+		.b1c-send {
+			background: #efefef url(loading.gif) 10px no-repeat;
+		}
+	}
+	.b1c-submit-area {
+		@include border(top, darken(#fff, 10%));
+		background: darken(#fff, 5%);
+		padding: 10px 0 0 0; 
+		position: relative;
+	}
+	.b1c-cr {
+		margin: 8px 0 0 0;
+		position: absolute;
+		right: 10px;
+	}
+	.b1c-cr, .b1c-cr * {
+		font-size: $size*0.7;
+		color: #bcbcbc;	
+	}
+}
+
+.b1c-bg {
+	@include opacity(50);
+	display: none;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: lighten(#000, 30%);
+}
+
+@media screen and (max-device-width: 640px){
+	.b1c-form {
+		top: 0;
+		left: 0;
+		margin: 0 auto;
+		width: 100%;
+		* {
+			font-size: 1.2em !important;
+		}
+		#b1c-cr {
+			float: right;
+			position: relative;
+			margin: 0;
+		}
+	}
+}
+
+.b1c-submit, button.b1c {
+	@include box-shadow(0, 3px, 0, darken($green, 10%));
+	@include border-radius(3px);
+	padding: 5px 15px;
+	border: 0;
+	background: $green;
+	margin: 0 0 5px 0;
+	color: #fff;
+	outline: 0;
+	&:hover {
+		background: lighten($green, 5%);
+	}
+	&:active {
+		@include box-shadow(0, 0, 0, darken($green, 10%));
+		margin: 5px auto 0;
+	}
+}

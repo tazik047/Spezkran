@@ -1,0 +1,50 @@
+<div class="b1c-bg"></div>
+
+<div class="b1c-form">
+
+	<div class="b1c-tl">
+		<div class="b1c-close">&times;</div>
+		<div class="b1c-title-name">{{:caption.title}} <span></span></div>
+	</div>
+	<div class="b1c-description">{{:caption.description}}</div>
+
+	<div class="b1c-fields">
+		<div class="b1c-template" data-bme="textField">
+			<div class="b1c-form-group">
+				<label>{{:caption}}</label>
+				<input type="text" class="form-control b1c-txt input-sm" placeholder="{{:placeholder}}" required data-bme="{{:caption}}">
+			</div>
+		</div>
+
+		<div class="b1c-template" data-bme="textArea">
+			<div class="b1c-form-group">
+				<label>{{:caption}}</label>
+				<textarea class="form-control b1c-txt input-sm" required data-bme="{{:caption}}" placeholder="{{:placeholder}}"></textarea>
+			</div>
+		</div>
+
+		<div class="b1c-template" data-bme="select">
+			<div class="b1c-form-group">
+				<label>{{:caption}}</label>
+				<select class="b1c-select form-control input-sm" data-bme="{{:caption}}">{{:selectArea}}</select>
+			</div>
+		</div>
+
+		<div class="b1c-template" data-bme="selectOption">
+			<option class="b1c-template">{{:option}}</option>
+		</div>
+
+		<div class="b1c-template" data-bme="checkBox">
+			<div class="b1c-form-group checkbox">
+				<label>
+					<input type="checkbox" class="b1c-checkbox" data-bme="{{:caption}}">{{:caption}}
+				</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="b1c-submit-area">
+		<button class="b1c-submit">{{:caption.button}}</button>
+		<div class="b1c-result"></div>
+	</div>
+</div>
