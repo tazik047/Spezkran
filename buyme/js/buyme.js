@@ -1,6 +1,6 @@
 // $.Buyme 1.4: author Nazar Tokar * nazarTokar.com * dedushka.org * Copyright 2013-2014
 // updated on 2014-11-15
-
+(function ($) {
 jQuery.getScript(getScriptFolder("buyme.js")+"js/config.js", function(){
 	buyMe();
 });
@@ -349,3 +349,4 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		document.cookie = e + "=" + v + "; " + expires;
 	}
 }
+}(jQuery));
