@@ -1,10 +1,5 @@
 <!--<script type="text/javascript" charset="utf-8" src="/buyme/js/jquery.js"></script>-->
 <script type="text/javascript" charset="utf-8" src="/buyme/js/buyme.js"></script>
-<style>
-	.b1c-cr{
-		display:none;
-	}
-</style>
   <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
     <?php print $user_picture; ?>
