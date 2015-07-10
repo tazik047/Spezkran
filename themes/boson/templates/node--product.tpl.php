@@ -1,6 +1,6 @@
 <!--<script type="text/javascript" charset="utf-8" src="/buyme/js/jquery.js"></script>-->
 <script type="text/javascript" charset="utf-8" src="/buyme/js/buyme.js"></script>
-  <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <div id="node-<?php print $node->nid; ?>" class="product <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
     <?php print $user_picture; ?>
 
@@ -16,23 +16,32 @@
       </div>
     <?php endif; ?>
     <div class="content b1c-good"<?php print $content_attributes; ?>>
-      <?php print '<div style="display:none" class = "b1c-name">'.$title.'</div><div><button class="b1c">'.t('Call me').'</button></div>';
-      $product_class_name = 'product-content'; ?>
-      <?php if (!empty($content['product:field_images']) && $page): ?>
-        <?php $product_class_name = 'span4'; ?>
-        <div class="span5">
-
-          <?php print render($content['product:field_images']); ?>
-        </div>
-      <?php endif; ?>
-      <div class="<?php print $product_class_name; ?>">
-        <?php
-        // We hide the comments and links now so that we can render them later.
-        hide($content['comments']);
+      <?php print '<div style="display:none" class = "b1c-name">'.$title.'</div>';
+		hide($content['comments']);
         hide($content['links']);
-        print render($content);
-        ?>
-      </div>
+		hide($content['uc_product_image']);
+		hide($content['body']);
+		/*unset($content['body']);
+		unset($content['comments']);
+        unset($content['links']);
+		unset($content['uc_product_image']);
+		print '<pre>';
+		print_r($content);
+		die();*/
+	  ?>
+	  <div class="blocks">
+		<?php print render($content['uc_product_image']); ?>
+	  </div>
+	  <div class="blocks">
+		<?php print render($content); ?>
+		<div><button class="b1c"><?php print t('Call me');?></button></div>
+	  </div>
+	  <div style="clear:both;"></div>
+	  <h2 class="title-desc"><?php print t('Description').':';?></h2>
+	  <hr/>
+	  <?php print render($content['body']); ?>
+	  
+        
     </div>
 
 

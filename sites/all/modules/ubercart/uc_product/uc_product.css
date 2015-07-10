@@ -12,13 +12,12 @@
 }
 
 .display-price {
-  clear: right;
-  float: right;
   font-size: 1.3em;
   font-weight: bold;
-  padding-bottom: 4px;
-  padding-left: 4px;
-  text-align: center;
+}
+
+.display-price:before{
+	content:"Цена: ";
 }
 
 .model {
