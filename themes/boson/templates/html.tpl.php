@@ -16,4 +16,12 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 </body>
+<script>
+	jQuery(document).ready(function() {
+		jQuery('.uc-price').each(function(){
+			if(jQuery(this).text()=='0.00грн.')
+				jQuery(this).text("Цену уточняйте");
+		});
+	});
+</script>
 </html>

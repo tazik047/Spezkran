@@ -24,7 +24,8 @@
 }
 
 @media only screen and (max-width: 959px), only screen and (max-device-width: 999px){
-	.view-uc-catalog .views-field{
+	.view-uc-catalog .views-fieldб,
+	#block-views-news-block .views-field{
 		width:154px;
 	}
 	.view-uc-catalog-terms .views-field{
