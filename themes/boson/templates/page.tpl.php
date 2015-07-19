@@ -115,6 +115,7 @@ if (theme_get_setting('boson_boxed') == TRUE) {
 			</ul>
 			<!-- Title -->
 			<h1 class="tb1"><?php print $title; ?></h1>
+			<div style="clear:both;"></div>
 		</div>
 	</div>
 	<!-- END TITLE BAR -->
