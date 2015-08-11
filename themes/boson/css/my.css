@@ -1,4 +1,5 @@
 .view-uc-catalog .views-field,
+.view-search .views-field,
 #block-views-news-block .views-field{
 	width: 200px;
 	text-align:center;
@@ -13,8 +14,110 @@
 	padding-top: 10px;
 }
 
+#block-system-navigation ul.menu>li{
+	display:block;
+}
+
+#block-system-navigation ul.menu>li a{
+	color:black !important;
+	height:auto !important;
+	background-color:transparent !important;
+}
+
+#block-system-main dt{
+	position: relative;
+    padding-left: 30px;
+    padding-top: 9px;
+    border-top: 1px solid #ccc;
+    margin-left: 0;
+    margin-bottom: 10px;
+    background: url(list-item.png) no-repeat 0 11px;
+    list-style-type: none;
+    list-style-image: none;
+	height: 25px;
+}
+
+.node-product-form .vertical-tabs-list{
+	display: none;
+}
+
+.node-product-form .vertical-tabs {
+	margin-left:0px;
+}
+
+#block-system-main dt>a{
+	margin-left: -30px;
+    padding: 0 0 4px 30px;
+    min-height: 0;
+}
+
+.node-article .avatar{
+	float:left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+.node-type-article .field-name-field-image {
+  position: relative;
+  z-index: 1;
+}
+
+.node-article .separator{
+	border-bottom: 1px dashed #dee1e2;
+	margin-bottom: 20px;
+}
+
+.node-new>.publish-date>.icon,
+.node-article .publish-date>.icon{
+	margin: 0 6px 0 0;
+	content: ' ';
+	width:12px;
+	height:12px;
+	display:inline-block;
+	background-image:url('calendar.gif');
+}
+
+.node-article .publish-date{
+	font-weight: bold;
+}
+
+.node-new>.publish-date{
+	font-weight:bold;
+	margin-bottom: 20px;
+	margin-top: -20px;
+}
+
+.myCenter{
+	text-align: center;
+	display: block;
+}
+
 #block-views-news-block .views-row{
   margin-bottom: 15px;
+}
+
+.b-search-form input{
+	width:142px;
+}
+
+.b-search-form input:focus{
+	width:250px;
+}
+
+.view-display-id-admin_page .b-search-form{
+	float: none;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.view-display-id-admin_page .b-search-form:before {
+    content: 'Заголовок';
+    display: block;
+    font-weight: bold;
+}
+
+body.node-type-new .row .tabs{
+	margin: -20px -12px 20px;
 }
 
 @media only screen and (max-width: 1119px), only screen and (max-device-width: 1219px){
@@ -24,7 +127,8 @@
 }
 
 @media only screen and (max-width: 959px), only screen and (max-device-width: 999px){
-	.view-uc-catalog .views-fieldб,
+	.view-uc-catalog .views-field,
+	.view-search.views-field,
 	#block-views-news-block .views-field{
 		width:154px;
 	}
@@ -34,6 +138,7 @@
 }
 
 .view-uc-catalog .row-item,
+.view-search .row-item,
 .view-uc-catalog-terms .row-item,
 #block-views-news-block .row-item{
 	border: 1px solid rgb(236, 236, 253);
@@ -43,6 +148,7 @@
 }
 
 .view-uc-catalog div.row-item:hover,
+.view-search div.row-item:hover,
 .view-uc-catalog-terms div.row-item:hover,
 #block-views-news-block div.row-item:hover{
 	background: rgba(189, 192, 255, 0.07);
