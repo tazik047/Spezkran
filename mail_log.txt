@@ -1,3 +1,0 @@
-[05-Aug-2015 16:03:04 Asia/Muscat] mail() on [E:\Spezkran\mail.php:2]: To: stas249501@gmail.com -- Headers: 
-[05-Aug-2015 16:05:53 Asia/Muscat] mail() on [E:\Spezkran\mail.php:2]: To: stas249501@gmail.com -- Headers: 
-[05-Aug-2015 16:09:53 Asia/Muscat] mail() on [E:\Spezkran\mail.php:2]: To: stas249501@gmail.com -- Headers: 

@@ -3,7 +3,7 @@
 <script type="text/javascript" charset="utf-8" src="/buyme/js/buyme.js"></script>
 <script type="text/javascript" charset="utf-8" src="<?php print base_path() . drupal_get_path('theme', 'boson');?>/js/magnific.js"></script>
   <div id="node-<?php print $node->nid; ?>" class="product <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  
+
     <?php print $user_picture; ?>
 
     <?php print render($title_prefix); ?>
@@ -23,6 +23,13 @@
         hide($content['links']);
 		hide($content['uc_product_image']);
 		hide($content['body']);
+		/*unset($content['body']);
+		unset($content['comments']);
+        unset($content['links']);
+		unset($content['uc_product_image']);
+		print '<pre>';
+		print_r($content);
+		die();*/
 	  ?>
 	  <div class="blocks">
 		<?php print render($content['uc_product_image']); ?>
