@@ -1,0 +1,41 @@
+#section-top {
+  margin: 0;
+  padding: 0;
+}
+#section-breadcrumb {
+  margin: 0;
+  padding: 0;
+}
+#section-buynow {
+  margin: 0;
+  padding: 0;
+}
+#section-parallax {
+  margin: 0;
+  padding: 0;
+}
+#section-logoslider {
+  margin: 0;
+  padding: 30px 0;
+}
+body {
+  color: #4c5357;
+}
+.body a:not(.btn) {
+  color: #b25c6e;
+}
+.link-bg:hover, .link-bg a:hover {
+  background-color: #b25c6e;
+}
+.tb-megamenu .nav li.dropdown.active > .dropdown-toggle, .tb-megamenu .nav li.dropdown.open.active > .dropdown-toggle, .tb-megamenu .nav > li.dropdown.open.active > a:hover, .tb-megamenu .nav > li > a:focus, .tb-megamenu .nav > li > a:hover, .tb-megamenu .nav li.dropdown.open > .dropdown-toggle, .tb-megamenu .dropdown-menu li > a:hover, .tb-megamenu .dropdown-menu li > a:focus, .tb-megamenu .dropdown-submenu:hover > a, .tb-megamenu .dropdown-menu .active > a, .tb-megamenu .dropdown-menu .active > a:hover {
+  color: #b25c6e;
+}
+.body a:hover {
+  color: #723643;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #b0586a;
+}
+.body h2 a {
+  color: #b0586a;
+}
