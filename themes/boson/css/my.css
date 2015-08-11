@@ -124,6 +124,15 @@ body.node-type-new .row .tabs{
 	.view-uc-catalog-terms .views-field{
 		width: 277px;
 	}
+	.wrap-left .menu{
+		width:960px;
+	}
+}
+
+@media only screen and (max-width: 420px){
+	.white-popup{
+		width:80% !important;
+	}
 }
 
 @media only screen and (max-width: 959px), only screen and (max-device-width: 999px){
@@ -313,8 +322,19 @@ table tr:hover {
     background-color: rgba(189, 192, 255, 0.07); /*Цвет строки при наведении курсора мыши*/
 }
 
-/*Подсветка нечетных строк в таблице*/
-/*table tbody tr:nth-child(odd) td  {
-    background-color: #f8f8f8;
+@media only screen and (max-width: 767px), only screen and (max-device-width: 767px){
+	.b-titlebar h1 {
+		white-space: normal;
+		line-height: normal;
+	}
 }
-*/
+
+.wrap-table {
+    overflow-x: auto;
+}
+
+iframe{
+	max-width:100%;
+	z-index: 2;
+    position: relative;
+}
