@@ -136,7 +136,7 @@ if ($interval < 20) { // если прошло менее (сек)
 		$sms["msg"] = substr(translit($prd.",".(getOptions(0))), 0, 160);
 
 		if (strlen($to) > 5 && $to != "yourMail") {
-			MailSmtp ($to, $title, $mess, $headers); 
+			@mail($to, $title, $mess, $headers); 
 		}
 
 		if (($sms["id"] != "") || ($sms["key"] != "") || ($sms["log"] != "")) {
