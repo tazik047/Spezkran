@@ -1,0 +1,111 @@
+<?php
+
+function ostpc_menu(){
+ $items['settings_appearance']=array(
+   'title'		=>	t('Settings'),
+   'description'	=>	t('Страница настроек сайта.'),
+   'page callback'	=>	'setting_page',
+   'access arguments'	=>	array('access ostpc module'),
+   'type'		=>	MENU_NORMAL_ITEM,
+  );
+ return $items;
+}
+
+function ostpc_permission() {
+    return array(
+        'access test module' => array(
+              'title'           => t('Access to OSTPC page setting'),
+              'description'     => t('Доступ к странице настроек')
+            ),
+        );
+}
+
+function setting_page(){
+	$form = drupal_get_form('ostpc_form'); //получаем поля формы
+	$form = drupal_render($form); //рендерим форму
+	return $form;
+}
+
+function ostpc_variable_info($options) {
+
+  $variable['ostpc_logo'] = array(
+    'title' => t('Logo Path'),
+  );
+  
+  $variable['ostpc_width'] = array(
+    'title' => t('Logo width'),
+  );
+  
+  $variable['ostpc_height'] = array(
+    'title' => t('Logo height'),
+  );
+
+  $variable['ostpc_background'] = array(
+    'title' => t('Background Path'),
+  );
+  
+  return $variable;
+}
+
+function ostpc_form($form, &$form_state){
+	/*variable_set('ostpc_logo', 'asdasdads');
+	print_r(variable_get('ostpc_logo'));
+	die();
+	return '';*/
+	$form=array();
+	
+	$form['field_logo_width'] = array(
+		'#type'	=> 'textfield',
+		'#title' => t('Ширина логотипа'),
+		'#default_value' => variable_get('ostpc_width'),
+	);
+	
+	$form['field_logo_height'] = array(
+		'#type'	=> 'textfield',
+		'#title' => t('Высота логотипа'),
+		'#default_value' => variable_get('ostpc_height'),
+	);
+	
+	$form['logo_button'] = array(
+	  '#prefix' => '<div class="wrap-div"><label class="title">'. t('Логотип сайта') .'</label><img class="path_to_logo" src="'.variable_get('ostpc_logo').'"/>',
+	  '#suffix' => '</div>',
+	  '#markup' => '<button id="bt_for_logo" class="btn big blue"><span>' . t('Изменить логотип') . '</span></button>',
+	);
+	
+	$form['logo'] = array(
+		'#type' => 'hidden',
+		'#default_value' => variable_get('ostpc_logo'),
+	);
+	
+	$form['bg_button'] = array(
+	  '#prefix' => '<div class="wrap-div"><label class="title">'. t('Фон сайта') .'</label><img class="path_to_background" src="'.variable_get('ostpc_background').'"/>',
+	  '#suffix' => '</div>',
+	  '#markup' => '<button id="bt_for_bg" class="btn big blue"><span>' . t('Изменить фон') . '</span></button>',
+	);
+		
+	$form['background'] = array(
+		'#type' => 'hidden',
+		'#default_value' => variable_get('ostpc_background'),
+	);	
+	
+	$form['submit'] = array( //кнопка сабмит
+		'#type' => 'submit',
+		'#value' => t('Save'),
+	);
+	
+	$form['#after_build'][] = 'add_js';
+ 
+	return $form;
+}
+
+function ostpc_form_submit($form, &$form_state){
+	variable_set('ostpc_logo', $form_state['values']['logo']);
+	variable_set('ostpc_background', $form_state['values']['background']);
+	variable_set('ostpc_width', $form_state['values']['field_logo_width']);
+	variable_set('ostpc_height', $form_state['values']['field_logo_height']);
+}
+
+function add_js($form, &$form_state){
+	drupal_add_js(drupal_get_path('module', 'ostpc') . "/load_imce.js");
+	return $form;
+}

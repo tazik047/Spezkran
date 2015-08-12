@@ -42,11 +42,12 @@ if (theme_get_setting('boson_boxed') == TRUE) {
 				<!-- Logo -->
                 <?php if ($logo): ?>
                <div class="logo-img">
-               <a href="<?php print $front_page; ?>"><img height="82" src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+               <a href="<?php print $front_page; ?>"><img width="<?php print variable_get('ostpc_width')?>" height="<?php print variable_get('ostpc_height'); ?>" src="<?php print variable_get('ostpc_logo'); ?>" alt="<?php print t('Home'); ?>" /></a>
                </div>
                <?php endif; ?>
 
-               </div><!-- brand -->
+               </div>
+			   <!-- brand -->
                  <?php print render($page['main_menu']); ?>
 				
 			</div>

@@ -1,0 +1,9 @@
+<?php
+
+function ostpc_install() {
+	
+}
+
+function ostpc_uninstall() {
+	
+}

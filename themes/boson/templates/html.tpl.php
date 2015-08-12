@@ -10,6 +10,12 @@
 <?php print $scripts; ?>
         <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <!-- END: js -->
+
+<style>
+	body, .header{
+		background: #fff url(<?php print variable_get('ostpc_background'); ?>);
+	}
+</style>		
 </head>
 <body class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <?php print $page_top; ?>

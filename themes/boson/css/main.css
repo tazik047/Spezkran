@@ -714,8 +714,7 @@ i.ita {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,#fcfcfc), color-stop(100%,#f9f9f9));
 	background: -webkit-linear-gradient(top,  #fcfcfc 2%,#f9f9f9 100%);
 	background: linear-gradient(to bottom,  #fcfcfc 2%,#f9f9f9 100%);
-	background-image:url(../img/bg/irongrip.png);	
-	height: 108px;
+	z-index: 500;
 }
 
 .header .layout {
@@ -747,7 +746,7 @@ i.ita {
 }
 
 .mob-layout {
-	max-height: 80px;
+	/*max-height: 80px;*/
 	text-align: left;
 
 }
@@ -818,7 +817,7 @@ i.ita {
 .wrap-left .menu {
 	/* margin-left: 40px; */
 	background:#2f3338 url(../img/page-head-bg2.gif) repeat;
-	top: 22px;
+	/*top: 22px;*/
 	width:1090px;
 }
 
@@ -1006,10 +1005,10 @@ i.ita {
 
 /*----------------------------------------------*/
 
-.header .layout {
+/*.header .layout {
 	height: 80px;
-	/* line-height: 80px; */
-}
+	line-height: 80px;
+}*/
 
 .m-alt-head .mob-layout {
 	float: none;
@@ -1265,7 +1264,7 @@ i.ita {
 .b-search-form {
 	float: right;
 	margin: 0 0 0 26px;
-	margin-top: -30px;
+	/*margin-top: -30px;*/
 	margin-right: -80px;
 	margin-bottom: -22px;
 }
@@ -3393,7 +3392,10 @@ text-decoration: none;
 }
 .brand {
 	float:left;
-	}
+	margin-bottom:-6px;
+	position: relative;
+	z-index: 2;
+}
 
 
 .glavno , .row .tabs{
@@ -3455,10 +3457,10 @@ margin-top: 0;
 	display:none; 
 	}
 
-.logo-img {
-/*padding-top: 12px;*/
+/*.logo-img {
+padding-top: 12px;
 height: 50px;
-}
+}*/
 
 .node-type-blog h1.tb1 {
 	display:none;

@@ -1,3 +1,27 @@
+#ostpc-form .wrap-div{
+	border-bottom:1px dashed grey;
+	position:relative;
+}
+
+#ostpc-form .wrap-div>button{
+	position: absolute;
+	right: 0px;
+	bottom: 50%;
+}
+
+#ostpc-form .title{
+	margin-top: 15px;
+}
+
+#ostpc-form input[type=submit]{
+	margin-top:15px;
+}
+
+#ostpc-form .wrap-div>img{
+	width:250px;
+	margin-bottom:20px;	
+}
+
 .view-uc-catalog .views-field,
 .view-search .views-field,
 #block-views-news-block .views-field{
@@ -326,6 +350,21 @@ table tr:hover {
 	.b-titlebar h1 {
 		white-space: normal;
 		line-height: normal;
+	}
+	
+	#ostpc-form .wrap-div>button{
+		position: relative;
+	}
+	
+	#ostpc-form .wrap-div{
+		text-align: center;
+	}
+	
+	.view-uc-catalog .views-field,
+	.view-search.views-field,
+	#block-views-news-block .views-field,
+	.view-uc-catalog-terms .views-field{
+		width: 100%;
 	}
 }
 
