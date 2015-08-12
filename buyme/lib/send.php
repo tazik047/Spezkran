@@ -6,7 +6,7 @@
 
 header ("Content-Type: text/html; charset=utf-8"); //кодировка
 // почта для уведомлений //несколько ящиков могут перечисляться через запятую
-$to = "yourMail";
+$to = "admin@spezkran.zz.vc";
 
 $HTTP_HOST = parse_url('http://'.$_SERVER["HTTP_HOST"]); 
 $HTTP_HOST = str_replace(array("http://","www."),"", $HTTP_HOST['host']);
@@ -136,7 +136,7 @@ if ($interval < 20) { // если прошло менее (сек)
 		$sms["msg"] = substr(translit($prd.",".(getOptions(0))), 0, 160);
 
 		if (strlen($to) > 5 && $to != "yourMail") {
-			@mail($to, $title, $mess, $headers); 
+			MailSmtp ($to, $title, $mess, $headers); 
 		}
 
 		if (($sms["id"] != "") || ($sms["key"] != "") || ($sms["log"] != "")) {
