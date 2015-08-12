@@ -16,12 +16,16 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 </body>
-<script>
+<script>	
+
 	jQuery(document).ready(function() {
 		jQuery('.uc-price').each(function(){
 			if(jQuery(this).text()=='0.00грн.')
 				jQuery(this).text("Цену уточняйте");
 		});
+		if(jQuery('[id^="node-"]').length==1){
+			jQuery('table').wrap('<div class="wrap-table"></div>');
+		}
 	});
 </script>
 </html>
