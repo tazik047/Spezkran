@@ -68,6 +68,19 @@
 		  removalDelay: 500,
 		  type: 'ajax'		  
 		});
+		jQuery(".cloud-zoom-container>.cloud-zoom-gallery-thumbs>a").fancybox({
+			'transitionIn'	:	'elastic',
+			'transitionOut'	:	'elastic',
+			'speedIn'		:	600, 
+			'speedOut'		:	200, 
+			'overlayShow'	:	false
+		});
+		
+		jQuery('.cloud-zoom-container>#wrap, .cloud-zoom-container>#wrap>a').click(function(e){
+			jQuery.fancybox.open(jQuery('.cloud-zoom-container>.cloud-zoom-gallery-thumbs>a'));
+			e.preventDefault();
+		});
+		
 		jQuery.extend(true, jQuery.magnificPopup.defaults, {
 		  tClose: '<?php print t('Close'); ?> (Esc)', // Alt text on close button
 		  tLoading: '<?php print t('Loading'); ?>...', // Text that is displayed during loading. Can contain %curr% and %total% keys

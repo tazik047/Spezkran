@@ -8,12 +8,19 @@ function ostpc_menu(){
    'access arguments'	=>	array('access ostpc module'),
    'type'		=>	MENU_NORMAL_ITEM,
   );
+  $items['settings_watermark']=array(
+   'title'		=>	t('Watermark'),
+   'description'	=>	t('Страница настроек водного знака.'),
+   'page callback'	=>	'setting_wm',
+   'access arguments'	=>	array('access ostpc module'),
+   'type'		=>	MENU_NORMAL_ITEM,
+  );
  return $items;
 }
 
 function ostpc_permission() {
     return array(
-        'access test module' => array(
+        'access ostpc module' => array(
               'title'           => t('Access to OSTPC page setting'),
               'description'     => t('Доступ к странице настроек')
             ),
@@ -22,6 +29,12 @@ function ostpc_permission() {
 
 function setting_page(){
 	$form = drupal_get_form('ostpc_form'); //получаем поля формы
+	$form = drupal_render($form); //рендерим форму
+	return $form;
+}
+
+function setting_wm(){
+	$form = drupal_get_form('imce_watermark_settings'); //получаем поля формы
 	$form = drupal_render($form); //рендерим форму
 	return $form;
 }
@@ -48,10 +61,6 @@ function ostpc_variable_info($options) {
 }
 
 function ostpc_form($form, &$form_state){
-	/*variable_set('ostpc_logo', 'asdasdads');
-	print_r(variable_get('ostpc_logo'));
-	die();
-	return '';*/
 	$form=array();
 	
 	$form['field_logo_width'] = array(

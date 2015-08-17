@@ -366,6 +366,14 @@ table tr:hover {
 	.view-uc-catalog-terms .views-field{
 		width: 100%;
 	}
+	
+	.f-b {
+		float: none;
+	}
+	
+	.cloud-zoom-container>#wrap>div{
+		display:none;
+	}
 }
 
 .wrap-table {
