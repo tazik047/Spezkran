@@ -374,6 +374,9 @@ table tr:hover {
 	.cloud-zoom-container>#wrap>div{
 		display:none;
 	}
+	.uc-price {
+		font-size: 0.9em;
+	}
 }
 
 .wrap-table {
@@ -384,4 +387,19 @@ iframe{
 	max-width:100%;
 	z-index: 2;
     position: relative;
+}
+
+body.page-admin-structure-taxonomy  div.tabs ul.tabs>li{
+	display:none;
+}
+
+body.page-admin-structure-taxonomy  div.tabs ul.tabs>li:first-child{
+	display:inline;
+}
+
+div[data-bme="Имя пользователя"] {
+    display: none;
+}
+.b1c-form .input-sm, .b1c-form .form-horizontal .form-group-sm .form-control {
+    line-height: 15px;
 }

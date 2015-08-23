@@ -34,7 +34,7 @@ function setting_page(){
 }
 
 function setting_wm(){
-	$form = drupal_get_form('imce_watermark_settings'); //получаем поля формы
+	$form = drupal_get_form('ostpc_wm_form'); //получаем поля формы
 	$form = drupal_render($form); //рендерим форму
 	return $form;
 }
@@ -57,7 +57,108 @@ function ostpc_variable_info($options) {
     'title' => t('Background Path'),
   );
   
+  $variable['ostpc_wm_text'] = array(
+    'title' => t('WM text'),
+  );
+  
+  $variable['ostpc_wm_color'] = array(
+    'title' => t('WM color'),
+  );
+  
+  $variable['ostpc_wm_alpha'] = array(
+    'title' => t('WM alpha'),
+  );
+  
+  $variable['ostpc_wm_h'] = array(
+    'title' => t('WM horizontal'),
+  );
+  
+  $variable['ostpc_wm_v'] = array(
+    'title' => t('WM vertical'),
+  );
+  
   return $variable;
+}
+
+function ostpc_wm_form($form, &$form_state){
+	$form=array();
+	
+	$form['field_text'] = array(
+		'#type'	=> 'textfield',
+		'#title' => t('Текст водного знака'),
+		'#default_value' => variable_get('ostpc_wm_text'),
+	);
+	
+	$form['field_color'] = array(
+		'#type' => 'textfield',
+		'#title' => t('Цвет водного знака'),
+		'#suffix' => '<div id="color-picker"></div>',
+		'#default_value' => variable_get('ostpc_wm_color'),
+		'#maxlength' => 7,
+		'#size' => 7,
+		'#attached' => array(
+			'library' => array(
+				array('system', 'farbtastic'),
+			),
+			'js' => array(
+				array(
+					'type' => 'inline',
+					'data' =>
+						'(function($) {
+							$(document).ready(function() {
+								$("#color-picker").farbtastic("#edit-field-color");
+						});
+					}) (jQuery);'
+				),
+			)
+		)
+	);
+	
+	$form['field_alpha'] = array(
+		'#type'	=> 'textfield',
+		'#title' => t('Прозрачность водного знака'),
+		'#maxlength' => 3,
+		'#description' => t('Введите значение прозрачности от 0 до 100.'),
+		'#default_value' => variable_get('ostpc_wm_alpha'),
+	);
+	
+	$form['field_horizontal_position'] = array(
+		'#type' => 'select',
+		'#title' => t('Horizontal position of watermark'),
+		'#options' => array(0 => t('left'), 1 => t('middle'), 2 => t('right')),
+		'#default_value' => variable_get('ostpc_wm_h'),
+	);
+	$form['field_vertical_position'] = array(
+		'#type' => 'select',
+		'#title' => t('Vertical position of watermark'),
+		'#options' => array(0 => t('top'), 1 => t('center'), 2 => t('bottom')),
+		'#default_value' => variable_get('ostpc_wm_v'),
+	);
+	
+	$form['submit'] = array( //кнопка сабмит
+		'#type' => 'submit',
+		'#value' => t('Save'),
+	);
+	
+	//$form['#after_build'][] = 'add_js';
+ 
+	return $form;
+}
+
+function ostpc_wm_form_submit($form, &$form_state){
+	/*print '<pre>';
+	print_r($form_state);
+	die();*/
+	if(intval($form_state['values']['field_alpha'])>=0 && intval($form_state['values']['field_alpha'])<=100){
+		variable_set('ostpc_wm_text',$form_state['values']['field_text']);
+		variable_set('ostpc_wm_color',$form_state['values']['field_color']);
+		variable_set('ostpc_wm_alpha', intval($form_state['values']['field_alpha']));
+		variable_set('ostpc_wm_h', intval($form_state['values']['field_horizontal_position']));
+		variable_set('ostpc_wm_v', intval($form_state['values']['field_vertical_position']));
+	}
+	else{
+		drupal_set_message("Вы ввели неправильное значение прозрачности", 'error');
+	}
 }
 
 function ostpc_form($form, &$form_state){

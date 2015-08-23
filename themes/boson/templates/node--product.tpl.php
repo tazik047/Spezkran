@@ -23,14 +23,8 @@
         hide($content['links']);
 		hide($content['uc_product_image']);
 		hide($content['body']);
-		/*unset($content['body']);
-		unset($content['comments']);
-        unset($content['links']);
-		unset($content['uc_product_image']);
-		print '<pre>';
-		print_r($content);
-		die();*/
 	  ?>
+	  <div data-bme="Имя пользователя" style="display:none;"><?php global $user; print (isset($user->name)?$user->name:t('Гость'));?></div>
 	  <div class="blocks">
 		<?php print render($content['uc_product_image']); ?>
 	  </div>
