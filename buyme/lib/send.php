@@ -10,7 +10,7 @@ $to = "admin@spezkran.zz.vc";
 
 $HTTP_HOST = parse_url('http://'.$_SERVER["HTTP_HOST"]); 
 $HTTP_HOST = str_replace(array("http://","www."),"", $HTTP_HOST['host']);
-$from = "noreply@".$HTTP_HOST; // отправитель
+$from = "admin@".$HTTP_HOST; // отправитель
 
 // данные для отправки смс
 
@@ -56,7 +56,7 @@ function sendSMS ($to, $msg){
 $l["sent"] = "Заказ уже был отправлен";
 $l["err"] = "Пожалуйста, заполните все поля";
 $l["ok"] = "Спасибо, заказ принят. Ждите звонка";
-$l["title"] = "Buyme: новый заказ";
+$l["title"] = "Spezkran: новый заказ";
 $l["footer"] = "<div style=\"background: #f1f1f1; margin-top: 10px; padding: 10px; color: #555;\"><a href='http://dedushka.org/tag/buyme/'>Следите</a> за обновлениями скрипта. Спасибо за использование BuyMe.</div>";
 
 function addToMess ($c, $o) {
@@ -115,8 +115,8 @@ if ($interval < 20) { // если прошло менее (сек)
 		$ip = $_SERVER['REMOTE_ADDR']; 
 		$prd = gF("prd");
 
-		$geo = @file_get_contents("http://freegeoip.net/json/".$ip);
-		$geo = @json_decode($geo, true);	
+		//$geo = @file_get_contents("http://freegeoip.net/json/".$ip);
+		//$geo = @json_decode($geo, true);	
 
 		$title = $l["title"];
 		$title = "=?UTF-8?B?".base64_encode($title)."?=";
@@ -126,12 +126,12 @@ if ($interval < 20) { // если прошло менее (сек)
 		$mess .= "</div><div style=\"background: #f9f2f4; border: 1px solid #c7254e;padding:0 10px;margin-top:10px;\">";
 
 		$mess .= addToMess("IP",$ip);
-		$mess .= addToMess("Откуда запрос",(($geo['city'])." (".($geo['country_name']).")" ));
+		//$mess .= addToMess("Откуда запрос",(($geo['city'])." (".($geo['country_name']).")" ));
 
-		$mess .= "</div>".$l["footer"];
+		$mess .= "</div>";//.$l["footer"];
 		
 		$headers  = "Content-type: text/html; charset=utf-8\r\n"; 
-		$headers .= "From: BuyMe 1.4 <".$from.">\r\n"; 
+		$headers .= "From: Spezkran Site <".$from.">\r\n"; 
 
 		$sms["msg"] = substr(translit($prd.",".(getOptions(0))), 0, 160);
 
